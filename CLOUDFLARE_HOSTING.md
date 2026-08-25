@@ -1,52 +1,34 @@
-# Cloudflare — fix the failed mjidea build (Workers + GitHub)
+# Cloudflare — GitHub-connected Workers (Mjidea)
 
 Repo: https://github.com/noreplymjv/mjidea  
-Service: https://dash.cloudflare.com/85c151e7892b963ba71b833d338d0bb7/workers/services/view/mjidea  
-Live URL after success: **https://mjidea.pages.dev** (or the `*.workers.dev` URL Cloudflare shows)
+Dashboard: https://dash.cloudflare.com/85c151e7892b963ba71b833d338d0bb7/workers/services/view/mjidea  
+Live: **https://mjidea.pages.dev** (or the Visit URL on the deployment)
 
-## What went wrong
+## Why the last build failed
 
-Build settings were:
+`npx wrangler deploy` ran with **no Astro build**, so there were no HTML files.
 
-| Setting | Was | Problem |
-|---------|-----|---------|
-| Build command | None | Astro never ran → no HTML |
-| Deploy command | `npx wrangler deploy` | Looked for static files that did not exist |
-| Root directory | `/` | OK if build writes `site/dist` |
+## What is fixed in git
 
-Error: *Could not detect a directory containing static files*
+- Root `wrangler.toml` publishes **`./cf-dist`** (prebuilt static site, same idea as GetMeBack’s `cf-dist`)
+- **Retry deployment** with current dashboard settings (Build command None, Deploy `npx wrangler deploy`, Root `/`)
 
-## Fix (2 minutes) — change Build settings
+After this repo is on `main`, click **Retry** on the failed build.
 
-Open:  
-https://dash.cloudflare.com/85c151e7892b963ba71b833d338d0bb7/workers/services/view/mjidea  
+## Optional: build on Cloudflare (faster later)
 
-→ **Settings** → **Build** / **Build configuration**
+If you add a build command:
 
-Set exactly:
+```
+cd site && npm ci && ASTRO_TELEMETRY_DISABLED=1 npm run build && rm -rf ../cf-dist && cp -a dist ../cf-dist
+```
 
-| Box | Type this |
-|-----|-----------|
-| **Root directory** | `/` (leave as root) |
-| **Build command** | `cd site && npm ci && ASTRO_TELEMETRY_DISABLED=1 npm run build` |
-| **Deploy command** | `npx wrangler deploy` |
+Variable: `NODE_VERSION` = `22`
 
-**Build variables / Environment variables** (add if there is a Variables section):
+## Refresh cf-dist locally after content changes
 
-| Name | Value |
-|------|--------|
-| `NODE_VERSION` | `22` |
-
-Save → **Deployments** → **Retry deployment** / **Create deployment**
-
-The repo now has a root `wrangler.toml` that tells Wrangler to publish `./site/dist` as static assets.
-
-## How you know it worked
-
-- Build log shows `astro build` and hundreds of pages
-- Then wrangler uploads assets (not the “no static files” error)
-- Open https://mjidea.pages.dev or the Visit link on the deployment
-
-## Still broken?
-
-Paste the new build log (last 40 lines).
+```bash
+cd "/media/mj/My Passport/mjI/Mjidea"
+npm run build
+git add cf-dist && git commit -m "Refresh Cloudflare static build" && git push
+```

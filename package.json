@@ -1,0 +1,8 @@
+{
+  "name": "mjidea",
+  "private": true,
+  "scripts": {
+    "build": "npm ci --prefix site && ASTRO_TELEMETRY_DISABLED=1 npm run build --prefix site && rm -rf cf-dist && cp -a site/dist cf-dist",
+    "deploy": "npm run build && npx wrangler deploy"
+  }
+}

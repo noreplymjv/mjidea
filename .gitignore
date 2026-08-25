@@ -2,7 +2,7 @@
 node_modules/
 site/node_modules/
 
-# Build output (rebuild with npm run build)
+# Build output (local / CI). Cloudflare deploys committed **cf-dist/** instead.
 site/dist/
 .astro/
 
