@@ -47,8 +47,8 @@ Same pattern as GetMeBack’s `deploy-cloudflare-pages.yml`.
 3. GitHub repo → **Settings** → **Secrets and variables** → **Actions** → add:
    - `CLOUDFLARE_API_TOKEN`
    - `CLOUDFLARE_ACCOUNT_ID`
-4. Workflow file is ready as `.github/workflows/deploy-cloudflare-pages.yml.pending`  
-   Rename to `.yml` after `gh auth refresh -s workflow` (or add secrets and enable Actions).
+4. Workflow template is at `pipeline/deploy-cloudflare-pages.yml.pending`  
+   Copy it to `.github/workflows/deploy-cloudflare-pages.yml` after `gh auth refresh -s workflow` (or paste via GitHub UI).
 5. Push to `main` or run **Actions** → **Deploy Cloudflare Pages** → **Run workflow**
 
 Create the Pages project once if needed:
