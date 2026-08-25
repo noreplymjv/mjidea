@@ -1,37 +1,43 @@
 # Hosting — Mjidea
 
-## Winner: Cloudflare Pages
+## Winner: Cloudflare Pages (GitHub-connected)
 
-Best fit for a philosophy/ideas blog you want **fast, findable, cheap, portable**.
+Same pattern as GetMeBack: push to GitHub → Cloudflare builds and hosts.
 
 | Need | Cloudflare Pages |
 |------|------------------|
 | Cost | Free tier is enough to start |
 | SEO | Global CDN, HTTP/3, great TTFB |
 | Custom domain | Easy |
-| Analytics cookies | Cloudflare Web Analytics (privacy-friendly, light cookies) |
-| Deploy from this folder | `npx wrangler pages deploy site/dist` |
-| Security headers | Configurable at edge |
+| Analytics | Cloudflare Web Analytics (privacy-friendly) |
+| Auto deploy | On every push to `main` |
 
-### Runner-ups
+**Repo:** https://github.com/noreplymjv/mjidea  
+**Expected URL:** https://mjidea.pages.dev  
 
-- **Vercel** — excellent DX; also fine
-- **Netlify** — fine; forms easy
-- **Ghost Pro** — if you want hosted CMS UI (less portable)
-- **WordPress** — avoid unless you need a plugin zoo
+### Do this once
+
+Read and follow the click steps: **`CLOUDFLARE_HOSTING.md`**
+
+Build settings (Root = `site`):
+
+- Build command: `npm run build`
+- Output directory: `dist`
+- Node: `22`
+
+### Local preview / manual deploy
+
+```bash
+cd site
+ASTRO_TELEMETRY_DISABLED=1 npm run build
+# optional direct upload (needs wrangler login):
+npx wrangler pages deploy dist --project-name=mjidea
+```
 
 ## Cookies / analytics stance
 
-Security team default: **privacy-first**. Use Cloudflare Web Analytics or Plausible. Document in `seo/PRIVACY-AND-COOKIES.md`. No ad-tech pile-on until Growth + CEO explicitly approve.
+Privacy-first. See `seo/PRIVACY-AND-COOKIES.md`. No ad-tech until Growth + CEO approve.
 
-## Deploy steps (first time)
+## Runner-ups
 
-1. Create free Cloudflare account
-2. `cd site && npm run build`
-3. Pages → Create → Upload `dist/` OR connect git later
-4. Add custom domain when ready
-5. Optional: set `AUTO_DEPLOY=1` in your shell profile once PM trusts the pipeline
-
-## Why not “biggest host”
-
-Big shared hosting (cPanel PHP) fights this portable Astro setup. You want static + edge.
+Vercel · Netlify · Ghost Pro. Avoid WordPress for this stack.

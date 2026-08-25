@@ -18,9 +18,9 @@ Last updated: 2026-08-23
 
 ## Top next (optional)
 
+- **Cloudflare:** follow `CLOUDFLARE_HOSTING.md` → Connect GitHub repo `mjidea` (build root `site`)
 - **Approve:** `./pipeline/approve.sh trust-isnt-certified`
 - **Execute:** top 5 inbox seeds via `./pipeline/execute.sh all-pending`
-- Cloudflare Pages deploy when CEO ready
 
 ## Reports
 

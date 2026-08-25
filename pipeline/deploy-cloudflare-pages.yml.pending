@@ -1,0 +1,59 @@
+# Deploy Mjidea Astro site → Cloudflare Pages (GitHub-connected)
+#
+# Preferred path: Cloudflare Dashboard → Connect to Git (see CLOUDFLARE_HOSTING.md)
+# This workflow is the optional CI path (same pattern as GetMeBack pending deploy).
+#
+# Required GitHub secrets (Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN   — Account → Create Token → "Edit Cloudflare Workers" or Pages Edit
+#   CLOUDFLARE_ACCOUNT_ID  — 85c151e7892b963ba71b833d338d0bb7 (same account as GetMeBack)
+#
+# Create the Pages project once (if not using Dashboard Connect):
+#   cd site && npx wrangler pages project create mjidea --production-branch main
+
+name: Deploy Cloudflare Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: cloudflare-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: site
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: site/package-lock.json
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        env:
+          ASTRO_TELEMETRY_DISABLED: "1"
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: site
+          command: pages deploy dist --project-name=mjidea --branch=main

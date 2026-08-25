@@ -57,7 +57,10 @@ Pages: `/` · `/ideas/` (500+ essays, search + categories) · `/issues/` · `/ab
 
 ## Deploy
 
-See `HOSTING.md`. Do not deploy to public host from execute — only after approve (local site content) and an explicit deploy decision.
+**Cloudflare Pages + GitHub** — see `CLOUDFLARE_HOSTING.md` (same connect-to-Git style as GetMeBack).
+
+Expected live URL after connect: **https://mjidea.pages.dev**
+
 
 ## Reports
 
