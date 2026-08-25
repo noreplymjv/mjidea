@@ -1,18 +1,18 @@
-# Generated 2026-08-21T14:59:20+10:00
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-build-the-ad-not-the-warehouse.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-cartoon-zero-harm.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-catharsis-then-breath.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-commodity-to-diamond.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-honest-near-zero-downside.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-local-first-is-respect.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-no-lectures-just-play.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-parallel-minds-one-synthesis.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-perception-beats-the-stopwatch.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-perception-is-the-real-product.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-philosophy-war-room.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-single-path-of-truth.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-the-seed-must-self-check.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-trust-isnt-certified.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-trust-is-the-real-supplement.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-two-gates-infinite-agents.md
-/media/mj/My Passport/mjI/Mjidea/inbox/2026-08-21-verify-everything.md
+# Generated 2026-08-25 (paths relative to Mjidea root — portable)
+inbox/2026-08-21-build-the-ad-not-the-warehouse.md
+inbox/2026-08-21-cartoon-zero-harm.md
+inbox/2026-08-21-catharsis-then-breath.md
+inbox/2026-08-21-commodity-to-diamond.md
+inbox/2026-08-21-honest-near-zero-downside.md
+inbox/2026-08-21-local-first-is-respect.md
+inbox/2026-08-21-no-lectures-just-play.md
+inbox/2026-08-21-parallel-minds-one-synthesis.md
+inbox/2026-08-21-perception-beats-the-stopwatch.md
+inbox/2026-08-21-perception-is-the-real-product.md
+inbox/2026-08-21-philosophy-war-room.md
+inbox/2026-08-21-single-path-of-truth.md
+inbox/2026-08-21-the-seed-must-self-check.md
+inbox/2026-08-21-trust-isnt-certified.md
+inbox/2026-08-21-trust-is-the-real-supplement.md
+inbox/2026-08-21-two-gates-infinite-agents.md
+inbox/2026-08-21-verify-everything.md

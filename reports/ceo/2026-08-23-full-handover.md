@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-23  
 **Audience:** Mj (CEO), incoming AI agents, future developers  
-**Project root:** `/media/mj/My Passport/mjI/Mjidea`  
+**Project root:** this repository root  
 **Drive:** Western Digital “My Passport” — portable, must work when plugged into any machine  
 
 ---
@@ -26,7 +26,7 @@ Core philosophy:
 
 | Item | Status |
 |------|--------|
-| Project folder on Passport | ✅ `/media/mj/My Passport/mjI/Mjidea` |
+| Project folder on Passport | ✅ this repo (e.g. `mjI/Mjidea`) |
 | Digital org + war room | ✅ `ORG.md`, `team/ROSTER.md`, `team/war-rooms/` |
 | Execute → pending → approve pipeline | ✅ `pipeline/execute.sh`, `approve.sh`, etc. |
 | Topic bank (505 topics) | ✅ `topics/topics-500.json` |
@@ -48,7 +48,7 @@ Core philosophy:
 ## 3. First 60 seconds for a fresh agent
 
 ```bash
-cd "/media/mj/My Passport/mjI/Mjidea"
+cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"  # Mjidea repo root
 cat START.md          # CEO loop
 cat AGENTS.md         # Agent entrypoint
 cat team/STATUS.md    # Last known queue
@@ -204,7 +204,7 @@ thesis: "..."              # optional
 
 ### Build & preview
 ```bash
-cd "/media/mj/My Passport/mjI/Mjidea/site"
+cd site
 ASTRO_TELEMETRY_DISABLED=1 npm run build          # ~1–2 min on Passport; 513 pages
 ASTRO_TELEMETRY_DISABLED=1 ./node_modules/.bin/astro preview --host 127.0.0.1 --port 4321
 # Open: http://127.0.0.1:4321/
@@ -283,7 +283,7 @@ Dual-write: war-room also writes to `war-room/output/` — mirror important arti
 ### P0 — Blockers / CEO asked
 1. **Create GitHub repo `mjidea` and push**
    ```bash
-   cd "/media/mj/My Passport/mjI/Mjidea"
+   cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"  # Mjidea repo root
    git init -b main
    git add -A && git commit -m "Initial commit: Mjidea digital company + 500+ essay library"
    gh repo create mjidea --public --source=. --remote=origin --push
@@ -326,7 +326,7 @@ curl -I http://127.0.0.1:4321/  # should return HTTP 200
 **Fix:**
 ```bash
 pkill -f "astro preview" 2>/dev/null || true
-cd "/media/mj/My Passport/mjI/Mjidea/site"
+cd site
 ASTRO_TELEMETRY_DISABLED=1 npm run build    # if dist missing/outdated
 ASTRO_TELEMETRY_DISABLED=1 ./node_modules/.bin/astro preview --host 127.0.0.1 --port 4321
 ```
@@ -349,8 +349,8 @@ Set `ASTRO_TELEMETRY_DISABLED=1` for all astro commands.
 
 | Path | Role |
 |------|------|
-| `/media/mj/My Passport/Aihub/` | Portable AI hub — Ollama, models, dashboard (offline agents) |
-| `/media/mj/My Passport/DELETED-review/` | Junk review pile (Mj deletes manually) |
+| `Aihub/` (Passport sibling) | Portable AI hub — Ollama, models, dashboard (offline agents) |
+| `DELETED-review/` (Passport) | Junk review pile (Mj deletes manually) |
 
 Mjidea can run in Cursor alone; Aihub is optional for local model inference. See `reports/research/2026-08-23-project-handover.md` for Aihub details.
 

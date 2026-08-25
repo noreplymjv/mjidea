@@ -8,7 +8,7 @@
 
 ## Executive Summary & Vision
 
-**Mjidea** is a distinctive, portable **standing digital company and philosophical repository** operating on your portable drive (`/media/mj/My Passport/mjI/Mjidea`). It bridges human philosophical inquiry with structured multi-agent war rooms, backed by an Astro static web application hosting over 500+ curated essays on societal friction, modern human problems, and behavioral reframes.
+**Mjidea** is a distinctive, portable **standing digital company and philosophical repository** operating as a portable project folder (`Mjidea/`). It bridges human philosophical inquiry with structured multi-agent war rooms, backed by an Astro static web application hosting over 500+ curated essays on societal friction, modern human problems, and behavioral reframes.
 
 To elevate **Mjidea** into an **undisputed, top-notch, world-class application**, our expert council has conducted an exhaustive, multi-dimensional audit across 10 specialized disciplines. This report presents our granular findings, strategic critiques, and high-impact tactical upgrades.
 

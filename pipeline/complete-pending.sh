@@ -86,7 +86,12 @@ QUEUE_FILE="$ROOT/pipeline/.state/complete-pending-queue.txt"
 {
   echo "# Generated $TS"
   for p in "${PENDING_LIST[@]:-}"; do
-    echo "$p"
+    # Store paths relative to project root (portable across mounts)
+    if [[ "$p" == "$ROOT/"* ]]; then
+      echo "${p#"$ROOT"/}"
+    else
+      echo "$p"
+    fi
   done
 } > "$QUEUE_FILE"
 
@@ -101,8 +106,8 @@ CEO_NOTE="$ROOT/reports/ceo/${DATE}-complete-pending-queue.md"
   echo
   echo "When CEO says **complete my pending ideas/issues/thoughts** or **complete pending**:"
   echo
-  echo "1. Read this queue (\`$QUEUE_FILE\`)."
-  echo "2. For each item: \`./pipeline/execute.sh <path>\` then run full research + expert war room."
+  echo "1. Read this queue (\`pipeline/.state/complete-pending-queue.txt\`)."
+  echo "2. For each item: \`./pipeline/execute.sh <relative-path>\` then run full research + expert war room."
   echo "3. Write publish-ready draft to \`drafts/pending/<slug>.md\` with References."
   echo "4. Dual-write reports under \`reports/\`."
   echo "5. **Do not publish** until \`./pipeline/approve.sh <slug>\`."
@@ -110,7 +115,11 @@ CEO_NOTE="$ROOT/reports/ceo/${DATE}-complete-pending-queue.md"
   echo "## Items"
   echo
   for p in "${PENDING_LIST[@]:-}"; do
-    echo "- \`$p\`"
+    if [[ "$p" == "$ROOT/"* ]]; then
+      echo "- \`${p#"$ROOT"/}\`"
+    else
+      echo "- \`$p\`"
+    fi
   done
 } > "$CEO_NOTE"
 
@@ -125,6 +134,11 @@ if [[ "$DO_PREP" -eq 1 ]]; then
   echo "Running execute prep for each queued item…"
   for p in "${PENDING_LIST[@]:-}"; do
     echo "----"
-    "$ROOT/pipeline/execute.sh" "$p" || true
+    # Prefer path relative to ROOT when possible
+    if [[ "$p" == "$ROOT/"* ]]; then
+      "$ROOT/pipeline/execute.sh" "${p#"$ROOT"/}" || true
+    else
+      "$ROOT/pipeline/execute.sh" "$p" || true
+    fi
   done
 fi

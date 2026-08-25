@@ -1,6 +1,6 @@
 # START — Mjidea Digital Company
 
-Portable path: `/media/mj/My Passport/mjI/Mjidea`
+Portable project — run commands from **this folder** (wherever the drive is mounted).
 
 ## CEO loop (simple)
 
@@ -24,7 +24,7 @@ A **standing digital company** (not a single chatbot):
 ## Commands
 
 ```bash
-cd "/media/mj/My Passport/mjI/Mjidea"
+cd "$(dirname "$0")"   # or: cd /path/to/mjI/Mjidea
 
 # Prep one idea (brief + research stub + pending scaffold)
 ./pipeline/execute.sh trust-isnt-certified

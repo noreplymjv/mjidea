@@ -28,7 +28,7 @@ Variable: `NODE_VERSION` = `22`
 ## Refresh cf-dist locally after content changes
 
 ```bash
-cd "/media/mj/My Passport/mjI/Mjidea"
+cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"  # Mjidea repo root
 npm run build
 git add cf-dist && git commit -m "Refresh Cloudflare static build" && git push
 ```

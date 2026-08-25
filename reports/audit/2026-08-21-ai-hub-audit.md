@@ -1,7 +1,7 @@
 # Mjidea (mji) — AI Hub Audit & Remediation Report
 **Date:** 2026-08-21  
-**Project Location:** `/media/mj/My Passport/mjI/Mjidea`  
-**Hub Location:** `/media/mj/My Passport/Aihub`  
+**Project Location:** this repository root  
+**Hub Location:** Passport sibling `Aihub/` (set `AIHUB_ROOT` if elsewhere)  
 **Status:** **AUDIT PASSED & REMEDIATIONS 100% EXECUTED ✓**
 
 ---
@@ -12,15 +12,15 @@ This document represents the final, post-remediation audit of the **Portable AI 
 
 ### Remediation Action Log:
 1. **`bin/hermes` Launcher Wrapper:** **RESOLVED ✓**  
-   All hardcoded paths pointing to `/home/mj/` have been removed. The wrapper now dynamically searches candidate locations on the drive and falls back cleanly to the host path.
+   All hardcoded paths pointing to a fixed host home path have been removed. The wrapper now dynamically searches candidate locations on the drive and falls back cleanly to the host path.
 2. **Registry Mapping Correction:** **RESOLVED ✓**  
    Corrected speculative `Qwen3` tags in `manifests/model_registry.json`. Remapped:
    * `qwen3-coder:30b` → `qwen2.5-coder:32b`
    * `qwen3:32b` → `qwen2.5:32b`
 3. **Model Synchronization (DATA to SSD):** **RESOLVED ✓**  
-   Fixed a path space-parsing shell bug in `scripts/setup-portable-ollama.sh`. Successfully ran the migration script, linking and synchronizing **117 GB of local models** from `/media/mj/DATA/ollama/models` directly into the portable drive's `data/ollama` store.
+   Fixed a path space-parsing shell bug in `scripts/setup-portable-ollama.sh`. Successfully ran the migration script, linking and synchronizing **117 GB of local models** from a local Ollama models store (e.g. `$OLLAMA_MODELS`) directly into the portable drive's `data/ollama` store.
 4. **Native Windows Launcher Deployment:** **RESOLVED ✓**  
-   Created a unified [`LAUNCH.bat`](file:///media/mj/My%20Passport/Aihub/LAUNCH.bat) script at the root of the drive for seamless, double-click initialization of WSL, the Astro website editor, and browser dashboard.
+   Created a unified [`LAUNCH.bat`](Aihub/LAUNCH.bat) script at the root of the drive for seamless, double-click initialization of WSL, the Astro website editor, and browser dashboard.
 
 ---
 

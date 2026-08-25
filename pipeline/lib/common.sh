@@ -188,6 +188,8 @@ mjidea_resolve_source() {
 
   if [[ -f "$IN" ]]; then
     SRC="$IN"
+  elif [[ -f "$ROOT/$IN" ]]; then
+    SRC="$ROOT/$IN"
   elif [[ -f "$ROOT/inbox/$IN" ]]; then
     SRC="$ROOT/inbox/$IN"
   elif [[ -f "$ROOT/inbox/${IN}.md" ]]; then

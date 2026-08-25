@@ -8,7 +8,7 @@ Rule: copy/adapt only — sources untouched; no secrets.
 
 | Source path(s) | New inbox file | Seed title |
 |----------------|----------------|------------|
-| `/media/mj/DATA/GetMeBack/app/README.md`, `lib/screens/home_screen.dart`, `calm_outro_screen.dart` | `inbox/2026-08-21-catharsis-then-breath.md` | Catharsis, then breath |
+| `../from-DATA/AllProjects/GetMeBack/app/README.md`, `lib/screens/home_screen.dart`, `calm_outro_screen.dart` | `inbox/2026-08-21-catharsis-then-breath.md` | Catharsis, then breath |
 | GetMeBack home copy + `lib/models/vent_action.dart` | `inbox/2026-08-21-cartoon-zero-harm.md` | Cartoon violence, zero harm |
 | GetMeBack Privacy section; `AllProjects/mjai_work/.../PRIVACY_FIRST_STARTUP_SKILL.md` | `inbox/2026-08-21-local-first-is-respect.md` | Local-first is a form of respect |
 | GetMeBack agent transcript product concept (“no lectures…”) | `inbox/2026-08-21-no-lectures-just-play.md` | No lectures, just play |
@@ -33,8 +33,8 @@ None this pass. Seeds are strong but not yet publishable human essays with finis
 
 ## Scanned but thin / skipped
 
-- `/home/mj/Projects/misc task/` — partition script only
-- `/home/mj/Projects/naturespinch/` — empty stub
+- `(host) Projects/misc task/` — partition script only
+- `(host) Projects/naturespinch/` — empty stub
 - Desktop — junk/review lists skipped
 - Sticky notes — empty
 - Rory `ideas.txt` — raw WebVTT; adapted themes only (no verbatim dump)

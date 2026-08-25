@@ -1,6 +1,6 @@
 # Mjidea (mji) — Project Audit & Suggestions Report
 
-This document details the architectural, programmatic, and functional audit of the **Mjidea** digital company codebase located at `/media/mj/My Passport/mjI/Mjidea`.
+This document details the architectural, programmatic, and functional audit of the **Mjidea** digital company codebase located at this repository root.
 
 ---
 
@@ -108,9 +108,9 @@ Here is the proposed task list to execute the suggestions:
 
 | Target Component | Task Description | Priority |
 |------------------|------------------|----------|
-| **Security** | Create [`site/public/_headers`](file:///media/mj/My%20Passport/mjI/Mjidea/site/public/_headers) for secure Cloudflare headers | High |
-| **Astro Site** | Add accessibility attributes to search box in [`index.astro`](file:///media/mj/My%20Passport/mjI/Mjidea/site/src/pages/ideas/index.astro) | Medium |
-| **Pipeline** | Enhance [`publish-draft.sh`](file:///media/mj/My%20Passport/mjI/Mjidea/pipeline/publish-draft.sh) with a simple frontmatter format verification | Medium |
-| **Brand** | Expand [`VOICE.md`](file:///media/mj/My%20Passport/mjI/Mjidea/brand/VOICE.md) with a list of banned AI-clichés | Low |
+| **Security** | Create [`site/public/_headers`](site/public/_headers) for secure Cloudflare headers | High |
+| **Astro Site** | Add accessibility attributes to search box in [`index.astro`](site/src/pages/ideas/index.astro) | Medium |
+| **Pipeline** | Enhance [`publish-draft.sh`](pipeline/publish-draft.sh) with a simple frontmatter format verification | Medium |
+| **Brand** | Expand [`VOICE.md`](brand/VOICE.md) with a list of banned AI-clichés | Low |
 
 ---

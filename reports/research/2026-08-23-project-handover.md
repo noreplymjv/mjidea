@@ -1,8 +1,8 @@
 # Mjidea (mji) & Portable AI Hub — Project Handover & System Runbook
 **Date:** 2026-08-23  
 **Audience:** Incoming AI Agents & Systems Administrators  
-**Active Project Folder:** `/media/mj/My Passport/mjI/Mjidea`  
-**Active AI Hub Folder:** `/media/mj/My Passport/Aihub`  
+**Active Project Folder:** this repository root  
+**Active AI Hub Folder:** Passport sibling `Aihub/` (or `$AIHUB_ROOT`)  
 
 ---
 
@@ -18,7 +18,7 @@ These two systems are designed to operate together:
 
 ## 2. System Architecture & Components
 
-### 2.1 The Portable AI Hub Directory (`/media/mj/My Passport/Aihub/`)
+### 2.1 The Portable AI Hub Directory (`Aihub/` sibling / `$AIHUB_ROOT`)
 
 ```
 Aihub/
@@ -41,7 +41,7 @@ Aihub/
 
 ## 3. Environment Variables & Paths (Crucial for Portability)
 
-When `activate_portable.sh` is sourced, the following overrides are exported. **Incoming agents must never hardcode home directories** (like `/home/mj/`) or active drive mounts:
+When `activate_portable.sh` is sourced, the following overrides are exported. **Incoming agents must never hardcode home directories** (like a fixed `/home/...` path) or active drive mounts:
 
 * `PORTABLE_ROOT` — Dynamically resolved using `BASH_SOURCE[0]`. Points to the `Aihub/` root path.
 * `PATH` — Prepends `$PORTABLE_ROOT/bin` to path so portable binaries execute first.
@@ -71,7 +71,7 @@ Ollama and HuggingFace models are divided into 6 distinct tiers based on **VRAM 
 1. Plug in the WD Passport drive.
 2. In the terminal, run the master startup script:
    ```bash
-   cd "/media/mj/My Passport/Aihub"
+   cd "$AIHUB_ROOT"  # or Passport sibling Aihub/
    ./Start-AI-Hub.sh
    ```
    *This starts the portable Ollama server (bound to the SSD store) and launches the visual dashboard backend on port 8765.*
@@ -91,11 +91,11 @@ This spawns a tmux session with four panes:
 ---
 
 ## 6. Handover Instructions for Gated Models
-* **HuggingFace Tokens:** Gated models (like Gemma-3/4 and Devstral) require license acceptance on HuggingFace. Create a file named `/media/mj/My Passport/Aihub/manifests/.hf_token` containing your HuggingFace Read token. The dashboard's background download runner will automatically load and export this token during download cycles.
+* **HuggingFace Tokens:** Gated models (like Gemma-3/4 and Devstral) require license acceptance on HuggingFace. Create a file named `Aihub/manifests/.hf_token` containing your HuggingFace Read token. The dashboard's background download runner will automatically load and export this token during download cycles.
 
 ---
 
 ## 7. Mjidea Project Pipeline Execution
 * **CEO Intake:** Place raw draft markdown ideas under `Mjidea/inbox/`.
 * **Auto-run cycles:** The editor panel operates under rules defined in `.cursor/rules/mjidea-autorun.mdc`.
-* **Deliverable Reports:** Standard Markdown reports must always dual-write to their respective folders inside `reports/` (e.g. `reports/audit/`, `reports/seo/`, `reports/growth/`). This guideline is enforced globally on this host via `/home/mj/.agents/rules/reports_rule.md`.
+* **Deliverable Reports:** Standard Markdown reports must always dual-write to their respective folders inside `reports/` (e.g. `reports/audit/`, `reports/seo/`, `reports/growth/`). This guideline is enforced globally on this host via the host reports rule (agents: write under `reports/`).

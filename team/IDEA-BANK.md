@@ -71,11 +71,11 @@ Archived near-dupes: `inbox/archive/` (8 files)
 
 ## Richest sources for next harvest
 
-1. `/home/mj/Documents/natures pinch/` — brand voice, packaging, wholesale narratives  
-2. `/media/mj/DATA/wp/mjai/Marketing/` + `H1 Rescue/global-alchemist-prompt.txt` — war-room DNA  
-3. `/media/mj/DATA/AllProjects/rory-sutherland-ideas/ideas.txt` — deep transcript mining (needs SK-02 chunking)  
-4. `/media/mj/DATA/GetMeBack/app/` — product copy + moral UX loops  
-5. `/media/mj/DATA/wp/mjai/H1 Business Plan/` — business theses (filter hype; keep sharp product ideas)
+1. Host `Documents/natures pinch/` (or sibling brand vault) — brand voice, packaging, wholesale narratives  
+2. `../from-DATA/wp/mjai/Marketing/` + `H1 Rescue/global-alchemist-prompt.txt` — war-room DNA  
+3. `../from-DATA/AllProjects/rory-sutherland/` — deep transcript mining (needs SK-02 chunking)  
+4. `../from-DATA/AllProjects/GetMeBack/app/` — product copy + moral UX loops  
+5. `../from-DATA/wp/mjai/` business-plan docs — theses (filter hype; keep sharp product ideas)
 
 ## Low-yield / skip next time
 

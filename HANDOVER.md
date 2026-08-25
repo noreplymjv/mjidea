@@ -1,6 +1,6 @@
 # Mjidea (mji) — Master Project Handover & Complete System Documentation
 
-**Canonical Project Location:** `/media/mj/My Passport/mjI/Mjidea`  
+**Canonical Project Location:** this repository root (portable; historically under `mjI/Mjidea` on Passport)  
 **Target Environment:** Portable External Storage (Western Digital "My Passport")  
 **Hosting Target:** Cloudflare Pages (`https://mjidea.pages.dev`)  
 **Document Version:** 2.1 (Full System Handover)  
@@ -28,7 +28,7 @@ Modern digital media is saturated with algorithm-chasing, shallow AI summaries a
 ## 2. Directory Structure & File Taxonomy
 
 ```
-/media/mj/My Passport/mjI/Mjidea/
+Mjidea/
 ├── .cursor/
 │   └── rules/
 │       └── mjidea-autorun.mdc      # Auto-run rule (forbids permission ping-pong)
@@ -207,7 +207,7 @@ flowchart TD
 
 #### 1. Ingest & Float a Single Idea
 ```bash
-cd "/media/mj/My Passport/mjI/Mjidea"
+cd "$(git rev-parse --show-toplevel 2>/dev/null || pwd)"  # Mjidea repo root
 
 # Create from template
 cp inbox/_TEMPLATE.md inbox/my-new-idea.md
@@ -236,7 +236,7 @@ cp inbox/_TEMPLATE.md inbox/my-new-idea.md
 
 #### 5. Local Website Preview & Build
 ```bash
-cd "/media/mj/My Passport/mjI/Mjidea/site"
+cd site
 ASTRO_TELEMETRY_DISABLED=1 npm run build
 ASTRO_TELEMETRY_DISABLED=1 npx astro preview --host 0.0.0.0 --port 4321
 # Access locally at http://127.0.0.1:4321/
@@ -244,7 +244,7 @@ ASTRO_TELEMETRY_DISABLED=1 npx astro preview --host 0.0.0.0 --port 4321
 
 #### 6. Deploy to Cloudflare Pages
 ```bash
-cd "/media/mj/My Passport/mjI/Mjidea/site"
+cd site
 npm run build
 npx wrangler pages deploy dist --project-name=mjidea
 ```
