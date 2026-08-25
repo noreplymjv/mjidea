@@ -1,0 +1,34 @@
+---
+import Base from '../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const count = posts.length;
+---
+
+<Base
+  title="Mjidea"
+  description="500+ essays on human problems and workable solutions — behavioral thinking, human voice."
+>
+  <section class="hero hero-home">
+    <h1 class="hero-brand">Mjidea</h1>
+    <p class="lede">
+      A library of human problems and workable doors — for society, and for the generations inheriting the defaults.
+    </p>
+    <div class="cta-row">
+      <a class="btn" href="/ideas/">Browse {count} ideas</a>
+      <a class="btn btn-ghost" href="/issues/current/">Current issues</a>
+    </div>
+  </section>
+
+  <section class="home-strip" aria-label="Where to go">
+    <a class="strip-link" href="/ideas/">
+      <span class="strip-label">Library</span>
+      <span class="strip-title">{count} essays — search, filter, read</span>
+    </a>
+    <a class="strip-link" href="/issues/">
+      <span class="strip-label">Seeds</span>
+      <span class="strip-title">Current &amp; future issues to expand</span>
+    </a>
+  </section>
+</Base>

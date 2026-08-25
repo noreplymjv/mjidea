@@ -1,0 +1,28 @@
+---
+description: Mjidea execute → research → pending draft; approve to publish
+alwaysApply: true
+---
+
+# Mjidea Execute / Approve Gate
+
+## Triggers
+
+| CEO says / runs | Agent does |
+|-----------------|------------|
+| `execute` / `execute <slug>` / `./pipeline/execute.sh …` | Topic route → web research + citations → expert war room → **`drafts/pending/<slug>.md`** |
+| `complete pending` / complete my ideas/issues/thoughts | Run `./pipeline/complete-pending.sh`, then process queue same as execute (all items) |
+| `approve <slug>` / `./pipeline/approve.sh <slug>` | Pending → approved → **publish** to `site/src/content/blog/` + `reports/` |
+| `reject <slug>` | `./pipeline/reject.sh` |
+
+## Hard rules
+
+1. **Execute stops at pending.** No blog publish, no Cloudflare deploy from execute.
+2. **Every factual claim** needs a reference (URL + title + date accessed). Research pack: `reports/research/YYYY-MM-DD-<slug>.md`. Follow `team/war-rooms/09-research-citations.md`.
+3. **Do not invent citations.** If offline, leave `AGENT MUST FILL via web search` in the research pack and a clear scaffold/pending draft — then fill when network works.
+4. Voice: `brand/VOICE.md`. Squad: `team/TOPIC-ROUTING.md`.
+5. Reports always as Markdown under `reports/` (existing global + project reports rule). Dual-write war-room outputs as today.
+6. After pending draft is ready, tell CEO the path and that publish requires **approve**.
+
+## Cursor prompt after prep
+
+Scripts print: `Execute Mjidea job <slug>` — treat that as a full research + draft order ending in `drafts/pending/`.

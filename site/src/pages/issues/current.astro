@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import AddIdea from '../../components/AddIdea.astro';
+import { currentIssues } from '../../data/issues';
+---
+
+<Base
+  title="Current issues"
+  description="Active Mjidea issue seeds — trust, perception, verification, and more — ready to expand into essays."
+>
+  <section class="page-intro">
+    <p class="crumb"><a href="/issues/">Issues</a> / Current</p>
+    <h1>Current issues</h1>
+    <p class="lede">
+      Top floats from the idea bank. Each is a seed — write into it, download a brief, run the war room.
+    </p>
+    <p class="meta"><a href="/issues/future/">See future issues →</a></p>
+  </section>
+
+  <ol class="issue-list">
+    {
+      currentIssues.map((issue, i) => (
+        <li class="issue-item" id={issue.id}>
+          <span class="issue-num" aria-hidden="true">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <div>
+            <h2>{issue.title}</h2>
+            <p>{issue.summary}</p>
+            <p class="meta">Angle · {issue.angle}</p>
+            <p class="meta tags">{issue.tags.map((t) => <span>{t}</span>)}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  <AddIdea />
+</Base>

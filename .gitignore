@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+site/node_modules/
+
+# Build output (rebuild with npm run build)
+site/dist/
+.astro/
+
+# Env & secrets
+.env
+.env.*
+*.pem
+*.key
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+!.vscode/extensions.json
+!.vscode/launch.json
+
+# Logs & temp
+*.log
+npm-debug.log*
+/tmp/
+
+# Cursor sandbox (if any)
+.cursor/sandbox*/

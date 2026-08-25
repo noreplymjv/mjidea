@@ -1,0 +1,31 @@
+---
+import Base from '../../layouts/Base.astro';
+import AddIdea from '../../components/AddIdea.astro';
+---
+
+<Base
+  title="Issues"
+  description="Current and future issue seeds from the Mjidea idea bank — expand them into essays."
+>
+  <section class="page-intro">
+    <h1>Issues</h1>
+    <p class="lede">
+      Curated prompts from the idea bank. Pick one, expand it, float a war room — or add your own.
+    </p>
+  </section>
+
+  <section class="issue-hub">
+    <a class="hub-panel" href="/issues/current/">
+      <span class="strip-label">Now</span>
+      <h2>Current issues</h2>
+      <p>Active seeds in the float queue — ready to expand.</p>
+    </a>
+    <a class="hub-panel" href="/issues/future/">
+      <span class="strip-label">Later</span>
+      <h2>Future issues</h2>
+      <p>Sharp themes waiting their turn — still yours to claim early.</p>
+    </a>
+  </section>
+
+  <AddIdea />
+</Base>

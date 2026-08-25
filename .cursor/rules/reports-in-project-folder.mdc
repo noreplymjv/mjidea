@@ -1,0 +1,34 @@
+---
+description: Mjidea reports land in reports/ (mirrored from war-room)
+alwaysApply: true
+---
+
+# Mjidea Reports Folder
+
+All audits and phase reports for this project must land as Markdown under:
+
+`/media/mj/My Passport/mjI/Mjidea/reports/`
+
+## Subfolders
+
+| Type | Path |
+|------|------|
+| Research / citations | `reports/research/` |
+| Audit | `reports/audit/` |
+| Security | `reports/security/` |
+| SEO | `reports/seo/` |
+| Growth | `reports/growth/` |
+| War-room packs / briefs / drafts | `reports/war-room/` |
+| CEO one-pagers | `reports/ceo/` |
+
+## Filename
+
+`YYYY-MM-DD-<slug>-<type>.md`
+
+## Pipeline dual-write
+
+1. Keep war-room pipeline outputs in `war-room/briefs/` and `war-room/output/` (unchanged).
+2. **Also copy/mirror** research, audit, security, SEO, growth, and CEO summaries into the matching `reports/` subfolder.
+3. Update `team/STATUS.md` as usual; lasting status narratives can also go in `reports/ceo/` when they are deliverables.
+
+See `reports/README.md`. Global rule: user `~/.cursor/rules/reports-in-project-folder.mdc`.

@@ -1,0 +1,39 @@
+---
+import Base from '../../layouts/Base.astro';
+import AddIdea from '../../components/AddIdea.astro';
+import { futureIssues } from '../../data/issues';
+---
+
+<Base
+  title="Future issues"
+  description="Later Mjidea issue seeds — play, venture antifragility, kill steps, and more — waiting their turn."
+>
+  <section class="page-intro">
+    <p class="crumb"><a href="/issues/">Issues</a> / Future</p>
+    <h1>Future issues</h1>
+    <p class="lede">
+      Themes queued behind the current float list. Steal one early if it won’t leave you alone.
+    </p>
+    <p class="meta"><a href="/issues/current/">← Current issues</a></p>
+  </section>
+
+  <ol class="issue-list">
+    {
+      futureIssues.map((issue, i) => (
+        <li class="issue-item" id={issue.id}>
+          <span class="issue-num" aria-hidden="true">
+            {String(i + 1).padStart(2, '0')}
+          </span>
+          <div>
+            <h2>{issue.title}</h2>
+            <p>{issue.summary}</p>
+            <p class="meta">Angle · {issue.angle}</p>
+            <p class="meta tags">{issue.tags.map((t) => <span>{t}</span>)}</p>
+          </div>
+        </li>
+      ))
+    }
+  </ol>
+
+  <AddIdea />
+</Base>

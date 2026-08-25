@@ -1,0 +1,145 @@
+---
+import Base from '../../layouts/Base.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const categoryLabels: Record<string, string> = {
+  attention: 'Attention & digital life',
+  loneliness: 'Loneliness & belonging',
+  mental: 'Mental health & pressure',
+  work: 'Work & meaning',
+  education: 'Education & young minds',
+  trust: 'Trust & institutions',
+  climate: 'Climate & place',
+  housing: 'Housing & cost of living',
+  ai: 'Truth, AI & media',
+  health: 'Body, food & sleep',
+  democracy: 'Polarization & civic life',
+  family: 'Family & relationships',
+  inequality: 'Fairness & mobility',
+  community: 'Local community',
+  future: 'Future & agency',
+};
+
+const categories = [
+  ...new Set(posts.map((p) => p.data.category).filter(Boolean) as string[]),
+].sort();
+
+const searchItems = posts.map((post) => ({
+  id: post.id,
+  title: post.data.title,
+  description: post.data.description,
+  tags: post.data.tags ?? [],
+  category: post.data.category ?? '',
+  categoryLabel: post.data.category
+    ? categoryLabels[post.data.category] ?? post.data.category
+    : '',
+  href: `/ideas/${post.id}/`,
+  date: post.data.pubDate.toLocaleDateString('en-GB', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  }),
+}));
+---
+
+<Base
+  title="Ideas"
+  description={`Mjidea library — ${posts.length}+ essays on human problems and workable solutions.`}
+>
+  <section class="page-intro">
+    <h1>Ideas</h1>
+    <p class="lede">
+      {posts.length} essays on current human problems and workable doors — written for people, not algorithms.
+    </p>
+    <label class="search-wrap" for="idea-search">
+      <span class="sr-only">Search ideas</span>
+      <input
+        id="idea-search"
+        class="search-input"
+        type="search"
+        placeholder="Search title, tags, problem…"
+        autocomplete="off"
+        enterkeyhint="search"
+        aria-controls="idea-list"
+      />
+    </label>
+    {
+      categories.length > 0 && (
+        <div class="cat-bar" role="group" aria-label="Filter by category">
+          <button type="button" class="cat-chip is-active" data-cat="">All</button>
+          {categories.map((c) => (
+            <button type="button" class="cat-chip" data-cat={c}>
+              {categoryLabels[c] ?? c}
+            </button>
+          ))}
+        </div>
+      )
+    }
+    <p class="search-meta" id="search-count" aria-live="polite"></p>
+  </section>
+
+  <ul class="idea-list" id="idea-list">
+    {
+      searchItems.map((item) => (
+        <li
+          class="idea-item"
+          data-title={item.title}
+          data-description={item.description}
+          data-tags={item.tags.join(' ')}
+          data-category={item.category}
+        >
+          <a href={item.href}>{item.title}</a>
+          <p class="meta">
+            {item.date}
+            {item.categoryLabel ? ` · ${item.categoryLabel}` : ''}
+            {item.tags.length ? ` · ${item.tags.slice(0, 3).join(' · ')}` : ''}
+          </p>
+          <p class="meta">{item.description}</p>
+        </li>
+      ))
+    }
+  </ul>
+</Base>
+
+<script>
+  const input = document.getElementById('idea-search') as HTMLInputElement | null;
+  const list = document.getElementById('idea-list');
+  const countEl = document.getElementById('search-count');
+  const chips = Array.from(document.querySelectorAll('.cat-chip')) as HTMLButtonElement[];
+  const items = list ? Array.from(list.querySelectorAll('.idea-item')) : [];
+  let activeCat = '';
+
+  function filter() {
+    const q = (input?.value ?? '').trim().toLowerCase();
+    let shown = 0;
+    for (const li of items) {
+      const hay = [li.dataset.title ?? '', li.dataset.description ?? '', li.dataset.tags ?? '']
+        .join(' ')
+        .toLowerCase();
+      const catOk = !activeCat || li.dataset.category === activeCat;
+      const match = catOk && (!q || hay.includes(q));
+      (li as HTMLElement).hidden = !match;
+      if (match) shown += 1;
+    }
+    if (countEl) {
+      countEl.textContent = q || activeCat
+        ? `${shown} of ${items.length} ideas`
+        : `${items.length} published essays`;
+    }
+  }
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      activeCat = chip.dataset.cat ?? '';
+      chips.forEach((c) => c.classList.toggle('is-active', c === chip));
+      filter();
+    });
+  });
+
+  input?.addEventListener('input', filter);
+  filter();
+</script>

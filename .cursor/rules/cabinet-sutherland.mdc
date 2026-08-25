@@ -1,0 +1,16 @@
+---
+description: Cabinet Sutherland — 500+ problem/solution essays, human voice, Rory-mode
+alwaysApply: true
+---
+
+# Cabinet Sutherland — Mjidea library build
+
+When building or expanding the Mjidea essay library:
+
+1. Use `team/CABINET-SUTHERLAND.md` and `brand/VOICE.md`
+2. Topics live in `topics/topics-500.json` (and growth beyond)
+3. Essays publish to `site/src/content/blog/*.md` with frontmatter: title, description, pubDate, tags, category, draft:false, thesis
+4. Human voice only — no “In today’s world”, delve, tapestry, game-changer, ultimate guide
+5. Structure: problem → lived stake → behavioral reframe → concrete move → quiet close
+6. Dual-write batch reports to `reports/war-room/` and `reports/ceo/`
+7. Site must stay fast at 500+ posts (pagination / categories)

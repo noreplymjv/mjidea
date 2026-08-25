@@ -1,0 +1,140 @@
+---
+/** Static “add your idea” — downloads markdown or copies template. No backend. */
+const templatePath = 'inbox/_TEMPLATE.md';
+---
+
+<section class="add-idea" id="add-idea" aria-labelledby="add-idea-heading">
+  <h2 id="add-idea-heading">Add your idea</h2>
+  <p class="add-idea-note">
+    No account. Write below, then <strong>Download .md</strong> or <strong>Copy template</strong>.
+    Drop the file into <code>{templatePath}</code> on Passport and run the war room.
+  </p>
+  <label class="sr-only" for="idea-title">Working title</label>
+  <input
+    id="idea-title"
+    class="idea-input"
+    type="text"
+    placeholder="Working title (optional)"
+    autocomplete="off"
+  />
+  <label class="sr-only" for="idea-body">Your idea</label>
+  <textarea
+    id="idea-body"
+    class="idea-textarea"
+    rows="8"
+    placeholder="The idea in one paragraph… Why you care… What you refuse to sound like…"
+  ></textarea>
+  <div class="add-idea-actions">
+    <button type="button" class="btn" id="download-idea">Download .md</button>
+    <button type="button" class="btn btn-ghost" id="copy-template">Copy template</button>
+  </div>
+  <p class="add-idea-status" id="add-idea-status" role="status" aria-live="polite"></p>
+</section>
+
+<script>
+  const TEMPLATE = `# CEO idea — template
+
+Copy this file to a new name in \`inbox/\`, fill it in 2–10 minutes, then run:
+
+\`\`\`bash
+./pipeline/ceo-idea.sh inbox/your-file.md
+./pipeline/run-full-cycle.sh your-file-slug
+\`\`\`
+
+Then tell Cursor: **Run full Mjidea war room on the new brief** (auto-run; no step approvals).
+
+---
+
+## Working title (optional)
+
+## The idea in one paragraph
+
+## Why I care / lived spark
+
+## Who this is for
+
+## What I refuse to sound like
+
+## Non-negotiable beliefs (do not dilute)
+
+## Notes / fragments
+`;
+
+  function slugify(s) {
+    return (
+      s
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-')
+        .replace(/^-|-$/g, '')
+        .slice(0, 48) || 'my-idea'
+    );
+  }
+
+  function buildMarkdown(title, body) {
+    const t = title.trim() || '(untitled)';
+    const b = body.trim() || '(write the idea here)';
+    return `# CEO idea — ${t}
+
+## Working title (optional)
+
+${t}
+
+## The idea in one paragraph
+
+${b}
+
+## Why I care / lived spark
+
+
+
+## Who this is for
+
+
+
+## What I refuse to sound like
+
+
+
+## Non-negotiable beliefs (do not dilute)
+
+
+
+## Notes / fragments
+
+
+`;
+  }
+
+  const titleEl = document.getElementById('idea-title');
+  const bodyEl = document.getElementById('idea-body');
+  const status = document.getElementById('add-idea-status');
+  const dlBtn = document.getElementById('download-idea');
+  const copyBtn = document.getElementById('copy-template');
+
+  function setStatus(msg) {
+    if (status) status.textContent = msg;
+  }
+
+  dlBtn?.addEventListener('click', () => {
+    const title = titleEl?.value ?? '';
+    const body = bodyEl?.value ?? '';
+    const md = buildMarkdown(title, body);
+    const blob = new Blob([md], { type: 'text/markdown;charset=utf-8' });
+    const a = document.createElement('a');
+    const date = new Date().toISOString().slice(0, 10);
+    a.href = URL.createObjectURL(blob);
+    a.download = `${date}-${slugify(title)}.md`;
+    a.click();
+    URL.revokeObjectURL(a.href);
+    setStatus('Downloaded. Save into inbox/ on Passport, then float the war room.');
+  });
+
+  copyBtn?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(TEMPLATE);
+      setStatus('Template copied. Paste into inbox/_TEMPLATE.md or a new inbox file.');
+    } catch {
+      setStatus('Could not copy — select and copy from inbox/_TEMPLATE.md instead.');
+    }
+  });
+</script>
