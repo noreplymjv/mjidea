@@ -1,0 +1,10 @@
+# Cloudflare Workers + GitHub (static Astro site)
+# Root directory of the repo is /. Build Astro first, then wrangler deploys site/dist.
+
+name = "mjidea"
+compatibility_date = "2026-08-25"
+
+[assets]
+directory = "./site/dist"
+not_found_handling = "404-page"
+html_handling = "auto"
