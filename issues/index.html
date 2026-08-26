@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="en" data-theme="obsidian"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Seeds (internal) · Mjidea</title><meta name="description" content="Internal Mjidea issue seeds — not published blogs. Expand via execute → approve."><link rel="canonical" href="https://noreplymjv.github.io/mjidea/issues/"><meta property="og:type" content="website"><meta property="og:title" content="Seeds (internal) · Mjidea"><meta property="og:description" content="Internal Mjidea issue seeds — not published blogs. Expand via execute → approve."><meta property="og:url" content="https://noreplymjv.github.io/mjidea/issues/"><meta property="og:site_name" content="Mjidea"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Seeds (internal) · Mjidea"><meta name="twitter:description" content="Internal Mjidea issue seeds — not published blogs. Expand via execute → approve."><link rel="icon" type="image/svg+xml" href="/mjidea/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"><script>
+      (function () {
+        try {
+          var t = localStorage.getItem('mjidea-theme');
+          if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script><link rel="stylesheet" href="/mjidea/_astro/Base.D4F2DcDq.css"></head><body><a class="skip" href="#main">Skip to content</a><div class="atmosphere" aria-hidden="true"></div><header class="site-header"><a class="brand" href="/mjidea/">Mjidea</a><nav aria-label="Primary"><a href="/mjidea/ideas/">Blog</a><a href="/mjidea/ideas/?cat=humanity">Humanity</a><a href="/mjidea/ideas/?cat=parenting">Parenting</a><a href="/mjidea/ideas/?cat=financial">Money</a><a href="/mjidea/ideas/?cat=life">Life</a><a href="/mjidea/design-lab/">Styles</a><a href="/mjidea/about/">About</a></nav></header><main id="main"><section class="page-intro"><p class="strip-label">Internal · not published</p><h1>Issue seeds</h1><p class="lede">Temporary prompts for the war room. They are <strong>not</strong> live blogs. Say <em>execute</em> → review pending draft → <em>approve</em> to publish under Ideas.</p><p class="meta">Guide: <code>HOW-IDEAS-BECOME-BLOGS.md</code> in the project folder.</p></section><section class="issue-hub"><a class="hub-panel" href="/mjidea/issues/current/"><span class="strip-label">Now</span><h2>Current issues</h2><p>Active seeds in the float queue — ready to expand.</p></a><a class="hub-panel" href="/mjidea/issues/future/"><span class="strip-label">Later</span><h2>Future issues</h2><p>Sharp themes waiting their turn — still yours to claim early.</p></a></section><section class="add-idea" id="add-idea" aria-labelledby="add-idea-heading"><h2 id="add-idea-heading">Add your idea</h2><p class="add-idea-note">No account. Write below, then <strong>Download .md</strong> or <strong>Copy template</strong>. Drop the file into <code>inbox/_TEMPLATE.md</code> on Passport and run the war room.</p><label class="sr-only" for="idea-title">Working title</label><input id="idea-title" class="idea-input" type="text" placeholder="Working title (optional)" autocomplete="off"><label class="sr-only" for="idea-body">Your idea</label><textarea id="idea-body" class="idea-textarea" rows="8" placeholder="The idea in one paragraph… Why you care… What you refuse to sound like…"></textarea><div class="add-idea-actions"><button type="button" class="btn" id="download-idea">Download .md</button><button type="button" class="btn btn-ghost" id="copy-template">Copy template</button></div><p class="add-idea-status" id="add-idea-status" role="status" aria-live="polite"></p></section><script type="module">function e(e){return e.toLowerCase().replace(/[^a-z0-9]+/g,`-`).replace(/^-|-$/g,``).slice(0,48)||`my-idea`}function t(e,t){let n=e.trim()||`(untitled)`;return`# CEO idea — ${n}
+
+## Working title (optional)
+
+${n}
+
+## The idea in one paragraph
+
+${t.trim()||`(write the idea here)`}
+
+## Why I care / lived spark
+
+
+
+## Who this is for
+
+
+
+## What I refuse to sound like
+
+
+
+## Non-negotiable beliefs (do not dilute)
+
+
+
+## Notes / fragments
+
+
+`}var n=document.getElementById(`idea-title`),r=document.getElementById(`idea-body`),i=document.getElementById(`add-idea-status`),a=document.getElementById(`download-idea`),o=document.getElementById(`copy-template`);function s(e){i&&(i.textContent=e)}a?.addEventListener(`click`,()=>{let i=n?.value??``,a=t(i,r?.value??``),o=new Blob([a],{type:`text/markdown;charset=utf-8`}),c=document.createElement(`a`),l=new Date().toISOString().slice(0,10);c.href=URL.createObjectURL(o),c.download=`${l}-${e(i)}.md`,c.click(),URL.revokeObjectURL(c.href),s(`Downloaded. Save into inbox/ on Passport, then float the war room.`)}),o?.addEventListener(`click`,async()=>{try{await navigator.clipboard.writeText(`# CEO idea — template
+
+Copy this file to a new name in \`inbox/\`, fill it in 2–10 minutes, then run:
+
+\`\`\`bash
+./pipeline/ceo-idea.sh inbox/your-file.md
+./pipeline/run-full-cycle.sh your-file-slug
+\`\`\`
+
+Then tell Cursor: **Run full Mjidea war room on the new brief** (auto-run; no step approvals).
+
+---
+
+## Working title (optional)
+
+## The idea in one paragraph
+
+## Why I care / lived spark
+
+## Who this is for
+
+## What I refuse to sound like
+
+## Non-negotiable beliefs (do not dilute)
+
+## Notes / fragments
+`),s(`Template copied. Paste into inbox/_TEMPLATE.md or a new inbox file.`)}catch{s(`Could not copy — select and copy from inbox/_TEMPLATE.md instead.`)}});</script></main><footer class="site-footer"><p class="footer-brand">Mjidea</p><p>Essays by Mayank Jain — human problems, workable doors.</p><p class="footer-links"><a href="/mjidea/ideas/">Blog</a><a href="/mjidea/design-lab/">12 styles</a><a href="/mjidea/issues/">Seeds</a><a href="/mjidea/about/">About</a></p></footer></body></html>
