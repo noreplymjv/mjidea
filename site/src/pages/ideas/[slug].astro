@@ -12,6 +12,7 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base
@@ -31,7 +32,7 @@ const { Content } = await render(post);
       {post.data.category ? ` · ${post.data.category}` : ''}
       {post.data.tags?.length ? ` · ${post.data.tags.slice(0, 4).join(' · ')}` : ''}
     </p>
-    <p class="meta"><a href="/ideas/">← All ideas</a></p>
+    <p class="meta"><a href={`${base}ideas/`}>← All ideas</a></p>
     <Content />
   </article>
 </Base>

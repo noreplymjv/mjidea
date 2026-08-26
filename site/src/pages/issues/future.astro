@@ -2,6 +2,8 @@
 import Base from '../../layouts/Base.astro';
 import AddIdea from '../../components/AddIdea.astro';
 import { futureIssues } from '../../data/issues';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base
@@ -9,12 +11,12 @@ import { futureIssues } from '../../data/issues';
   description="Later Mjidea issue seeds — play, venture antifragility, kill steps, and more — waiting their turn."
 >
   <section class="page-intro">
-    <p class="crumb"><a href="/issues/">Issues</a> / Future</p>
+    <p class="crumb"><a href={`${base}issues/`}>Issues</a> / Future</p>
     <h1>Future issues</h1>
     <p class="lede">
       Themes queued behind the current float list. Steal one early if it won’t leave you alone.
     </p>
-    <p class="meta"><a href="/issues/current/">← Current issues</a></p>
+    <p class="meta"><a href={`${base}issues/current/`}>← Current issues</a></p>
   </section>
 
   <ol class="issue-list">

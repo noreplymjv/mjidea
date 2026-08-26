@@ -1,6 +1,8 @@
 ---
 import Base from '../../layouts/Base.astro';
 import AddIdea from '../../components/AddIdea.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base
@@ -15,12 +17,12 @@ import AddIdea from '../../components/AddIdea.astro';
   </section>
 
   <section class="issue-hub">
-    <a class="hub-panel" href="/issues/current/">
+    <a class="hub-panel" href={`${base}issues/current/`}>
       <span class="strip-label">Now</span>
       <h2>Current issues</h2>
       <p>Active seeds in the float queue — ready to expand.</p>
     </a>
-    <a class="hub-panel" href="/issues/future/">
+    <a class="hub-panel" href={`${base}issues/future/`}>
       <span class="strip-label">Later</span>
       <h2>Future issues</h2>
       <p>Sharp themes waiting their turn — still yours to claim early.</p>

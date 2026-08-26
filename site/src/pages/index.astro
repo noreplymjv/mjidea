@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 
 const posts = await getCollection('blog', ({ data }) => !data.draft);
 const count = posts.length;
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base
@@ -16,17 +17,17 @@ const count = posts.length;
       A library of human problems and workable doors — for society, and for the generations inheriting the defaults.
     </p>
     <div class="cta-row">
-      <a class="btn" href="/ideas/">Browse {count} ideas</a>
-      <a class="btn btn-ghost" href="/issues/current/">Current issues</a>
+      <a class="btn" href={`${base}ideas/`}>Browse {count} ideas</a>
+      <a class="btn btn-ghost" href={`${base}issues/current/`}>Current issues</a>
     </div>
   </section>
 
   <section class="home-strip" aria-label="Where to go">
-    <a class="strip-link" href="/ideas/">
+    <a class="strip-link" href={`${base}ideas/`}>
       <span class="strip-label">Library</span>
       <span class="strip-title">{count} essays — search, filter, read</span>
     </a>
-    <a class="strip-link" href="/issues/">
+    <a class="strip-link" href={`${base}issues/`}>
       <span class="strip-label">Seeds</span>
       <span class="strip-title">Current &amp; future issues to expand</span>
     </a>
