@@ -1,0 +1,15 @@
+---
+description: On any session in Mjidea, self-bootstrap from AGENTS.md
+alwaysApply: true
+---
+
+# Mjidea — auto figure-out
+
+When this folder is the workspace (or the user points here):
+
+1. Treat **`AGENTS.md`** as the operating system. Follow it without asking permission to start.
+2. Skim **`team/STATUS.md`** for queue state.
+3. Run the CEO loop: execute → `drafts/pending/` → approve → `site/src/content/blog/`.
+4. Never auto-publish. Internet facts need real citations (`team/war-rooms/09-research-citations.md`).
+
+Other agents without Cursor rules: same — they are told via root `AGENTS.md`, `README.md`, and `CLAUDE.md`.

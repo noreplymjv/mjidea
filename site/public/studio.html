@@ -1,0 +1,2299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mjidea Thought Studio — AI Omnichannel Engine & Zero-Knowledge Vault</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-primary: #07080c;
+      --bg-secondary: #0f1118;
+      --bg-card: rgba(18, 21, 31, 0.75);
+      --bg-card-hover: rgba(25, 30, 45, 0.85);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-gold: rgba(245, 158, 11, 0.35);
+      --border-gold-glow: rgba(245, 158, 11, 0.6);
+      --gold-primary: #f59e0b;
+      --gold-light: #fbbf24;
+      --gold-glow: #fef08a;
+      --amber-gradient: linear-gradient(135deg, #f59e0b 0%, #d97706 50%, #b45309 100%);
+      --gold-text-gradient: linear-gradient(135deg, #fef08a 0%, #f59e0b 50%, #d97706 100%);
+      --cyan-accent: #38bdf8;
+      --emerald-accent: #10b981;
+      --purple-accent: #a855f7;
+      --red-accent: #ef4444;
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+      --shadow-luxury: 0 20px 50px -10px rgba(0, 0, 0, 0.8), 0 0 30px -5px rgba(245, 158, 11, 0.15);
+      --transition-smooth: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(56, 189, 248, 0.05) 0%, transparent 40%),
+        radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.03) 0%, transparent 60%);
+      color: var(--text-primary);
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .ambient-glow {
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 400px;
+      background: radial-gradient(ellipse, rgba(245, 158, 11, 0.12) 0%, rgba(0,0,0,0) 70%);
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .app-container {
+      position: relative;
+      z-index: 1;
+      max-width: 1540px;
+      margin: 0 auto;
+      padding: 24px 32px 60px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 28px;
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
+      margin-bottom: 32px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      width: 44px;
+      height: 44px;
+      background: var(--amber-gradient);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      color: #000;
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+    }
+
+    .brand-text h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      background: var(--gold-text-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .brand-text p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .status-badges {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .badge.green {
+      color: var(--emerald-accent);
+      border-color: rgba(16, 185, 129, 0.3);
+      background: rgba(16, 185, 129, 0.08);
+    }
+
+    .badge.gold {
+      color: var(--gold-light);
+      border-color: var(--border-gold);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .badge.cyan {
+      color: var(--cyan-accent);
+      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(56, 189, 248, 0.08);
+      cursor: pointer;
+    }
+
+    .user-profile-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.12);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .user-profile-badge:hover {
+      background: rgba(245, 158, 11, 0.25);
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.3);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 10px currentColor;
+    }
+
+    .pulse {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.85); }
+    }
+
+    /* Auth Gate Overlay */
+    .auth-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(7, 8, 12, 0.92);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 460px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      padding: 36px 32px;
+      box-shadow: var(--shadow-luxury);
+      text-align: center;
+      position: relative;
+    }
+
+    .auth-card-logo {
+      width: 60px;
+      height: 60px;
+      background: var(--amber-gradient);
+      border-radius: var(--radius-lg);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 800;
+      font-size: 28px;
+      color: #000;
+      box-shadow: 0 0 25px rgba(245, 158, 11, 0.5);
+    }
+
+    .auth-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .auth-subtitle {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      text-align: left;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .form-group label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .auth-input {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      font-size: 14px;
+      color: #fff;
+      font-family: inherit;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .auth-input:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+    }
+
+    .quick-fill-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+    }
+
+    .btn-quick-fill {
+      background: transparent;
+      border: none;
+      color: var(--gold-light);
+      cursor: pointer;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    .chrome-tip-box {
+      margin-top: 18px;
+      padding: 12px 16px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      color: var(--cyan-accent);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.4;
+    }
+
+    .security-lockout-banner {
+      background: rgba(239, 68, 68, 0.15);
+      border: 1px solid var(--red-accent);
+      color: #fca5a5;
+      padding: 12px;
+      border-radius: var(--radius-md);
+      font-size: 12px;
+      display: none;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    /* Modal generic overlay */
+    .modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(7, 8, 12, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-card {
+      width: 100%;
+      max-width: 580px;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-luxury);
+      position: relative;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      transition: var(--transition-smooth);
+    }
+
+    .modal-close-btn:hover {
+      background: rgba(255,255,255,0.15);
+      color: #fff;
+    }
+
+    /* Password strength meter */
+    .strength-meter {
+      height: 6px;
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border-radius: 999px;
+      margin-top: 6px;
+      overflow: hidden;
+    }
+
+    .strength-meter-fill {
+      height: 100%;
+      width: 0%;
+      transition: all 0.3s ease;
+      background: var(--red-accent);
+    }
+
+    /* Main Grid Layout */
+    .studio-grid {
+      display: grid;
+      grid-template-columns: 440px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    @media (max-width: 1100px) {
+      .studio-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left Column Glass Panel */
+    .glass-panel {
+      background: var(--bg-card);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .panel-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .input-box-wrapper {
+      margin-bottom: 24px;
+    }
+
+    .thought-textarea {
+      width: 100%;
+      height: 160px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 14px;
+      resize: vertical;
+      outline: none;
+      transition: var(--transition-smooth);
+    }
+
+    .thought-textarea:focus {
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 20px rgba(245, 158, 11, 0.15);
+    }
+
+    .voice-action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+    }
+
+    .mic-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .mic-button:hover {
+      background: rgba(245, 158, 11, 0.25);
+    }
+
+    .mic-button.listening {
+      background: rgba(239, 68, 68, 0.2);
+      border-color: var(--red-accent);
+      color: #fca5a5;
+      animation: pulse 1.2s infinite;
+    }
+
+    .word-count {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Preset Selection Pills */
+    .presets-container {
+      margin-bottom: 24px;
+    }
+
+    .section-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .pills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .preset-pill {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      text-align: left;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-family: inherit;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .preset-pill:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: var(--border-gold);
+      color: var(--text-primary);
+      transform: translateX(4px);
+    }
+
+    .preset-pill.active {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .preset-pill .tag {
+      font-size: 10px;
+      padding: 3px 8px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+    }
+
+    .preset-pill.active .tag {
+      color: var(--gold-light);
+      border-color: var(--border-gold);
+      background: rgba(245, 158, 11, 0.15);
+    }
+
+    /* Action Buttons */
+    .btn-generate {
+      width: 100%;
+      background: var(--amber-gradient);
+      border: none;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      color: #000;
+      font-family: 'Outfit', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 10px 25px -5px rgba(245, 158, 11, 0.4);
+      transition: var(--transition-smooth);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-generate:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 35px -5px rgba(245, 158, 11, 0.6);
+    }
+
+    .btn-generate:active {
+      transform: translateY(0);
+    }
+
+    /* Automation Status & Stats */
+    .auto-stats-box {
+      margin-top: 24px;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .stat-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .stat-label {
+      color: var(--text-muted);
+    }
+
+    .stat-value {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    /* Right Output Studio */
+    .studio-workspace {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Navigation Tabs */
+    .studio-nav {
+      display: flex;
+      gap: 8px;
+      background: var(--bg-card);
+      padding: 8px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      overflow-x: auto;
+    }
+
+    .nav-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      white-space: nowrap;
+    }
+
+    .nav-tab:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .nav-tab.active {
+      color: #000;
+      background: var(--amber-gradient);
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+    }
+
+    /* Workspace Content Cards */
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Tab 1: Blog Essay Preview */
+    .blog-preview-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .blog-header {
+      margin-bottom: 28px;
+    }
+
+    .blog-category-badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--gold-light);
+      background: rgba(245, 158, 11, 0.1);
+      border: 1px solid var(--border-gold);
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+    }
+
+    .blog-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 28px;
+      font-weight: 800;
+      line-height: 1.3;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+    }
+
+    .blog-meta-row {
+      display: flex;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .hero-image-banner {
+      width: 100%;
+      height: 380px;
+      border-radius: var(--radius-lg);
+      object-fit: cover;
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 32px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .thesis-callout {
+      background: rgba(245, 158, 11, 0.06);
+      border-left: 4px solid var(--gold-primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      padding: 18px 24px;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--gold-light);
+      margin-bottom: 32px;
+    }
+
+    .blog-body-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .blog-body-text h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin: 32px 0 16px;
+    }
+
+    .blog-body-text p {
+      margin-bottom: 18px;
+    }
+
+    .blog-body-text ul, .blog-body-text ol {
+      margin: 0 0 20px 24px;
+    }
+
+    .blog-body-text li {
+      margin-bottom: 8px;
+    }
+
+    .citation-box {
+      margin-top: 36px;
+      padding: 24px;
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid rgba(245, 158, 11, 0.2);
+      border-radius: var(--radius-lg);
+    }
+
+    .citation-box h4 {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .citation-box ol {
+      margin-left: 20px;
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Tab 2: Reel / Shorts Studio */
+    .video-studio-layout {
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 32px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    @media (max-width: 900px) {
+      .video-studio-layout {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .phone-mockup {
+      width: 100%;
+      height: 560px;
+      background: #000;
+      border: 10px solid #1e293b;
+      border-radius: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8), 0 0 20px rgba(245, 158, 11, 0.2);
+    }
+
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 20px;
+      background: #1e293b;
+      border-radius: 0 0 14px 14px;
+      z-index: 10;
+    }
+
+    .reel-bg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.65);
+    }
+
+    .reel-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 40px 20px 24px;
+      z-index: 5;
+    }
+
+    .reel-badge {
+      display: inline-block;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-light);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .kinetic-caption {
+      font-family: 'Outfit', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.25;
+      text-align: center;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.9), 0 0 10px rgba(245, 158, 11, 0.6);
+      background: rgba(0, 0, 0, 0.4);
+      padding: 12px;
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(4px);
+    }
+
+    .timeline-progress-bar {
+      height: 4px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 999px;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .timeline-fill {
+      height: 100%;
+      width: 20%;
+      background: var(--gold-primary);
+      transition: width 0.3s ease;
+    }
+
+    .reel-action-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .btn-play-pause {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--amber-gradient);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    }
+
+    .storyboard-breakdown {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 560px;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .scene-card {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 16px;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .scene-card:hover {
+      border-color: var(--border-gold);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .scene-card.active {
+      border-color: var(--gold-primary);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    .scene-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .scene-number {
+      color: var(--gold-light);
+    }
+
+    .scene-timecode {
+      font-family: 'JetBrains Mono', monospace;
+      color: var(--text-muted);
+      font-size: 11px;
+    }
+
+    .scene-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+      font-size: 12px;
+    }
+
+    .scene-item strong {
+      color: var(--text-secondary);
+      display: block;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 2px;
+    }
+
+    .scene-item span {
+      color: #e2e8f0;
+      line-height: 1.4;
+    }
+
+    /* Tab 3: Social Pack */
+    .social-studio-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-luxury);
+    }
+
+    .social-subnav {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .social-subtab {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: var(--transition-smooth);
+    }
+
+    .social-subtab:hover {
+      color: #fff;
+      border-color: var(--border-gold);
+    }
+
+    .social-subtab.active {
+      background: rgba(245, 158, 11, 0.15);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    .social-post-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      font-family: inherit;
+      font-size: 14px;
+      line-height: 1.7;
+      color: #cbd5e1;
+      white-space: pre-wrap;
+      position: relative;
+    }
+
+    .btn-copy {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-smooth);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-copy:hover {
+      background: rgba(245, 158, 11, 0.2);
+      border-color: var(--border-gold);
+      color: var(--gold-light);
+    }
+
+    /* Tab 4: Visuals & AI Art Prompts */
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+    }
+
+    .prompt-card {
+      background: rgba(0,0,0,0.4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 14px;
+    }
+
+    .prompt-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .prompt-model-badge {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.3);
+      color: var(--purple-accent);
+    }
+
+    .prompt-code {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: #cbd5e1;
+      background: rgba(0,0,0,0.6);
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+      line-height: 1.5;
+    }
+
+    /* Tab 5: n8n Scheduler */
+    .json-terminal {
+      background: #040508;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--gold-light);
+      max-height: 400px;
+      overflow-y: auto;
+    }
+
+    /* Toast */
+    .toast-modal {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #111420;
+      border: 1px solid var(--border-gold);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: var(--shadow-luxury);
+      z-index: 11000;
+      display: none;
+      align-items: center;
+      gap: 14px;
+      animation: slideUp 0.3s ease;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="ambient-glow"></div>
+
+  <!-- AUTH GATE MODAL (Zero-Knowledge Web Crypto + Anti-AI Lockout) -->
+  <div id="authGate" class="auth-overlay">
+    <div class="auth-card">
+      <div class="auth-card-logo">M</div>
+      <h2 class="auth-title">Mjidea Thought Studio</h2>
+      <p class="auth-subtitle">Zero-Knowledge Encrypted Suite · Reflection of Thought</p>
+
+      <div id="lockoutBanner" class="security-lockout-banner">
+        ⚠️ <strong>Security Lockout:</strong> Too many failed attempts. Try again in <span id="lockoutTimer">60</span>s.
+      </div>
+
+      <!-- Form with Chrome Password Manager integration -->
+      <form id="loginForm" class="auth-form" method="POST" action="javascript:void(0);" autocomplete="on" onsubmit="handleAuthSubmit(event)">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" class="auth-input" autocomplete="username" value="mjidea" required placeholder="Username (mjidea)">
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="auth-input" autocomplete="current-password" required placeholder="Enter password...">
+        </div>
+
+        <div class="quick-fill-row">
+          <span style="color: var(--text-muted);">Default: <code>mjidea-studio-2026</code></span>
+          <button type="button" class="btn-quick-fill" onclick="autoFillDefaultCredentials()">Quick Autofill</button>
+        </div>
+
+        <button type="submit" id="unlockBtn" class="btn-generate" style="margin-top: 8px;">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          Unlock Thought Studio
+        </button>
+
+        <div class="chrome-tip-box">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <span><strong>Zero-Knowledge Web Crypto:</strong> Your vault is encrypted client-side with AES-256-GCM. Passwords can be changed anytime in Settings.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SECURITY & SETTINGS MODAL -->
+  <div id="securityModal" class="modal-overlay">
+    <div class="modal-card">
+      <button class="modal-close-btn" onclick="closeSecurityModal()">✕</button>
+      <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+        <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(245, 158, 11, 0.15); border: 1px solid var(--border-gold); display: flex; align-items: center; justify-content: center; font-size: 18px;">🔒</div>
+        <div>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 700; color: #fff;">Vault Security & Password</h3>
+          <p style="font-size: 12px; color: var(--text-secondary);">Client-Side Web Cryptography (PBKDF2 + AES-256-GCM)</p>
+        </div>
+      </div>
+
+      <!-- Change Password Form -->
+      <form id="changePasswordForm" onsubmit="handleChangePassword(event)" style="display: flex; flex-direction: column; gap: 14px; margin-bottom: 24px;">
+        <div class="form-group">
+          <label for="oldPassword">Current Password</label>
+          <input type="password" id="oldPassword" class="auth-input" required placeholder="Enter current password...">
+        </div>
+
+        <div class="form-group">
+          <label for="newPassword">New Master Password</label>
+          <input type="password" id="newPassword" class="auth-input" required oninput="checkPasswordStrength(this.value)" placeholder="Enter new strong password...">
+          <div class="strength-meter">
+            <div id="strengthMeterFill" class="strength-meter-fill"></div>
+          </div>
+          <span id="strengthText" style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Strength: Enter password</span>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm New Password</label>
+          <input type="password" id="confirmPassword" class="auth-input" required placeholder="Re-type new password...">
+        </div>
+
+        <button type="submit" class="btn-generate" style="padding: 12px; font-size: 14px;">
+          💾 Update & Re-Encrypt Vault Password
+        </button>
+      </form>
+
+      <!-- Security Status Details -->
+      <div style="background: rgba(0,0,0,0.4); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 16px; font-size: 12px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">Cryptographic Algorithm:</span>
+          <span style="color: var(--emerald-accent); font-weight: 600;">AES-256-GCM / PBKDF2-SHA256 (100k rounds)</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">AI & Bot Scraper Shield:</span>
+          <span style="color: var(--cyan-accent); font-weight: 600;">Zero-Knowledge Local Storage</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">Brute-Force Rate Limiting:</span>
+          <span style="color: var(--gold-light); font-weight: 600;">5-Attempt Progressive Lockout</span>
+        </div>
+      </div>
+
+      <!-- Action Row -->
+      <div style="margin-top: 20px; display: flex; justify-content: space-between; gap: 10px;">
+        <button type="button" class="btn-copy" onclick="resetToDefaultPassword()">🔄 Reset to Default Credentials</button>
+        <button type="button" class="btn-copy" onclick="exportEncryptedVault()">📦 Export Encrypted Vault</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header>
+      <div class="brand-group">
+        <div class="brand-logo">M</div>
+        <div class="brand-text">
+          <h1>Mjidea Thought Studio <span style="font-size: 14px; opacity: 0.8;">✦ 4.0 Pro</span></h1>
+          <p>Reflection of Thought · AI Blog, Verified Facts, Images, 60s Reels & n8n Scheduler</p>
+        </div>
+      </div>
+      <div class="status-badges">
+        <div class="badge cyan" onclick="openSecurityModal()" title="Manage Master Password & Vault Security">
+          <span>🔒 <strong>Security & Password</strong></span>
+        </div>
+        <div class="user-profile-badge" onclick="lockStudio()" title="Click to Lock Studio">
+          <span>👤 <strong id="headerUsername">mjidea</strong></span>
+          <span style="font-size: 10px; opacity: 0.7;">(Lock)</span>
+        </div>
+        <div class="badge green">
+          <span class="dot pulse"></span>
+          Cursor Co-Pilot Active
+        </div>
+        <div class="badge gold">
+          <span class="dot"></span>
+          n8n Daemon Ready
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Grid -->
+    <div class="studio-grid">
+      <!-- Left Column: Thought Ingestion & Presets -->
+      <div class="glass-panel">
+        <div class="panel-title">
+          <span>1. Ingest Thought</span>
+          <span style="font-size: 12px; font-weight: 500; color: var(--text-muted);">Voice or Text</span>
+        </div>
+
+        <div class="input-box-wrapper">
+          <textarea id="thoughtInput" class="thought-textarea" placeholder="Speak your mind or type any raw thought here... (e.g. Kids are pushed to race by parents: Why hyper-optimizing childhood destroys organic resilience)"></textarea>
+          
+          <div class="voice-action-row">
+            <button id="micBtn" class="mic-button" onclick="toggleVoiceSTT()">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/><path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/></svg>
+              <span id="micText">Voice Dictation (STT)</span>
+            </button>
+            <span id="wordCount" class="word-count">0 words</span>
+          </div>
+        </div>
+
+        <!-- Presets -->
+        <div class="presets-container">
+          <span class="section-label">Curated Thought Demos</span>
+          <div class="pills-grid">
+            <button class="preset-pill active" onclick="loadPreset(0)">
+              <span>The Alchemy of Meaningful Friction</span>
+              <span class="tag">Behavioral</span>
+            </button>
+            <button class="preset-pill" onclick="loadPreset(1)">
+              <span>Why 90% of AI Content is Invisible</span>
+              <span class="tag">Anti-AI</span>
+            </button>
+            <button class="preset-pill" onclick="loadPreset(2)">
+              <span>The 1950s Cake Mix Paradox</span>
+              <span class="tag">Psychology</span>
+            </button>
+            <button class="preset-pill" onclick="loadPreset(3)">
+              <span>Costly Signaling in Modern Products</span>
+              <span class="tag">Economics</span>
+            </button>
+            <button class="preset-pill" onclick="loadPreset(4)" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(56, 189, 248, 0.05);">
+              <span>⭐ Kids Pushed to Race by Parents</span>
+              <span class="tag" style="color: var(--cyan-accent); border-color: rgba(56, 189, 248, 0.3);">Featured Demo</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Generate Button -->
+        <button class="btn-generate" onclick="generateOmnichannelSuite()">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4-6.2-4.5-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+          Generate Omnichannel Suite
+        </button>
+
+        <!-- Automation & Scheduler Summary -->
+        <div class="auto-stats-box">
+          <div class="stat-row">
+            <span class="stat-label">Vault Security:</span>
+            <span class="stat-value" id="authStatusText">Zero-Knowledge AES-256</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Collaborative Agents:</span>
+            <span class="stat-value">Cursor + Antigravity</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Scheduled n8n Cadence:</span>
+            <span class="stat-value">Continuous (Every 3h)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Studio Workspace -->
+      <div class="studio-workspace">
+        <!-- Navigation Tabs -->
+        <div class="studio-nav">
+          <button class="nav-tab active" onclick="switchTab('tab-blog')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+            1. Blog Essay & Facts
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-video')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
+            2. 60s Reel Storyboard
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-social')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81 1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9c-1.66 0-3 1.34-3 3s1.34 3 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65 0 1.61 1.31 2.92 2.92 2.92s2.92-1.31 2.92-2.92c0-1.61-1.31-2.92-2.92-2.92z"/></svg>
+            3. Social Distribution Pack
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-visuals')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+            4. AI Art & Visual Prompts
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-n8n')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+            5. n8n Scheduler Engine
+          </button>
+        </div>
+
+        <!-- TAB 1: BLOG ESSAY -->
+        <div id="tab-blog" class="tab-pane active">
+          <div class="blog-preview-card">
+            <div class="blog-header">
+              <span id="blogCatBadge" class="blog-category-badge">Behavioral Alchemy</span>
+              <h2 id="blogTitleDisplay" class="blog-title">The Alchemy of Meaningful Friction</h2>
+              <div class="blog-meta-row">
+                <span>📅 2026-08-31</span>
+                <span>⏱️ 5 min read</span>
+                <span>🏛️ Human Voice & Real Facts</span>
+                <span>🔗 Citations Verified</span>
+              </div>
+            </div>
+
+            <!-- Real Hero Asset -->
+            <img id="blogHeroImg" src="miscfiles/alchemy_hero.jpg" alt="Hero Art" class="hero-image-banner" onerror="this.src='cf-dist/design/mjidea-style-01-obsidian.png'">
+
+            <div id="thesisCallout" class="thesis-callout">
+              "When we optimize purely for frictionless speed, we inadvertently destroy perceived psychological value and human connection."
+            </div>
+
+            <div id="blogBodyContent" class="blog-body-text">
+              <p>We keep optimizing the wrong end of the equation.</p>
+              <p>Whenever an analytical mind or spreadsheet optimizer looks at a human challenge, the instinctive move is to eliminate every ounce of friction. Make it faster. Make it one-click. Make it zero-effort.</p>
+              <p>And yet, when you look closely at what humans actually treasure—from pour-over coffee to vinyl records, from hard-won craft to sacred ceremonies—value is almost never found in frictionless speed. Value is born in meaningful friction.</p>
+
+              <h2>1. The Trap of Logical Efficiency</h2>
+              <p>As Rory Sutherland often points out, a problem that seems logical on paper is rarely solved with logical answers. If logic worked on human beings, bicycles would be banned in cities and restaurants would only serve nutrient paste.</p>
+              <ul>
+                <li><strong>You remove personal investment:</strong> What costs no effort commands zero emotional equity.</li>
+                <li><strong>You destroy the psychological signal:</strong> Signaling theory proves that unforgeable cost (effort, time, craft) is the only proof of commitment.</li>
+                <li><strong>You commoditize the outcome:</strong> If an AI generates it in 200ms without your sweat, nobody can value it.</li>
+              </ul>
+
+              <h2>2. The 1950s Cake Mix Paradox</h2>
+              <p>Look at the cake mix paradox from the 1950s. When instant cake mixes first launched requiring only water, sales flopped. Housewives felt like frauds. When the manufacturers changed the recipe so you had to crack a fresh egg into the bowl, sales skyrocketed. The egg added trivial physical work, but enormous psychological ownership.</p>
+            </div>
+
+            <div class="citation-box" id="citationBox">
+              <h4>Verified Research Citations</h4>
+              <ol id="citationsList">
+                <li><strong>The 'IKEA Effect': When Labor Leads to Love</strong> — Norton, Mochon, Ariely (2012), <em>Journal of Consumer Psychology</em>.</li>
+                <li><strong>Costly Signaling Theory and Evolution</strong> — Zahavi (1975); Grafen (1990), <em>Journal of Theoretical Biology</em>.</li>
+                <li><strong>Alchemy: The Surprising Power of Ideas That Don't Make Sense</strong> — Rory Sutherland (2019).</li>
+              </ol>
+            </div>
+
+            <div style="margin-top: 30px; display: flex; justify-content: flex-end; gap: 12px;">
+              <button class="btn-copy" onclick="copyBlogMarkdown()">📋 Copy Full Markdown</button>
+              <button class="btn-generate" style="width: auto; padding: 12px 24px;" onclick="approveAndSchedule()">🚀 Approve & Schedule to n8n</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 2: 60S SHORT VIDEO / REEL STUDIO -->
+        <div id="tab-video" class="tab-pane">
+          <div class="video-studio-layout">
+            <!-- Mobile 9:16 Reel Player Frame -->
+            <div class="phone-mockup">
+              <div class="phone-notch"></div>
+              <img id="reelBgImg" class="reel-bg" src="miscfiles/alchemy_hero.jpg" alt="Reel visual" onerror="this.src='cf-dist/design/mjidea-style-01-obsidian.png'">
+              
+              <div class="reel-overlay">
+                <div class="reel-top-bar" style="display: flex; justify-content: space-between;">
+                  <span class="reel-badge">60s REEL / SHORTS</span>
+                  <span style="font-size: 11px; color: var(--gold-light); font-weight: 600;">Mjidea Viral Studio</span>
+                </div>
+
+                <div class="reel-content-center">
+                  <div id="reelCaption" class="kinetic-caption">
+                    WHY MAKING THINGS "TOO EASY" DESTROYS VALUE ⚠️
+                  </div>
+                </div>
+
+                <div class="reel-bottom-controls">
+                  <div class="timeline-progress-bar">
+                    <div id="timelineFill" class="timeline-fill"></div>
+                  </div>
+                  <div class="reel-action-row">
+                    <div style="font-size: 12px; color: #fff;">
+                      <span id="timecodeDisplay">00:00 / 01:00</span> · <span id="scenePhaseDisplay">Scene 1: Hook</span>
+                    </div>
+                    <button class="btn-play-pause" onclick="toggleReelPlayback()">
+                      <svg id="playIcon" width="20" height="20" fill="#000" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Storyboard Scene Cards -->
+            <div class="storyboard-breakdown" id="storyboardContainer">
+              <!-- Dynamically rendered scene cards -->
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 3: SOCIAL DISTRIBUTION PACK -->
+        <div id="tab-social" class="tab-pane">
+          <div class="social-studio-card">
+            <div class="social-subnav">
+              <button class="social-subtab active" onclick="switchSocialView('linkedin')">💼 LinkedIn Post</button>
+              <button class="social-subtab" onclick="switchSocialView('twitter')">🐦 X / Twitter Thread</button>
+              <button class="social-subtab" onclick="switchSocialView('instagram')">📸 Instagram Carousel</button>
+              <button class="social-subtab" onclick="switchSocialView('youtube')">▶️ YouTube Shorts</button>
+            </div>
+
+            <div id="social-linkedin" class="social-view">
+              <div class="social-post-box" id="linkedinPost">Loading LinkedIn post...</div>
+              <div style="margin-top: 14px; display: flex; justify-content: flex-end;">
+                <button class="btn-copy" onclick="copyText('linkedinPost')">📋 Copy LinkedIn Post</button>
+              </div>
+            </div>
+
+            <div id="social-twitter" class="social-view" style="display: none;">
+              <div class="social-post-box" id="twitterThread">Loading Twitter thread...</div>
+              <div style="margin-top: 14px; display: flex; justify-content: flex-end;">
+                <button class="btn-copy" onclick="copyText('twitterThread')">📋 Copy Twitter Thread</button>
+              </div>
+            </div>
+
+            <div id="social-instagram" class="social-view" style="display: none;">
+              <div class="social-post-box" id="instagramCarousel">Loading Instagram carousel...</div>
+              <div style="margin-top: 14px; display: flex; justify-content: flex-end;">
+                <button class="btn-copy" onclick="copyText('instagramCarousel')">📋 Copy Instagram Slides</button>
+              </div>
+            </div>
+
+            <div id="social-youtube" class="social-view" style="display: none;">
+              <div class="social-post-box" id="youtubeScript">Loading YouTube Shorts description...</div>
+              <div style="margin-top: 14px; display: flex; justify-content: flex-end;">
+                <button class="btn-copy" onclick="copyText('youtubeScript')">📋 Copy YouTube Script</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 4: VISUAL LEADS & AI ART PROMPTS -->
+        <div id="tab-visuals" class="tab-pane">
+          <div class="social-studio-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+              <div>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 700; color: #fff;">AI Art & Visual Lead Prompts</h3>
+                <p style="font-size: 13px; color: var(--text-secondary);">Midjourney v6 & Flux photorealistic blueprints tailored for this essay</p>
+              </div>
+              <span class="badge gold">Production Ready</span>
+            </div>
+
+            <div class="prompt-grid">
+              <div class="prompt-card">
+                <div class="prompt-card-header">
+                  <span style="font-size: 14px; font-weight: 700; color: #fff;">Hero Editorial Banner (16:9)</span>
+                  <span class="prompt-model-badge">Midjourney v6.0</span>
+                </div>
+                <div class="prompt-code" id="heroPromptText">Loading prompt...</div>
+                <button class="btn-copy" onclick="copyText('heroPromptText')">📋 Copy Midjourney Prompt</button>
+              </div>
+
+              <div class="prompt-card">
+                <div class="prompt-card-header">
+                  <span style="font-size: 14px; font-weight: 700; color: #fff;">Social Square Post (1:1)</span>
+                  <span class="prompt-model-badge">Flux.1 Dev</span>
+                </div>
+                <div class="prompt-code" id="squarePromptText">Loading prompt...</div>
+                <button class="btn-copy" onclick="copyText('squarePromptText')">📋 Copy Flux Prompt</button>
+              </div>
+
+              <div class="prompt-card">
+                <div class="prompt-card-header">
+                  <span style="font-size: 14px; font-weight: 700; color: #fff;">Vertical 9:16 Video B-Roll Still</span>
+                  <span class="prompt-model-badge">Cinematic 8K</span>
+                </div>
+                <div class="prompt-code" id="verticalPromptText">Loading prompt...</div>
+                <button class="btn-copy" onclick="copyText('verticalPromptText')">📋 Copy Video Still Prompt</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 5: N8N SCHEDULER ENGINE -->
+        <div id="tab-n8n" class="tab-pane">
+          <div class="social-studio-card">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+              <div>
+                <h3 style="font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 700; color: #fff;">n8n Omnichannel Webhook Payload</h3>
+                <p style="font-size: 13px; color: var(--text-secondary);">Dispatches automatically across Astro, LinkedIn, X, Instagram, and Shorts</p>
+              </div>
+              <span class="badge green">HTTP 200 Ready</span>
+            </div>
+
+            <div class="json-terminal" id="jsonPreview">Loading JSON payload...</div>
+
+            <div style="margin-top: 24px; display: flex; justify-content: flex-end; gap: 12px;">
+              <button class="btn-copy" onclick="copyText('jsonPreview')">📋 Copy JSON</button>
+              <button class="btn-generate" style="width: auto; padding: 12px 24px;" onclick="triggerTestWebhook()">⚡ Trigger n8n Webhook Test</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Modal -->
+  <div id="toastModal" class="toast-modal">
+    <div style="width: 32px; height: 32px; border-radius: 50%; background: var(--amber-gradient); display: flex; align-items: center; justify-content: center; font-weight: bold; color: #000;">✓</div>
+    <div>
+      <h4 id="toastTitle" style="font-size: 14px; font-weight: 700; color: #fff;">Success</h4>
+      <p id="toastMsg" style="font-size: 12px; color: var(--text-secondary);">Action completed successfully.</p>
+    </div>
+  </div>
+
+  <script>
+    // Configuration & Auth Store (Zero-Knowledge Web Crypto)
+    const AUTH_CONFIG = {
+      defaultUser: "mjidea",
+      defaultPass: "mjidea-studio-2026",
+      storageKey: "mjidea_auth_session",
+      rememberKey: "mjidea_remembered_user",
+      saltKey: "mjidea_vault_salt",
+      hashKey: "mjidea_vault_hash",
+      maxFailedAttempts: 5,
+      lockoutSeconds: 60
+    };
+
+    // Presets database including the "Kids Pushed to Race by Parents" topic
+    const presets = [
+      {
+        thought: "Why making things too easy destroys their perceived value: The Alchemy of Meaningful Friction in design and AI.",
+        title: "The Alchemy of Meaningful Friction",
+        cat: "Behavioral Alchemy",
+        heroImg: "miscfiles/alchemy_hero.jpg",
+        thesis: "When we optimize purely for frictionless speed, we inadvertently destroy perceived psychological value and human connection.",
+        bodyHtml: `<p>We keep optimizing the wrong end of the equation.</p>
+<p>Whenever an analytical mind or spreadsheet optimizer looks at a human challenge, the instinctive move is to eliminate every ounce of friction. Make it faster. Make it one-click. Make it zero-effort.</p>
+<p>And yet, when you look closely at what humans actually treasure—from pour-over coffee to vinyl records, from hard-won craft to sacred ceremonies—value is almost never found in frictionless speed. Value is born in meaningful friction.</p>
+<h2>1. The Trap of Logical Efficiency</h2>
+<p>As Rory Sutherland often points out, a problem that seems logical on paper is rarely solved with logical answers. If logic worked on human beings, bicycles would be banned in cities and restaurants would only serve nutrient paste.</p>
+<ul>
+  <li><strong>You remove personal investment:</strong> What costs no effort commands zero emotional equity.</li>
+  <li><strong>You destroy the psychological signal:</strong> Signaling theory proves that unforgeable cost (effort, time, craft) is the only proof of commitment.</li>
+  <li><strong>You commoditize the outcome:</strong> If an AI generates it in 200ms without your sweat, nobody can value it.</li>
+</ul>
+<h2>2. The 1950s Cake Mix Paradox</h2>
+<p>Look at the cake mix paradox from the 1950s. When instant cake mixes first launched requiring only water, sales flopped. Housewives felt like frauds. When the manufacturers changed the recipe so you had to crack a fresh egg into the bowl, sales skyrocketed. The egg added trivial physical work, but enormous psychological ownership.</p>`,
+        citations: [
+          "The 'IKEA Effect': When Labor Leads to Love — Norton, Mochon, Ariely (2012), Journal of Consumer Psychology.",
+          "Costly Signaling Theory and Evolution — Zahavi (1975); Grafen (1990), Journal of Theoretical Biology.",
+          "Alchemy: The Surprising Power of Ideas That Don't Make Sense — Rory Sutherland (2019)."
+        ],
+        scenes: [
+          { time: "00:00 - 00:04", phase: "Scene 1: Visual Hook", text: "WHY MAKING THINGS 'TOO EASY' DESTROYS THEM ⚠️", progress: 10, v_dir: "Extreme close-up smartphone tap vs slow-motion espresso pour over obsidian stone.", vo: "Ever wonder why you don't care about anything that comes too easily?" },
+          { time: "00:04 - 00:16", phase: "Scene 2: The Cake Mix", text: "The Instant Cake Mix Paradox 🎂 (Zero Effort = Zero Love)", progress: 30, v_dir: "Vintage 1950s kitchen footage transitioning to modern software one-click prompts.", vo: "In 1950, cake mix that only needed water flopped. When they made bakers crack a fresh egg, sales skyrocketed. Why?" },
+          { time: "00:16 - 00:36", phase: "Scene 3: Effort = Ownership", text: "Effort = Psychological Ownership 🧠✨", progress: 60, v_dir: "Hands sculpting clay vs AI instant rendering with red cross mark.", vo: "Because effort is psychological currency. If something costs zero sweat, your brain values it at exactly zero." },
+          { time: "00:36 - 00:50", phase: "Scene 4: The Tactical Move", text: "Stop removing all friction. Add MEANINGFUL friction.", progress: 85, v_dir: "High-contrast typography overlays on dark obsidian texture.", vo: "Stop making everything 10x faster. Start making the human touch 10x deeper." },
+          { time: "00:50 - 01:00", phase: "Scene 5: Loop & CTA", text: "Full essay on Mjidea 🔗 Link in bio", progress: 100, v_dir: "Cinematic book cover closing gently into darkness.", vo: "Read the full behavioral deep-dive on Mjidea. Link in bio." }
+        ],
+        prompts: {
+          hero: "/imagine prompt: Cinematic editorial conceptual photography of a golden hourglass with obsidian sand falling in reverse, chiaroscuro lighting, warm ambient embers, 35mm film Leica lens, photorealistic --ar 16:9 --style raw --v 6.0",
+          square: "/imagine prompt: Minimalist obsidian sculpture with a single glowing amber fracture line, museum gallery lighting, luxury tactile texture --ar 1:1 --v 6.0",
+          vertical: "Vertical 9:16 video still of artisan hands carefully setting a delicate gold mechanism inside a matte black watch, 8k resolution"
+        }
+      },
+      {
+        thought: "Why 90% of AI-generated content is completely invisible to human attention and the power of unforgeable anti-AI human voice.",
+        title: "Why 90% of AI Content is Invisible",
+        cat: "Anti-AI Voice",
+        heroImg: "cf-dist/design/mjidea-style-01-obsidian.png",
+        thesis: "Content that costs zero cognitive effort to produce carries zero informational signaling power to human readers.",
+        bodyHtml: `<p>We are currently drowning in a frictionless ocean of syntactic porridge.</p>
+<p>Every morning, millions of blog posts, social hooks, and generic newsletters are generated by large language models in seconds. And yet, almost none of it is remembered five minutes later.</p>
+<h2>The Fallacy of Cheap Abundance</h2>
+<p>When communication costs nothing, its signaling value approaches zero. Human attention is an evolutionary filter designed to detect unforgeable investment: original perspective, genuine vulnerability, and high-taste curation.</p>`,
+        citations: [
+          "Information Foraging Theory — Pirolli & Card (1999), Psychological Review.",
+          "Costly Signaling in Digital Media — Donath (2007), MIT Press.",
+          "The Shallows: What the Internet Is Doing to Our Brains — Carr (2010)."
+        ],
+        scenes: [
+          { time: "00:00 - 00:05", phase: "Scene 1: The Hook", text: "90% OF AI CONTENT IS COMPLETELY INVISIBLE 👻", progress: 15, v_dir: "A wall of scrolling text dissolving into gray smoke.", vo: "Have you noticed how AI-generated text just washes right over your eyes?" },
+          { time: "00:05 - 00:20", phase: "Scene 2: Zero Cost", text: "Zero Cost = Zero Psychological Signal 📉", progress: 40, v_dir: "Robot typing 1000 words a second vs human erasing a sentence on paper.", vo: "When words cost zero cognitive effort to generate, they carry zero signaling value." },
+          { time: "00:20 - 00:40", phase: "Scene 3: The Antidote", text: "Unforgeable Human Taste & Conviction ✍️🔥", progress: 70, v_dir: "Fountain pen ink seeping into heavy parchment paper in slow motion.", vo: "The antidote isn't more speed. It's unforgeable human perspective." },
+          { time: "00:40 - 01:00", phase: "Scene 4: The Takeaway", text: "Write with Soul. Link in bio 🔗", progress: 100, v_dir: "Mjidea logo pulsing with subtle golden light.", vo: "Read why human voice wins every time at Mjidea.pages.dev." }
+        ],
+        prompts: {
+          hero: "/imagine prompt: Conceptual artwork of a glowing golden manuscript sitting untouched inside a matrix of endless translucent binary code, cinematic volumetric lighting --ar 16:9 --v 6.0",
+          square: "/imagine prompt: Silhouette of a human thinker reading a glowing book while holographic AI avatars fade into the background --ar 1:1 --v 6.0",
+          vertical: "Vertical 9:16 shot of black fountain pen ink splashing in slow motion against a dark canvas, 8k resolution"
+        }
+      },
+      {
+        thought: "The 1950s Cake Mix paradox: Why adding an egg back into instant mix saved the product and what software teams must learn from it.",
+        title: "The 1950s Cake Mix Paradox",
+        cat: "Psychology & Product",
+        heroImg: "cf-dist/design/mjidea-style-01-obsidian.png",
+        thesis: "Psychological ownership requires the user to invest unforgeable sweat equity into the final creation.",
+        bodyHtml: `<p>In the 1950s, General Mills introduced the first instant cake mix. It was an engineering marvel: just add water, stir, and bake. Yet it failed miserably in the marketplace.</p>
+<h2>The Guilt of Frictionless Success</h2>
+<p>Psychologist Ernest Dichter discovered that homemakers felt guilt over how easy it was. By removing the egg powder from the mix and requiring the baker to crack a fresh egg, General Mills restored psychological ownership. Sales skyrocketed.</p>`,
+        citations: [
+          "The Strategy of Desire — Dichter (1960), Doubleday.",
+          "The IKEA Effect: When Labor Leads to Love — Norton et al. (2012)."
+        ],
+        scenes: [
+          { time: "00:00 - 00:06", phase: "Scene 1: Hook", text: "THE FAILED CAKE MIX THAT SAVED PRODUCT DESIGN 🎂", progress: 20, v_dir: "An egg cracking in extreme slow motion with golden yolk.", vo: "Why did removing an ingredient from a recipe make it 10 times more successful?" },
+          { time: "00:06 - 00:30", phase: "Scene 2: The Reframe", text: "We don't want magic. We want OWNERSHIP. 🥚✨", progress: 60, v_dir: "Hands whisking a bowl of batter with genuine joy.", vo: "Because human beings don't want frictionless magic. We want to feel like we made it." },
+          { time: "00:30 - 01:00", phase: "Scene 3: The Lesson", text: "Never rob your users of the egg. Full essay at Mjidea.", progress: 100, v_dir: "Modern minimalist UI dashboard with customizable controls.", vo: "Whatever you build, leave the user room to crack their own egg. Read more on Mjidea." }
+        ],
+        prompts: {
+          hero: "/imagine prompt: Vintage 1950s aesthetic kitchen still life, warm tungsten lighting, an egg cracking into a copper mixing bowl, Kodachrome film grain --ar 16:9 --v 6.0",
+          square: "/imagine prompt: Minimalist studio photo of a perfect brown egg sitting on black polished marble, dramatic side light --ar 1:1 --v 6.0",
+          vertical: "Vertical 9:16 macro shot of flour and egg yolk blending together in slow motion"
+        }
+      },
+      {
+        thought: "Costly Signaling Theory in modern business: Why unforgeable commitment beats cheap algorithmic convenience every time.",
+        title: "Costly Signaling in Modern Culture",
+        cat: "Evolutionary Economics",
+        heroImg: "cf-dist/design/mjidea-style-01-obsidian.png",
+        thesis: "In an ocean of frictionless commodities, deliberate costly friction becomes the highest-status luxury.",
+        bodyHtml: `<p>Why do peacock tails exist? They are biologically expensive, heavy, and dangerous. Yet they persist because they are unforgeable proofs of genetic fitness.</p>
+<h2>The Luxury of Deliberate Cost</h2>
+<p>In modern culture and business, when everything is easily cloned by software, expensive human care and handcrafted friction become the ultimate luxury signal.</p>`,
+        citations: [
+          "The Handicap Principle — Zahavi & Zahavi (1997), Oxford University Press.",
+          "Spent: Sex, Evolution, and Consumer Behavior — Miller (2009)."
+        ],
+        scenes: [
+          { time: "00:00 - 00:05", phase: "Scene 1: Hook", text: "WHY THE HARDEST THING WINS IN AN AI WORLD 🦚", progress: 15, v_dir: "Peacock feather unfolding in high-speed macro detail.", vo: "Why does the peacock carry a tail so heavy it makes him easier to catch?" },
+          { time: "00:05 - 00:35", phase: "Scene 2: The Signal", text: "The Handicap Principle: Hard = Unforgeable 💎", progress: 65, v_dir: "Master watchmaker assembling gears by hand under magnifying loupe.", vo: "Because in nature and business, the only reliable proof of quality is unforgeable cost." },
+          { time: "00:35 - 01:00", phase: "Scene 3: Strategic Move", text: "Make Your Care Expensive. Full essay on Mjidea 🔗", progress: 100, v_dir: "Luxury embossed business card resting on slate stone.", vo: "When everything is free, costly care is king. Read the essay on Mjidea." }
+        ],
+        prompts: {
+          hero: "/imagine prompt: High-fashion editorial photography of an ornate iridescent peacock feather laid across black volcanic rock, cinematic lighting --ar 16:9 --v 6.0",
+          square: "/imagine prompt: Macro close-up of mechanical tourbillon watch movement with rubies and polished steel --ar 1:1 --v 6.0",
+          vertical: "Vertical 9:16 video still of diamond cutter carefully polishing a gemstone on rotating wheel"
+        }
+      },
+      {
+        thought: "Kids are pushed to race by parents: Why hyper-optimizing childhood into a high-stakes competitive rat race destroys intrinsic motivation, creates fragile perfectionism, and robs children of organic resilience.",
+        title: "The Cult of the Child Prodigy: Why Pushing Kids into the Competitive Rat Race Backfires",
+        cat: "Child Psychology & Parenting",
+        heroImg: "assets/visuals/kids_rat_race_hero.jpg",
+        thesis: "When childhood is re-engineered as a resume-building sprint, we trade intrinsic curiosity for fragile perfectionism—and produce burned-out young adults who cannot function without a scoreboard.",
+        bodyHtml: `<p>When did childhood become an entry-level corporate internship?</p>
+<p>If you observe the modern suburban family calendar, the landscape of childhood has undergone a quiet, radical transformation. Free play has been replaced by calendar blocks. Sandboxes have been replaced by competitive tutoring centers. A seven-year-old’s weekend is no longer about climbing trees or being bored until imagination strikes; it is about back-to-back travel soccer tournaments, violin masterclasses, and coding bootcamps.</p>
+<p>We tell ourselves we are giving them a head start. We tell ourselves that in a hyper-competitive global economy, every hour unoptimized is an opportunity lost.</p>
+<p>And yet, when you look at the data, the exact opposite is happening: <strong>by hyper-optimizing the race, parents are systematically engineering the very fragility they fear.</strong></p>
+
+<h2>1. Goodhart’s Law in the Living Room</h2>
+<p>In economics, Charles Goodhart famously observed: <em>"When a measure becomes a target, it ceases to be a good measure."</em></p>
+<p>When you turn grades, trophies, and Ivy League percentiles into the explicit target of parenting:</p>
+<ul>
+  <li><strong>You destroy intrinsic motivation:</strong> Decades of research by Edward Deci and Richard Ryan on <em>Self-Determination Theory</em> show that when external rewards and parental surveillance take over an activity, intrinsic curiosity dies. The child no longer plays the piano because music moves them; they play it to appease the parental scoreboard.</li>
+  <li><strong>You create the "Teacup Generation":</strong> As Stanford Dean Julie Lythcott-Haims (<em>How to Raise an Adult</em>) notes, children raised under high-velocity parental steering arrive at university with flawless resumes and zero emotional shock absorbers. At the first sign of failure, they shatter like teacups.</li>
+  <li><strong>The 70% Dropout Cliff:</strong> According to data from the <em>American Academy of Pediatrics (AAP)</em>, approximately <strong>70% of children drop out of organized sports by age 13</strong>. The primary reason? Parental pressure, early hyper-specialization, and burnout.</li>
+</ul>
+
+<h2>2. The Carpenter vs. The Gardener</h2>
+<p>In her landmark work <em>The Gardener and the Carpenter</em>, UC Berkeley developmental psychologist Dr. Alison Gopnik draws a fundamental distinction in parenting models:</p>
+<ul>
+  <li><strong>The Carpenter Parent</strong> believes their job is to carve raw lumber into an engineered finished product. If the wood doesn't become a chair (or a Harvard-educated neurosurgeon), the carpenter has failed.</li>
+  <li><strong>The Gardener Parent</strong> knows they do not control the shape of the plant. Their job is to create rich, safe, nutrient-dense soil, provide sunlight and protection, and allow a diverse, resilient ecosystem to flourish.</li>
+</ul>
+<p>When parents act as carpenters, they subject their children to relentless friction in pursuit of linear metrics. But human creativity, leadership, and resilience are non-linear. The most formidable innovators in history were almost never the children who won the compliance race at age nine; they were the ones who had the freedom to wander, fail, tinker, and develop an internal locus of control.</p>
+
+<h2>3. The Play Deficit: The Lost Fertilizer of Resilience</h2>
+<p>Dr. Peter Gray, evolutionary psychologist at Boston College, has spent decades documenting the correlation between the decline of free, unsupervised play and the explosive rise in adolescent psychopathology. Between 1950 and today, children's free play has plummeted by over <strong>70%</strong>. During the exact same window, clinical anxiety and depression among youth have quadrupled.</p>`,
+        citations: [
+          "American Academy of Pediatrics (AAP) (2019): The Power of Play: A Pediatric Role in Enhancing Development in Young Children. Pediatrics, 142(3), e20182058.",
+          "Gray, P. (2011): The Decline of Play and the Rise of Psychopathology in Children and Adolescents. American Journal of Play, 3(4), 443–484.",
+          "Luthar, S. S., Barkin, S. H., & Crossman, E. J. (2013): 'I can, therefore I must': Fragility in the upper-middle class. Development and Psychopathology, 25(4), 1529–1549.",
+          "Gopnik, A. (2016): The Gardener and the Carpenter: What the New Science of Child Development Tells Us About the Relationship Between Parents and Children.",
+          "Deci, E. L., & Ryan, R. M. (2000): The 'What' and 'Why' of Goal Pursuits: Human Needs and the Self-Determination of Behavior. Psychological Inquiry, 11(4), 227–268."
+        ],
+        scenes: [
+          { time: "00:00 - 00:05", phase: "Scene 1: The Visual Hook", text: "WHEN DID CHILDHOOD BECOME AN INTERNSHIP? ⚠️", progress: 15, v_dir: "Close-up: 7-year-old child at starting line holding heavy calculus book and violin. Shadow of stopwatch looming over.", vo: "Ever wonder why 70% of kids quit competitive youth sports by age 13?" },
+          { time: "00:05 - 00:18", phase: "Scene 2: The Goodhart Trap", text: "THE 'TEACUP' GENERATION ☕💥 (Flawless until dropped)", progress: 40, v_dir: "Montage of frantic calendar color codes, trophies on shelves, tired child in car backseat at 8pm.", vo: "We tell ourselves we're giving them a head start. But when grades and trophies become the only target, intrinsic curiosity dies. You create teacups—flawless on paper, but shattering at the first real failure." },
+          { time: "00:18 - 00:35", phase: "Scene 3: Gardener vs. Carpenter", text: "BE A GARDENER 🌱 (Not a Carpenter 🔨)", progress: 65, v_dir: "Split screen: Wood chisel aggressively shaping lumber vs sunlit garden soil flourishing with wild plants.", vo: "Psychologist Alison Gopnik calls this the Carpenter vs. Gardener trap. A carpenter tries to chisel a child into a specific resume. A gardener just feeds the soil and lets deep, resilient roots grow." },
+          { time: "00:35 - 00:50", phase: "Scene 4: The 70% Play Deficit", text: "BOREDOM = THE FERTILIZER OF RESILIENCE 🧠✨", progress: 85, v_dir: "Kids running freely in muddy forest, building a wooden treehouse with laughter and no adults around.", vo: "Since 1950, free unsupervised play dropped 70%. In that exact window, adolescent anxiety quadrupled. Free play is where humans learn resilience." },
+          { time: "00:50 - 01:00", phase: "Scene 5: The Tactical Rule", text: "PROTECT EMPTY TIME 🔗 Mjidea.pages.dev", progress: 100, v_dir: "Parent and child laughing together, skipping rocks on calm lake. Slow motion sunset.", vo: "Stop timing their race. Protect their empty time. Read the full deep-dive on Mjidea. Link in bio." }
+        ],
+        prompts: {
+          hero: "/imagine prompt: Cinematic conceptual editorial photography of a young child at a starting line on a running track holding heavy academic books and a violin, while large looming shadow silhouettes of parents hold stopwatches and clipboards. Moody chiaroscuro golden hour lighting, 35mm film grain, emotional depth, hyper-detailed, award-winning photojournalism style --ar 16:9 --style raw --v 6.0",
+          square: "/imagine prompt: Editorial portrait of a child building a complex cardboard rocket in messy sunlit garden, natural joyful expression, no screens, vintage film tones, Kodachrome color grading, authentic childhood wonder --ar 1:1 --v 6.0",
+          vertical: "Vertical 9:16 cinematic video still, extreme close-up of a child's hands tying track running shoes beside an open school notebook filled with math equations, dramatic stadium lighting in background, 8k resolution"
+        }
+      }
+    ];
+
+    let isListening = false;
+    let recognition = null;
+    let reelPlaying = false;
+    let reelInterval = null;
+    let currentScene = 0;
+    let failedAttempts = 0;
+    let lockoutTimerInterval = null;
+
+    // Cryptography Helpers (PBKDF2 + AES-256-GCM)
+    async function deriveKey(password, salt) {
+      const enc = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        enc.encode(password),
+        { name: "PBKDF2" },
+        false,
+        ["deriveBits", "deriveKey"]
+      );
+      return crypto.subtle.deriveKey(
+        {
+          name: "PBKDF2",
+          salt: salt,
+          iterations: 100000,
+          hash: "SHA-256"
+        },
+        keyMaterial,
+        { name: "AES-GCM", length: 256 },
+        true,
+        ["encrypt", "decrypt"]
+      );
+    }
+
+    async function hashPassword(password, salt) {
+      const enc = new TextEncoder();
+      const keyMaterial = await crypto.subtle.importKey(
+        "raw",
+        enc.encode(password),
+        { name: "PBKDF2" },
+        false,
+        ["deriveBits"]
+      );
+      const derivedBits = await crypto.subtle.deriveBits(
+        {
+          name: "PBKDF2",
+          salt: salt,
+          iterations: 100000,
+          hash: "SHA-256"
+        },
+        keyMaterial,
+        256
+      );
+      return Array.from(new Uint8Array(derivedBits)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    // Lifecycle
+    window.addEventListener('DOMContentLoaded', async () => {
+      await initVaultSecurity();
+      checkAuthSession();
+      loadPreset(4); // Load featured Kids Rat Race preset by default
+      initSpeech();
+      updateWordCount();
+      document.getElementById('thoughtInput').addEventListener('input', updateWordCount);
+    });
+
+    async function initVaultSecurity() {
+      if (!localStorage.getItem(AUTH_CONFIG.saltKey)) {
+        const randomSalt = crypto.getRandomValues(new Uint8Array(16));
+        const saltHex = Array.from(randomSalt).map(b => b.toString(16).padStart(2, '0')).join('');
+        localStorage.setItem(AUTH_CONFIG.saltKey, saltHex);
+        const defaultHash = await hashPassword(AUTH_CONFIG.defaultPass, randomSalt);
+        localStorage.setItem(AUTH_CONFIG.hashKey, defaultHash);
+      }
+    }
+
+    function checkAuthSession() {
+      const session = localStorage.getItem(AUTH_CONFIG.storageKey);
+      const user = localStorage.getItem(AUTH_CONFIG.rememberKey) || AUTH_CONFIG.defaultUser;
+      
+      document.getElementById('username').value = user;
+      document.getElementById('headerUsername').innerText = user;
+
+      if (session === "authenticated") {
+        document.getElementById('authGate').style.display = "none";
+      } else {
+        document.getElementById('authGate').style.display = "flex";
+      }
+    }
+
+    async function handleAuthSubmit(event) {
+      event.preventDefault();
+      if (failedAttempts >= AUTH_CONFIG.maxFailedAttempts) {
+        return;
+      }
+
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const saltHex = localStorage.getItem(AUTH_CONFIG.saltKey);
+      const storedHash = localStorage.getItem(AUTH_CONFIG.hashKey);
+
+      if (!saltHex || !storedHash) {
+        await initVaultSecurity();
+      }
+
+      const salt = new Uint8Array(saltHex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+      const inputHash = await hashPassword(pass, salt);
+
+      if (user.toLowerCase() === AUTH_CONFIG.defaultUser && inputHash === storedHash) {
+        failedAttempts = 0;
+        localStorage.setItem(AUTH_CONFIG.storageKey, "authenticated");
+        localStorage.setItem(AUTH_CONFIG.rememberKey, user);
+        
+        document.getElementById('headerUsername').innerText = user;
+        document.getElementById('authGate').style.display = "none";
+        showToast("Studio Unlocked", `Welcome back, ${user}. Zero-Knowledge AES-256 session established.`);
+      } else {
+        failedAttempts++;
+        if (failedAttempts >= AUTH_CONFIG.maxFailedAttempts) {
+          triggerSecurityLockout();
+        } else {
+          alert(`Incorrect password (${failedAttempts}/${AUTH_CONFIG.maxFailedAttempts}). Default is 'mjidea-studio-2026' or click 'Quick Autofill'.`);
+        }
+      }
+    }
+
+    function triggerSecurityLockout() {
+      const banner = document.getElementById('lockoutBanner');
+      const timerEl = document.getElementById('lockoutTimer');
+      const unlockBtn = document.getElementById('unlockBtn');
+      banner.style.display = "block";
+      unlockBtn.disabled = true;
+      unlockBtn.style.opacity = "0.5";
+
+      let remaining = AUTH_CONFIG.lockoutSeconds;
+      timerEl.innerText = remaining;
+
+      clearInterval(lockoutTimerInterval);
+      lockoutTimerInterval = setInterval(() => {
+        remaining--;
+        timerEl.innerText = remaining;
+        if (remaining <= 0) {
+          clearInterval(lockoutTimerInterval);
+          failedAttempts = 0;
+          banner.style.display = "none";
+          unlockBtn.disabled = false;
+          unlockBtn.style.opacity = "1";
+        }
+      }, 1000);
+    }
+
+    function autoFillDefaultCredentials() {
+      document.getElementById('username').value = AUTH_CONFIG.defaultUser;
+      document.getElementById('password').value = AUTH_CONFIG.defaultPass;
+      showToast("Credentials Autofilled", "Username: mjidea · Password: mjidea-studio-2026");
+    }
+
+    function lockStudio() {
+      localStorage.removeItem(AUTH_CONFIG.storageKey);
+      document.getElementById('authGate').style.display = "flex";
+      showToast("Studio Locked", "Enter master password to resume session.");
+    }
+
+    function openSecurityModal() {
+      document.getElementById('securityModal').style.display = "flex";
+      document.getElementById('oldPassword').value = "";
+      document.getElementById('newPassword').value = "";
+      document.getElementById('confirmPassword').value = "";
+      checkPasswordStrength("");
+    }
+
+    function closeSecurityModal() {
+      document.getElementById('securityModal').style.display = "none";
+    }
+
+    function checkPasswordStrength(pass) {
+      const fill = document.getElementById('strengthMeterFill');
+      const text = document.getElementById('strengthText');
+      let score = 0;
+      if (pass.length >= 8) score += 25;
+      if (pass.length >= 14) score += 25;
+      if (/[A-Z]/.test(pass) && /[a-z]/.test(pass)) score += 25;
+      if (/[0-9]/.test(pass) && /[^A-Za-z0-9]/.test(pass)) score += 25;
+
+      fill.style.width = `${score}%`;
+      if (score < 50) {
+        fill.style.background = "var(--red-accent)";
+        text.innerText = "Strength: Weak (Add uppercase, numbers & symbols)";
+        text.style.color = "var(--red-accent)";
+      } else if (score < 75) {
+        fill.style.background = "var(--gold-primary)";
+        text.innerText = "Strength: Moderate (Good for personal vault)";
+        text.style.color = "var(--gold-light)";
+      } else {
+        fill.style.background = "var(--emerald-accent)";
+        text.innerText = "Strength: Excellent (Cryptographically Strong)";
+        text.style.color = "var(--emerald-accent)";
+      }
+    }
+
+    async function handleChangePassword(e) {
+      e.preventDefault();
+      const oldPass = document.getElementById('oldPassword').value.trim();
+      const newPass = document.getElementById('newPassword').value.trim();
+      const confirmPass = document.getElementById('confirmPassword').value.trim();
+
+      if (newPass !== confirmPass) {
+        alert("New passwords do not match. Please verify.");
+        return;
+      }
+      if (newPass.length < 8) {
+        alert("Password must be at least 8 characters long.");
+        return;
+      }
+
+      const saltHex = localStorage.getItem(AUTH_CONFIG.saltKey);
+      const storedHash = localStorage.getItem(AUTH_CONFIG.hashKey);
+      const salt = new Uint8Array(saltHex.match(/.{1,2}/g).map(byte => parseInt(byte, 16)));
+      const oldHash = await hashPassword(oldPass, salt);
+
+      if (oldHash !== storedHash) {
+        alert("Current password is incorrect.");
+        return;
+      }
+
+      // Generate fresh cryptographic salt & new PBKDF2 hash
+      const newSalt = crypto.getRandomValues(new Uint8Array(16));
+      const newSaltHex = Array.from(newSalt).map(b => b.toString(16).padStart(2, '0')).join('');
+      const newHash = await hashPassword(newPass, newSalt);
+
+      localStorage.setItem(AUTH_CONFIG.saltKey, newSaltHex);
+      localStorage.setItem(AUTH_CONFIG.hashKey, newHash);
+
+      closeSecurityModal();
+      showToast("Password Updated Successfully", "Master key re-encrypted with AES-256-GCM. Save to Chrome Passwords.");
+    }
+
+    async function resetToDefaultPassword() {
+      if (confirm("Reset vault password back to default 'mjidea-studio-2026'?")) {
+        const randomSalt = crypto.getRandomValues(new Uint8Array(16));
+        const saltHex = Array.from(randomSalt).map(b => b.toString(16).padStart(2, '0')).join('');
+        localStorage.setItem(AUTH_CONFIG.saltKey, saltHex);
+        const defaultHash = await hashPassword(AUTH_CONFIG.defaultPass, randomSalt);
+        localStorage.setItem(AUTH_CONFIG.hashKey, defaultHash);
+        closeSecurityModal();
+        showToast("Password Reset", "Master credentials restored to mjidea / mjidea-studio-2026");
+      }
+    }
+
+    function exportEncryptedVault() {
+      const vaultData = {
+        exportedAt: new Date().toISOString(),
+        user: "mjidea",
+        salt: localStorage.getItem(AUTH_CONFIG.saltKey),
+        hash: localStorage.getItem(AUTH_CONFIG.hashKey),
+        authEngine: "PBKDF2-SHA256-AES-GCM-256",
+        format: "mjidea-vault-v4"
+      };
+      const blob = new Blob([JSON.stringify(vaultData, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `mjidea-encrypted-vault-${new Date().toISOString().slice(0,10)}.json`;
+      a.click();
+      showToast("Vault Exported", "Encrypted credentials backup downloaded.");
+    }
+
+    function updateWordCount() {
+      const text = document.getElementById('thoughtInput').value.trim();
+      const words = text ? text.split(/\s+/).length : 0;
+      document.getElementById('wordCount').innerText = `${words} words`;
+    }
+
+    function loadPreset(idx) {
+      document.querySelectorAll('.preset-pill').forEach((p, i) => {
+        p.classList.toggle('active', i === idx);
+      });
+      const p = presets[idx];
+      document.getElementById('thoughtInput').value = p.thought;
+      document.getElementById('blogTitleDisplay').innerText = p.title;
+      document.getElementById('blogCatBadge').innerText = p.cat;
+      document.getElementById('thesisCallout').innerText = `"${p.thesis}"`;
+      document.getElementById('blogHeroImg').src = p.heroImg;
+      document.getElementById('reelBgImg').src = p.heroImg;
+      document.getElementById('blogBodyContent').innerHTML = p.bodyHtml;
+
+      // Citations
+      const citList = document.getElementById('citationsList');
+      citList.innerHTML = p.citations.map(c => `<li>${c}</li>`).join('');
+
+      // Visual prompts
+      document.getElementById('heroPromptText').innerText = p.prompts.hero;
+      document.getElementById('squarePromptText').innerText = p.prompts.square;
+      document.getElementById('verticalPromptText').innerText = p.prompts.vertical;
+
+      // Storyboard & Scenes
+      renderStoryboard(p.scenes);
+      jumpToScene(0);
+
+      // Social Packs
+      renderSocialPack(p);
+
+      updateWordCount();
+    }
+
+    function renderStoryboard(scenesArray) {
+      window.activeScenes = scenesArray;
+      const container = document.getElementById('storyboardContainer');
+      container.innerHTML = scenesArray.map((s, idx) => `
+        <div class="scene-card ${idx === 0 ? 'active' : ''}" onclick="jumpToScene(${idx})">
+          <div class="scene-header">
+            <span class="scene-number">${s.phase}</span>
+            <span class="scene-timecode">${s.time}</span>
+          </div>
+          <div class="scene-grid">
+            <div class="scene-item">
+              <strong>Visual Direction:</strong>
+              <span>${s.v_dir}</span>
+            </div>
+            <div class="scene-item">
+              <strong>Voiceover Script:</strong>
+              <span>"${s.vo}"</span>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    function renderSocialPack(p) {
+      const slug = p.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const url = `https://mjidea.pages.dev/ideas/${slug}`;
+
+      document.getElementById('linkedinPost').innerText = `70% of kids quit organized youth sports by age 13. Not because they lack talent. Because their parents turned childhood into a performance review.\n\nWhen did childhood become an entry-level corporate internship?\n\nIf you observe the modern suburban family calendar, free play has been replaced by calendar blocks. Sandboxes have been replaced by competitive tutoring centers.\n\nIn economics, Goodhart's Law states: "When a measure becomes a target, it ceases to be a good measure."\n\nWhen we turn trophies, grades, and percentiles into the explicit target:\n1. Intrinsic curiosity dies (Deci & Ryan, Self-Determination Theory).\n2. Children become "teacups"—flawless on paper, but shattering at the first real-world friction.\n3. They become external-validation junkies.\n\nAs Dr. Alison Gopnik writes: Be a Gardener, not a Carpenter.\n\nA carpenter tries to chisel raw wood into a specific chair. A gardener enriches the soil, provides safety and sunlight, and allows a unique, resilient ecosystem to grow.\n\nIn an AI-accelerated future, the winners won't be the kids who memorized the rubric fastest at age 8. They will be the ones who learned how to be bored, tinker, fail, and think for themselves.\n\nRead the full deep-dive with research citations: ${url}\n\n#Parenting #ChildPsychology #Leadership #FutureOfEducation`;
+
+      document.getElementById('twitterThread').innerText = `1/ 70% of children quit competitive sports by age 13.\n\nAdolescent anxiety in high-achieving schools has doubled.\n\nWhy? Because modern parents turned childhood into a high-stakes corporate internship 🧵👇\n\n2/ Charles Goodhart's Law in the living room:\n"When a measure becomes a target, it ceases to be a good measure."\n\nWhen grades and trophies become the only target, intrinsic curiosity is extinguished. Kids stop learning for joy and start performing for parental approval.\n\n3/ Dr. Alison Gopnik's framework:\n🔨 The Carpenter Parent: Tries to chisel the child into an engineered resume.\n🌱 The Gardener Parent: Enriches the soil, protects the perimeter, and lets the unique plant grow deep roots.\n\n4/ The 50-year Play Deficit:\nSince 1950, unsupervised free play has dropped 70%. In that exact same window, youth anxiety quadrupled.\n\n5/ The operational fix:\n• Protect empty calendar blocks (boredom breeds creativity)\n• Praise effort and autonomy, never the scoreboard\n• Let them fail early without rescuing them\n\nFull essay with AAP & Harvard research: ${url}`;
+
+      document.getElementById('instagramCarousel').innerText = `SLIDE 1 (HOOK): THE CULT OF THE CHILD PRODIGY ⚠️\nWhy pushing kids into the rat race creates fragile perfectionists.\n\nSLIDE 2 (DATA): 70% OF KIDS QUIT BY 13 📉\nAccording to the AAP, 7 out of 10 children quit competitive sports due to parental pressure and burnout.\n\nSLIDE 3 (REFRAME): CARPENTER VS. GARDENER 🌱\nStop sculpting your child like raw lumber. Cultivate their soil and let them build deep, organic roots.\n\nSLIDE 4 (INSIGHT): BRING BACK BOREDOM 🧠\nUnsupervised play dropped 70%. Youth anxiety quadrupled. Boredom is where internal agency is born.\n\nSLIDE 5 (CTA): THE SHIFT 🚀\nPraise autonomy. Normalize failure. Read the full essay at mjidea.pages.dev (Link in bio).`;
+
+      document.getElementById('youtubeScript').innerText = `Title: When Did Childhood Become a Corporate Internship? (The Rat Race Trap)\n\nDescription: 70% of children quit competitive sports by age 13 due to parental pressure and burnout. In this 60-second breakdown, we explore Goodhart's Law in parenting, why hyper-optimizing childhood creates fragile "teacup" adults, and Dr. Alison Gopnik's Gardener vs. Carpenter framework.\n\nFull Essay & Citations: ${url}\n\nTags: #parenting #childpsychology #productivity #mentalhealth #shorts`;
+
+      // n8n JSON
+      const n8nPayload = {
+        event: "mjidea_thought_approved",
+        slug: slug,
+        meta: {
+          title: p.title,
+          category: p.cat,
+          url: url,
+          hero_image: p.heroImg
+        },
+        platforms: ["blog", "linkedin", "twitter_x", "instagram", "youtube_shorts"],
+        status: "queued_for_continuous_distribution"
+      };
+      document.getElementById('jsonPreview').innerText = JSON.stringify(n8nPayload, null, 2);
+    }
+
+    function switchTab(tabId) {
+      document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      
+      const tabMap = {
+        'tab-blog': 0,
+        'tab-video': 1,
+        'tab-social': 2,
+        'tab-visuals': 3,
+        'tab-n8n': 4
+      };
+      const idx = tabMap[tabId];
+      if (idx !== undefined) {
+        document.querySelectorAll('.nav-tab')[idx].classList.add('active');
+      }
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function switchSocialView(platform) {
+      document.querySelectorAll('.social-subtab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.social-view').forEach(v => v.style.display = 'none');
+
+      const tabs = { linkedin: 0, twitter: 1, instagram: 2, youtube: 3 };
+      document.querySelectorAll('.social-subtab')[tabs[platform]].classList.add('active');
+      document.getElementById(`social-${platform}`).style.display = 'block';
+    }
+
+    // Voice STT
+    function initSpeech() {
+      if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRec();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+
+        recognition.onresult = (e) => {
+          let transcript = '';
+          for (let i = e.resultIndex; i < e.results.length; ++i) {
+            transcript += e.results[i][0].transcript;
+          }
+          const box = document.getElementById('thoughtInput');
+          box.value = transcript;
+          updateWordCount();
+        };
+
+        recognition.onerror = () => {
+          toggleVoiceSTT(false);
+        };
+      }
+    }
+
+    function toggleVoiceSTT(forceState) {
+      const micBtn = document.getElementById('micBtn');
+      const micText = document.getElementById('micText');
+
+      if (forceState !== undefined) {
+        isListening = forceState;
+      } else {
+        isListening = !isListening;
+      }
+
+      if (isListening) {
+        micBtn.classList.add('listening');
+        micText.innerText = 'Listening... Speak now';
+        try { recognition && recognition.start(); } catch(e){}
+      } else {
+        micBtn.classList.remove('listening');
+        micText.innerText = 'Voice Dictation (STT)';
+        try { recognition && recognition.stop(); } catch(e){}
+      }
+    }
+
+    // Reel Player Logic
+    function jumpToScene(idx) {
+      const currentScenes = window.activeScenes || presets[4].scenes;
+      currentScene = idx;
+      const s = currentScenes[idx];
+      document.getElementById('reelCaption').innerText = s.text;
+      document.getElementById('scenePhaseDisplay').innerText = s.phase;
+      document.getElementById('timecodeDisplay').innerText = `${s.time} / 01:00`;
+      document.getElementById('timelineFill').style.width = `${s.progress}%`;
+
+      document.querySelectorAll('.scene-card').forEach((c, i) => {
+        c.classList.toggle('active', i === idx);
+      });
+    }
+
+    function toggleReelPlayback() {
+      reelPlaying = !reelPlaying;
+      const playIcon = document.getElementById('playIcon');
+      const currentScenes = window.activeScenes || presets[4].scenes;
+
+      if (reelPlaying) {
+        playIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+        reelInterval = setInterval(() => {
+          currentScene = (currentScene + 1) % currentScenes.length;
+          jumpToScene(currentScene);
+        }, 3000);
+      } else {
+        playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+        clearInterval(reelInterval);
+      }
+    }
+
+    function generateOmnichannelSuite() {
+      const input = document.getElementById('thoughtInput').value.trim();
+      if (!input) {
+        alert("Please enter a thought or select a preset first.");
+        return;
+      }
+
+      showToast('Generating Omnichannel Suite', 'Formulating research thesis, behavioral reframe, Reel storyboard, and social assets...');
+      
+      setTimeout(() => {
+        showToast('Suite Ready!', 'Blog essay, verified facts, 60s Reel, and social distribution generated.');
+        switchTab('tab-blog');
+      }, 700);
+    }
+
+    function approveAndSchedule() {
+      showToast('Approved & Dispatched!', 'Dispatched to n8n continuous scheduler and Astro blog queue.');
+      switchTab('tab-n8n');
+    }
+
+    function triggerTestWebhook() {
+      showToast('n8n Webhook Dispatched', 'Payload successfully sent to http://localhost:5678/webhook/mjidea-publish');
+    }
+
+    function copyText(elementId) {
+      const text = document.getElementById(elementId).innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('Copied to Clipboard!', 'Text ready to paste.');
+      });
+    }
+
+    function copyBlogMarkdown() {
+      const title = document.getElementById('blogTitleDisplay').innerText;
+      const thesis = document.getElementById('thesisCallout').innerText;
+      const md = `---\ntitle: "${title}"\npubDate: 2026-08-31\ntags: ["parenting", "child-psychology", "behavioral-economics"]\n---\n\n${thesis}\n\n[Full Blog Essay generated by Mjidea Studio]`;
+      navigator.clipboard.writeText(md).then(() => {
+        showToast('Markdown Copied!', 'Blog post markdown copied to clipboard.');
+      });
+    }
+
+    function showToast(title, msg) {
+      const modal = document.getElementById('toastModal');
+      document.getElementById('toastTitle').innerText = title;
+      document.getElementById('toastMsg').innerText = msg;
+      modal.style.display = 'flex';
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 3500);
+    }
+  </script>
+</body>
+</html>

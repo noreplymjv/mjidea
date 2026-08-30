@@ -2,34 +2,69 @@
 import Base from '../layouts/Base.astro';
 import { getCollection } from 'astro:content';
 
-const posts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 const count = posts.length;
 const base = import.meta.env.BASE_URL;
+
+const cats = ['humanity', 'parenting', 'financial', 'life'] as const;
+const featured = cats.flatMap((cat) =>
+  posts.filter((p) => p.data.category === cat).slice(0, 2),
+).slice(0, 8);
+
+const fallback = featured.length ? featured : posts.slice(0, 8);
 ---
 
 <Base
   title="Mjidea"
-  description="500+ essays on human problems and workable solutions — behavioral thinking, human voice."
+  description="World-class essays by Mayank Jain on humanity, parenting, money, and life — researched, human, approval-gated."
 >
   <section class="hero hero-home">
+    <p class="hero-kicker">Mayank Jain · Philosophy for living</p>
     <h1 class="hero-brand">Mjidea</h1>
     <p class="lede">
-      A library of human problems and workable doors — for society, and for the generations inheriting the defaults.
+      Hard problems. Real data. Human language. A library built to think with — not scroll past.
     </p>
     <div class="cta-row">
-      <a class="btn" href={`${base}ideas/`}>Browse {count} ideas</a>
-      <a class="btn btn-ghost" href={`${base}issues/current/`}>Current issues</a>
+      <a class="btn" href={`${base}ideas/`}>Enter the library</a>
+      <a class="btn btn-ghost" href={`${base}design-lab/`}>Try 12 styles</a>
     </div>
   </section>
 
-  <section class="home-strip" aria-label="Where to go">
-    <a class="strip-link" href={`${base}ideas/`}>
-      <span class="strip-label">Library</span>
-      <span class="strip-title">{count} essays — search, filter, read</span>
+  <section class="featured-rail" aria-label="Featured essays">
+    <h2>{count} essays · featured now</h2>
+    <div class="featured-grid">
+      {
+        fallback.map((p) => (
+          <a class="featured-link" href={`${base}ideas/${p.id}/`}>
+            <span class="featured-cat">{p.data.category ?? 'essay'}</span>
+            <span>
+              <strong>{p.data.title}</strong>
+              <span>{p.data.description}</span>
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="home-strip" aria-label="Browse by life domain">
+    <a class="strip-link" href={`${base}ideas/?cat=humanity`}>
+      <span class="strip-label">Humanity</span>
+      <span class="strip-title">Loneliness, climate, trust, the shared condition</span>
     </a>
-    <a class="strip-link" href={`${base}issues/`}>
-      <span class="strip-label">Seeds</span>
-      <span class="strip-title">Current &amp; future issues to expand</span>
+    <a class="strip-link" href={`${base}ideas/?cat=parenting`}>
+      <span class="strip-label">Parenting</span>
+      <span class="strip-title">Screens, care work, attention between generations</span>
+    </a>
+    <a class="strip-link" href={`${base}ideas/?cat=financial`}>
+      <span class="strip-label">Financial</span>
+      <span class="strip-title">Housing, hunger, debt, the cost of a life</span>
+    </a>
+    <a class="strip-link" href={`${base}ideas/?cat=life`}>
+      <span class="strip-label">Life</span>
+      <span class="strip-title">Sleep, body, work heat, the quiet daily stakes</span>
     </a>
   </section>
 </Base>

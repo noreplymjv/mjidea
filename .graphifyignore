@@ -1,0 +1,20 @@
+.git/
+node_modules/
+build/
+.dart_tool/
+.portable-sdk/
+android-sdk/
+caches/
+_DELETED-pending-review/
+H1 Rescue/
+miscfiles/
+from-DATA/
+*.zip
+*.tar.gz
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.db
+*.sqlite
+*.log

@@ -1,4 +1,5 @@
 ---
+import '../styles/themes.css';
 import '../styles/global.css';
 
 interface Props {
@@ -10,14 +11,14 @@ interface Props {
 
 const {
   title,
-  description = 'Ideas and philosophy from Mj — written to think with, not scroll past.',
+  description = 'Ideas and philosophy from Mayank Jain — written to think with, not scroll past.',
   canonical,
   ogType = 'website',
 } = Astro.props;
 
 const siteName = 'Mjidea';
 const fullTitle = title === siteName ? title : `${title} · ${siteName}`;
-const base = import.meta.env.BASE_URL; // always ends with /
+const base = import.meta.env.BASE_URL;
 const canonicalURL = canonical
   ? new URL(canonical, Astro.site)
   : new URL(Astro.url.pathname, Astro.site);
@@ -26,10 +27,11 @@ const path = Astro.url.pathname;
 const onIdeas = path.includes('/ideas');
 const onIssues = path.includes('/issues');
 const onAbout = path.includes('/about');
+const onDesign = path.includes('/design-lab');
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="obsidian">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -51,14 +53,27 @@ const onAbout = path.includes('/about');
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=DM+Sans:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem('mjidea-theme');
+          if (t) document.documentElement.setAttribute('data-theme', t);
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
+    <div class="atmosphere" aria-hidden="true"></div>
     <header class="site-header">
       <a class="brand" href={base}>Mjidea</a>
       <nav aria-label="Primary">
-        <a href={`${base}ideas/`} aria-current={onIdeas ? 'page' : undefined}>Ideas</a>
-        <a href={`${base}issues/`} aria-current={onIssues ? 'page' : undefined}>Issues</a>
+        <a href={`${base}ideas/`} aria-current={onIdeas ? 'page' : undefined}>Blog</a>
+        <a href={`${base}ideas/?cat=humanity`}>Humanity</a>
+        <a href={`${base}ideas/?cat=parenting`}>Parenting</a>
+        <a href={`${base}ideas/?cat=financial`}>Money</a>
+        <a href={`${base}ideas/?cat=life`}>Life</a>
+        <a href={`${base}design-lab/`} aria-current={onDesign ? 'page' : undefined}>Styles</a>
         <a href={`${base}about/`} aria-current={onAbout ? 'page' : undefined}>About</a>
       </nav>
     </header>
@@ -66,11 +81,13 @@ const onAbout = path.includes('/about');
       <slot />
     </main>
     <footer class="site-footer">
-      <p>Mjidea — ideas before they become noise.</p>
+      <p class="footer-brand">Mjidea</p>
+      <p>Essays by Mayank Jain — human problems, workable doors.</p>
       <p class="footer-links">
-        <a href={`${base}ideas/`}>Ideas</a>
-        <a href={`${base}issues/current/`}>Current issues</a>
-        <a href={`${base}issues/future/`}>Future issues</a>
+        <a href={`${base}ideas/`}>Blog</a>
+        <a href={`${base}design-lab/`}>12 styles</a>
+        <a href={`${base}issues/`}>Seeds</a>
+        <a href={`${base}about/`}>About</a>
       </p>
     </footer>
   </body>

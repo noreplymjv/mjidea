@@ -1,0 +1,2683 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {},
+  "nodes": [
+    {
+      "id": "site_src_data_issues_issue",
+      "label": "Issue",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "issue",
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L3"
+    },
+    {
+      "id": "site_src_pages_ideas_slug_getstaticpaths",
+      "label": "getStaticPaths()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "getstaticpaths()",
+      "source_file": "site/src/pages/ideas/[slug].astro",
+      "source_location": "L5"
+    },
+    {
+      "id": "site_src_components_addidea_buildmarkdown",
+      "label": "buildMarkdown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "buildmarkdown()",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L73"
+    },
+    {
+      "id": "site_src_components_addidea_setstatus",
+      "label": "setStatus()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "setstatus()",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L114"
+    },
+    {
+      "id": "site_src_components_addidea_slugify",
+      "label": "slugify()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "slugify()",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L63"
+    },
+    {
+      "id": "pipeline_generate_library_esc",
+      "label": "esc()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "esc()",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L43"
+    },
+    {
+      "id": "pipeline_generate_library_essay",
+      "label": "essay()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "essay()",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L51"
+    },
+    {
+      "id": "pipeline_generate_library_main",
+      "label": "main()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "main()",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L125"
+    },
+    {
+      "id": "pipeline_generate_library_para",
+      "label": "para()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "para()",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L47"
+    },
+    {
+      "id": "pipeline_generate_mj_top20_libraries_run_block",
+      "label": "run_block()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "run_block()",
+      "source_file": "pipeline/generate-mj-top20-libraries.py",
+      "source_location": "L497"
+    },
+    {
+      "id": "pipeline_generate_mj_top20_libraries_write_essay",
+      "label": "write_essay()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "write_essay()",
+      "source_file": "pipeline/generate-mj-top20-libraries.py",
+      "source_location": "L51"
+    },
+    {
+      "id": "astro_content",
+      "label": "astro:content",
+      "_origin": "ast",
+      "community": 0,
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "astro:content",
+      "source_file": "astro:content"
+    },
+    {
+      "id": "site_src_layouts_base",
+      "label": "Base.astro",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "base.astro",
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_layouts_base_onabout",
+      "label": "onAbout",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "onabout",
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L29"
+    },
+    {
+      "id": "site_src_layouts_base_ondesign",
+      "label": "onDesign",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "ondesign",
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L30"
+    },
+    {
+      "id": "site_src_layouts_base_onideas",
+      "label": "onIdeas",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "onideas",
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L27"
+    },
+    {
+      "id": "site_src_layouts_base_onissues",
+      "label": "onIssues",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "onissues",
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L28"
+    },
+    {
+      "id": "site_src_pages_about",
+      "label": "about.astro",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "about.astro",
+      "source_file": "site/src/pages/about.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_pages_design_lab_index",
+      "label": "design-lab/index.astro",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "design-lab/index.astro",
+      "source_file": "site/src/pages/design-lab/index.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_pages_design_lab_index_themes",
+      "label": "themes",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "themes",
+      "source_file": "site/src/pages/design-lab/index.astro",
+      "source_location": "L6"
+    },
+    {
+      "id": "site_src_pages_ideas_index",
+      "label": "ideas/index.astro",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "ideas/index.astro",
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_pages_ideas_index_categories",
+      "label": "categories",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "categories",
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L31"
+    },
+    {
+      "id": "site_src_pages_ideas_index_posts",
+      "label": "posts",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "posts",
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L5"
+    },
+    {
+      "id": "site_src_pages_ideas_index_searchitems",
+      "label": "searchItems",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "searchitems",
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L36"
+    },
+    {
+      "id": "site_src_pages_ideas_index_string",
+      "label": "string",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "string",
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L9"
+    },
+    {
+      "id": "site_src_pages_ideas_slug",
+      "label": "[slug].astro",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "[slug].astro",
+      "source_file": "site/src/pages/ideas/[slug].astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_pages_index",
+      "label": "pages/index.astro",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "pages/index.astro",
+      "source_file": "site/src/pages/index.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_pages_index_cats",
+      "label": "cats",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "cats",
+      "source_file": "site/src/pages/index.astro",
+      "source_location": "L11"
+    },
+    {
+      "id": "site_src_pages_index_featured",
+      "label": "featured",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "featured",
+      "source_file": "site/src/pages/index.astro",
+      "source_location": "L12"
+    },
+    {
+      "id": "site_src_pages_index_posts",
+      "label": "posts",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "posts",
+      "source_file": "site/src/pages/index.astro",
+      "source_location": "L5"
+    },
+    {
+      "id": "site_src_pages_issues_index",
+      "label": "issues/index.astro",
+      "_origin": "ast",
+      "community": 0,
+      "file_type": "code",
+      "norm_label": "issues/index.astro",
+      "source_file": "site/src/pages/issues/index.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_approve",
+      "label": "approve.sh",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "approve.sh",
+      "source_file": "pipeline/approve.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_approve_sh__entry",
+      "label": "approve.sh script",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "approve.sh script",
+      "source_file": "pipeline/approve.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_complete_pending",
+      "label": "complete-pending.sh",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "complete-pending.sh",
+      "source_file": "pipeline/complete-pending.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_complete_pending_sh__entry",
+      "label": "complete-pending.sh script",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "complete-pending.sh script",
+      "source_file": "pipeline/complete-pending.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_execute",
+      "label": "execute.sh",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "execute.sh",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_execute_execute_one",
+      "label": "execute_one()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "execute_one()",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L36"
+    },
+    {
+      "id": "pipeline_execute_sh__entry",
+      "label": "execute.sh script",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "execute.sh script",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_execute_usage",
+      "label": "usage()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "usage()",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L13"
+    },
+    {
+      "id": "pipeline_lib_common",
+      "label": "common.sh",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "common.sh",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_lib_common_mjidea_resolve_source",
+      "label": "mjidea_resolve_source()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "mjidea_resolve_source()",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L176"
+    },
+    {
+      "id": "pipeline_lib_common_mjidea_root",
+      "label": "mjidea_root()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "mjidea_root()",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L5"
+    },
+    {
+      "id": "pipeline_lib_common_mjidea_route_topic",
+      "label": "mjidea_route_topic()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "mjidea_route_topic()",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L19"
+    },
+    {
+      "id": "pipeline_lib_common_mjidea_slugify",
+      "label": "mjidea_slugify()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "mjidea_slugify()",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L9"
+    },
+    {
+      "id": "pipeline_lib_common_mjidea_squad_for_topic",
+      "label": "mjidea_squad_for_topic()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "mjidea_squad_for_topic()",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L55"
+    },
+    {
+      "id": "pipeline_lib_common_score_topic",
+      "label": "score_topic()",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "score_topic()",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L25"
+    },
+    {
+      "id": "pipeline_lib_common_sh__entry",
+      "label": "common.sh script",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "common.sh script",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_reject",
+      "label": "reject.sh",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "reject.sh",
+      "source_file": "pipeline/reject.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_reject_sh__entry",
+      "label": "reject.sh script",
+      "_origin": "ast",
+      "community": 1,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "reject.sh script",
+      "source_file": "pipeline/reject.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_ceo_idea",
+      "label": "ceo-idea.sh",
+      "_origin": "ast",
+      "community": 10,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "ceo-idea.sh",
+      "source_file": "pipeline/ceo-idea.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_ceo_idea_sh__entry",
+      "label": "ceo-idea.sh script",
+      "_origin": "ast",
+      "community": 10,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "ceo-idea.sh script",
+      "source_file": "pipeline/ceo-idea.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_pack_for_external",
+      "label": "pack-for-external.sh",
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "pack-for-external.sh",
+      "source_file": "pipeline/pack-for-external.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_pack_for_external_sh__entry",
+      "label": "pack-for-external.sh script",
+      "_origin": "ast",
+      "community": 11,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "pack-for-external.sh script",
+      "source_file": "pipeline/pack-for-external.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_publish_draft",
+      "label": "publish-draft.sh",
+      "_origin": "ast",
+      "community": 12,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "publish-draft.sh",
+      "source_file": "pipeline/publish-draft.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_publish_draft_sh__entry",
+      "label": "publish-draft.sh script",
+      "_origin": "ast",
+      "community": 12,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "publish-draft.sh script",
+      "source_file": "pipeline/publish-draft.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_run_full_cycle",
+      "label": "run-full-cycle.sh",
+      "_origin": "ast",
+      "community": 13,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "run-full-cycle.sh",
+      "source_file": "pipeline/run-full-cycle.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_run_full_cycle_sh__entry",
+      "label": "run-full-cycle.sh script",
+      "_origin": "ast",
+      "community": 13,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "run-full-cycle.sh script",
+      "source_file": "pipeline/run-full-cycle.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_astro_config",
+      "label": "astro.config.mjs",
+      "_origin": "ast",
+      "community": 14,
+      "file_type": "code",
+      "norm_label": "astro.config.mjs",
+      "source_file": "site/astro.config.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_package",
+      "label": "site/package.json",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "site/package.json",
+      "source_file": "site/package.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_package_dependencies",
+      "label": "dependencies",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "dependencies",
+      "source_file": "site/package.json",
+      "source_location": "L14"
+    },
+    {
+      "id": "site_package_dependencies_astro",
+      "label": "astro",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "astro",
+      "source_file": "site/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "site_package_dependencies_astrojs_sitemap",
+      "label": "@astrojs/sitemap",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "@astrojs/sitemap",
+      "source_file": "site/package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "site_package_engines",
+      "label": "engines",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "engines",
+      "source_file": "site/package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "site_package_engines_node",
+      "label": "node",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "node",
+      "source_file": "site/package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "site_package_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "site/package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "site_package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "site/package.json",
+      "source_location": "L8"
+    },
+    {
+      "id": "site_package_scripts_astro",
+      "label": "astro",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "astro",
+      "source_file": "site/package.json",
+      "source_location": "L12"
+    },
+    {
+      "id": "site_package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "site/package.json",
+      "source_location": "L10"
+    },
+    {
+      "id": "site_package_scripts_dev",
+      "label": "dev",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "dev",
+      "source_file": "site/package.json",
+      "source_location": "L9"
+    },
+    {
+      "id": "site_package_scripts_preview",
+      "label": "preview",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "preview",
+      "source_file": "site/package.json",
+      "source_location": "L11"
+    },
+    {
+      "id": "site_package_type",
+      "label": "type",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "type",
+      "source_file": "site/package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "site_package_version",
+      "label": "version",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "code",
+      "norm_label": "version",
+      "source_file": "site/package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "astro",
+      "label": "astro",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "concept",
+      "norm_label": "astro",
+      "source_file": "site/package.json",
+      "source_location": "L16"
+    },
+    {
+      "id": "astrojs_sitemap",
+      "label": "@astrojs/sitemap",
+      "_origin": "ast",
+      "community": 2,
+      "file_type": "concept",
+      "norm_label": "@astrojs/sitemap",
+      "source_file": "site/package.json",
+      "source_location": "L15"
+    },
+    {
+      "id": "site_src_components_addidea",
+      "label": "AddIdea.astro",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "addidea.astro",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_components_addidea_bodyel",
+      "label": "bodyEl",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "bodyel",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L109"
+    },
+    {
+      "id": "site_src_components_addidea_copybtn",
+      "label": "copyBtn",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "copybtn",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L112"
+    },
+    {
+      "id": "site_src_components_addidea_dlbtn",
+      "label": "dlBtn",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "dlbtn",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L111"
+    },
+    {
+      "id": "site_src_components_addidea_status",
+      "label": "status",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "status",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L110"
+    },
+    {
+      "id": "site_src_components_addidea_titleel",
+      "label": "titleEl",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "titleel",
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L108"
+    },
+    {
+      "id": "site_src_data_issues",
+      "label": "issues.ts",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "issues.ts",
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_data_issues_currentissues",
+      "label": "currentIssues",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "currentissues",
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L12"
+    },
+    {
+      "id": "site_src_data_issues_futureissues",
+      "label": "futureIssues",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "futureissues",
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L79"
+    },
+    {
+      "id": "site_src_data_issues_inboxseeds",
+      "label": "inboxSeeds",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "inboxseeds",
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L183"
+    },
+    {
+      "id": "site_src_pages_issues_current",
+      "label": "current.astro",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "current.astro",
+      "source_file": "site/src/pages/issues/current.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_pages_issues_future",
+      "label": "future.astro",
+      "_origin": "ast",
+      "community": 3,
+      "file_type": "code",
+      "norm_label": "future.astro",
+      "source_file": "site/src/pages/issues/future.astro",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_generate_library",
+      "label": "generate-library.js",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "generate-library.js",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_generate_library_closes",
+      "label": "closes",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "closes",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L34"
+    },
+    {
+      "id": "pipeline_generate_library_fs",
+      "label": "fs",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "fs",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L6"
+    },
+    {
+      "id": "pipeline_generate_library_limit",
+      "label": "LIMIT",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "limit",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L13"
+    },
+    {
+      "id": "pipeline_generate_library_path",
+      "label": "path",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "path",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L7"
+    },
+    {
+      "id": "pipeline_generate_library_root",
+      "label": "ROOT",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "root",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L9"
+    },
+    {
+      "id": "pipeline_generate_library_scenebits",
+      "label": "sceneBits",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "scenebits",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L25"
+    },
+    {
+      "id": "pipeline_generate_library_stakes",
+      "label": "stakes",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "stakes",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L15"
+    },
+    {
+      "id": "pipeline_generate_library_start",
+      "label": "START",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "start",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L12"
+    },
+    {
+      "id": "pipeline_generate_library_topics",
+      "label": "TOPICS",
+      "_origin": "ast",
+      "community": 4,
+      "file_type": "code",
+      "norm_label": "topics",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L10"
+    },
+    {
+      "id": "site_tsconfig",
+      "label": "tsconfig.json",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "tsconfig.json",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_tsconfig_exclude",
+      "label": "exclude",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "exclude",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "site_tsconfig_extends",
+      "label": "extends",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "extends",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "site_tsconfig_include",
+      "label": "include",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "code",
+      "norm_label": "include",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "ref",
+      "label": "**/*",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "concept",
+      "norm_label": "**/*",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "ref_astro_tsconfigs_strict",
+      "label": "astro/tsconfigs/strict",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "concept",
+      "norm_label": "astro/tsconfigs/strict",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "ref_astro_types_d_ts",
+      "label": ".astro/types.d.ts",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "concept",
+      "norm_label": ".astro/types.d.ts",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "ref_dist",
+      "label": "dist",
+      "_origin": "ast",
+      "community": 5,
+      "file_type": "concept",
+      "norm_label": "dist",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "package",
+      "label": "package.json",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "package.json",
+      "source_file": "package.json",
+      "source_location": "L1"
+    },
+    {
+      "id": "package_name",
+      "label": "name",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "name",
+      "source_file": "package.json",
+      "source_location": "L2"
+    },
+    {
+      "id": "package_private",
+      "label": "private",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "private",
+      "source_file": "package.json",
+      "source_location": "L3"
+    },
+    {
+      "id": "package_scripts",
+      "label": "scripts",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "scripts",
+      "source_file": "package.json",
+      "source_location": "L4"
+    },
+    {
+      "id": "package_scripts_build",
+      "label": "build",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "build",
+      "source_file": "package.json",
+      "source_location": "L5"
+    },
+    {
+      "id": "package_scripts_deploy",
+      "label": "deploy",
+      "_origin": "ast",
+      "community": 6,
+      "file_type": "code",
+      "norm_label": "deploy",
+      "source_file": "package.json",
+      "source_location": "L6"
+    },
+    {
+      "id": "pipeline_generate_mj_top20_libraries",
+      "label": "generate-mj-top20-libraries.py",
+      "_origin": "ast",
+      "community": 7,
+      "file_type": "code",
+      "norm_label": "generate-mj-top20-libraries.py",
+      "source_file": "pipeline/generate-mj-top20-libraries.py",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_smoke_test",
+      "label": "smoke-test.sh",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "file"
+      },
+      "norm_label": "smoke-test.sh",
+      "source_file": "pipeline/smoke-test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "pipeline_smoke_test_ok",
+      "label": "ok()",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_function"
+      },
+      "norm_label": "ok()",
+      "source_file": "pipeline/smoke-test.sh",
+      "source_location": "L8"
+    },
+    {
+      "id": "pipeline_smoke_test_sh__entry",
+      "label": "smoke-test.sh script",
+      "_origin": "ast",
+      "community": 8,
+      "file_type": "code",
+      "metadata": {
+        "language": "bash",
+        "kind": "bash_entrypoint"
+      },
+      "norm_label": "smoke-test.sh script",
+      "source_file": "pipeline/smoke-test.sh",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_content_config",
+      "label": "content.config.ts",
+      "_origin": "ast",
+      "community": 9,
+      "file_type": "code",
+      "norm_label": "content.config.ts",
+      "source_file": "site/src/content.config.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "site_src_content_config_blog",
+      "label": "blog",
+      "_origin": "ast",
+      "community": 9,
+      "file_type": "code",
+      "norm_label": "blog",
+      "source_file": "site/src/content.config.ts",
+      "source_location": "L4"
+    },
+    {
+      "id": "site_src_content_config_collections",
+      "label": "collections",
+      "_origin": "ast",
+      "community": 9,
+      "file_type": "code",
+      "norm_label": "collections",
+      "source_file": "site/src/content.config.ts",
+      "source_location": "L20"
+    }
+  ],
+  "links": [
+    {
+      "source": "pipeline_approve_sh__entry",
+      "target": "pipeline_lib_common_mjidea_slugify",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/approve.sh",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_complete_pending_sh__entry",
+      "target": "pipeline_lib_common_mjidea_slugify",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/complete-pending.sh",
+      "source_location": "L33",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute_execute_one",
+      "target": "pipeline_lib_common_mjidea_resolve_source",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L41",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute_execute_one",
+      "target": "pipeline_lib_common_mjidea_route_topic",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute_execute_one",
+      "target": "pipeline_lib_common_mjidea_squad_for_topic",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute_sh__entry",
+      "target": "pipeline_execute_execute_one",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L192",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute_sh__entry",
+      "target": "pipeline_execute_usage",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library_essay",
+      "target": "pipeline_generate_library_para",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L60",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library_essay",
+      "target": "pipeline_generate_library_esc",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L96",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library_main",
+      "target": "pipeline_generate_library_essay",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L133",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_mj_top20_libraries_run_block",
+      "target": "pipeline_generate_mj_top20_libraries_write_essay",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/generate-mj-top20-libraries.py",
+      "source_location": "L500",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common_mjidea_resolve_source",
+      "target": "pipeline_lib_common_mjidea_slugify",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L206",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_reject_sh__entry",
+      "target": "pipeline_lib_common_mjidea_slugify",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/reject.sh",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_smoke_test_sh__entry",
+      "target": "pipeline_smoke_test_ok",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/smoke-test.sh",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common_mjidea_route_topic",
+      "target": "pipeline_lib_common_score_topic",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "site_tsconfig",
+      "target": "ref_astro_tsconfigs_strict",
+      "relation": "extends",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "site_tsconfig_exclude",
+      "target": "ref_dist",
+      "relation": "extends",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "site_tsconfig_include",
+      "target": "ref",
+      "relation": "extends",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "site_tsconfig_include",
+      "target": "ref_astro_types_d_ts",
+      "relation": "extends",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_dependencies_astro",
+      "target": "astro",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/package.json",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_dependencies_astrojs_sitemap",
+      "target": "astrojs_sitemap",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/package.json",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_issues_current",
+      "target": "site_src_data_issues_currentissues",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/src/pages/issues/current.astro",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_issues_future",
+      "target": "site_src_data_issues_futureissues",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/src/pages/issues/future.astro",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_issues_current",
+      "target": "site_src_components_addidea",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/src/pages/issues/current.astro",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_issues_current",
+      "target": "site_src_data_issues",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/src/pages/issues/current.astro",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_issues_future",
+      "target": "site_src_components_addidea",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/src/pages/issues/future.astro",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_issues_future",
+      "target": "site_src_data_issues",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/src/pages/issues/future.astro",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_issues_index",
+      "target": "site_src_components_addidea",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "site/src/pages/issues/index.astro",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
+      "target": "package_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
+      "target": "package_private",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
+      "target": "package_scripts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_build",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_deploy",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_approve",
+      "target": "pipeline_approve_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/approve.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_ceo_idea",
+      "target": "pipeline_ceo_idea_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/ceo-idea.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_complete_pending",
+      "target": "pipeline_complete_pending_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/complete-pending.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute",
+      "target": "pipeline_execute_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_topics",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_start",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_main",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L125",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_limit",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_stakes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_scenebits",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L25",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_closes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L34",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_esc",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_para",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L47",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_essay",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_fs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_path",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_library",
+      "target": "pipeline_generate_library_root",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-library.js",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_mj_top20_libraries",
+      "target": "pipeline_generate_mj_top20_libraries_run_block",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-mj-top20-libraries.py",
+      "source_location": "L497",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_generate_mj_top20_libraries",
+      "target": "pipeline_generate_mj_top20_libraries_write_essay",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/generate-mj-top20-libraries.py",
+      "source_location": "L51",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common",
+      "target": "pipeline_lib_common_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_pack_for_external",
+      "target": "pipeline_pack_for_external_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/pack-for-external.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_publish_draft",
+      "target": "pipeline_publish_draft_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/publish-draft.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_reject",
+      "target": "pipeline_reject_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/reject.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_run_full_cycle",
+      "target": "pipeline_run_full_cycle_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/run-full-cycle.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_smoke_test",
+      "target": "pipeline_smoke_test_sh__entry",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/smoke-test.sh",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package",
+      "target": "site_package_dependencies",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package",
+      "target": "site_package_name",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package",
+      "target": "site_package_type",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package",
+      "target": "site_package_version",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package",
+      "target": "site_package_engines",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package",
+      "target": "site_package_scripts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_dependencies",
+      "target": "site_package_dependencies_astrojs_sitemap",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_dependencies",
+      "target": "site_package_dependencies_astro",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_engines",
+      "target": "site_package_engines_node",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_scripts",
+      "target": "site_package_scripts_build",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_scripts",
+      "target": "site_package_scripts_preview",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_scripts",
+      "target": "site_package_scripts_astro",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "site_package_scripts",
+      "target": "site_package_scripts_dev",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/package.json",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_titleel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L108",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_bodyel",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_status",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L110",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_dlbtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_copybtn",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L112",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_setstatus",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L114",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_slugify",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L63",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_components_addidea",
+      "target": "site_src_components_addidea_buildmarkdown",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/components/AddIdea.astro",
+      "source_location": "L73",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_content_config",
+      "target": "site_src_content_config_collections",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/content.config.ts",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_content_config",
+      "target": "site_src_content_config_blog",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/content.config.ts",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_data_issues",
+      "target": "site_src_data_issues_currentissues",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_data_issues",
+      "target": "site_src_data_issues_inboxseeds",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L183",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_data_issues",
+      "target": "site_src_data_issues_issue",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_data_issues",
+      "target": "site_src_data_issues_futureissues",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/data/issues.ts",
+      "source_location": "L79",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_layouts_base",
+      "target": "site_src_layouts_base_onideas",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_layouts_base",
+      "target": "site_src_layouts_base_onissues",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_layouts_base",
+      "target": "site_src_layouts_base_onabout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_layouts_base",
+      "target": "site_src_layouts_base_ondesign",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/layouts/Base.astro",
+      "source_location": "L30",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_design_lab_index",
+      "target": "site_src_pages_design_lab_index_themes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/design-lab/index.astro",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_ideas_index",
+      "target": "site_src_pages_ideas_index_categories",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_ideas_index",
+      "target": "site_src_pages_ideas_index_searchitems",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_ideas_index",
+      "target": "site_src_pages_ideas_index_posts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_ideas_index",
+      "target": "site_src_pages_ideas_index_string",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/index.astro",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_ideas_slug",
+      "target": "site_src_pages_ideas_slug_getstaticpaths",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/[slug].astro",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_index",
+      "target": "site_src_pages_index_cats",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/index.astro",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_index",
+      "target": "site_src_pages_index_featured",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/index.astro",
+      "source_location": "L12",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_index",
+      "target": "site_src_pages_index_posts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/index.astro",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "site_tsconfig",
+      "target": "site_tsconfig_extends",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/tsconfig.json",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "site_tsconfig",
+      "target": "site_tsconfig_include",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/tsconfig.json",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "site_tsconfig",
+      "target": "site_tsconfig_exclude",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/tsconfig.json",
+      "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute",
+      "target": "pipeline_execute_usage",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute",
+      "target": "pipeline_execute_execute_one",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L36",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common",
+      "target": "pipeline_lib_common_mjidea_resolve_source",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L176",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common",
+      "target": "pipeline_lib_common_mjidea_route_topic",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common",
+      "target": "pipeline_lib_common_mjidea_root",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common",
+      "target": "pipeline_lib_common_mjidea_squad_for_topic",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_lib_common",
+      "target": "pipeline_lib_common_mjidea_slugify",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/lib/common.sh",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_smoke_test",
+      "target": "pipeline_smoke_test_ok",
+      "relation": "defines",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "pipeline/smoke-test.sh",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "site_src_pages_about",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/about.astro"
+    },
+    {
+      "source": "site_src_pages_design_lab_index",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/design-lab/index.astro"
+    },
+    {
+      "source": "site_src_pages_ideas_index",
+      "target": "astro_content",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/index.astro"
+    },
+    {
+      "source": "site_src_pages_ideas_index",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/index.astro"
+    },
+    {
+      "source": "site_src_pages_ideas_slug",
+      "target": "astro_content",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/[slug].astro"
+    },
+    {
+      "source": "site_src_pages_ideas_slug",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/ideas/[slug].astro"
+    },
+    {
+      "source": "site_src_pages_index",
+      "target": "astro_content",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/index.astro"
+    },
+    {
+      "source": "site_src_pages_index",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/index.astro"
+    },
+    {
+      "source": "site_src_pages_issues_current",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/issues/current.astro"
+    },
+    {
+      "source": "site_src_pages_issues_future",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/issues/future.astro"
+    },
+    {
+      "source": "site_src_pages_issues_index",
+      "target": "site_src_layouts_base",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "site/src/pages/issues/index.astro"
+    },
+    {
+      "source": "pipeline_approve",
+      "target": "pipeline_lib_common",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "context": "import",
+      "source_file": "pipeline/approve.sh",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_complete_pending",
+      "target": "pipeline_lib_common",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "context": "import",
+      "source_file": "pipeline/complete-pending.sh",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_execute",
+      "target": "pipeline_lib_common",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "context": "import",
+      "source_file": "pipeline/execute.sh",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "pipeline_reject",
+      "target": "pipeline_lib_common",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "INFERRED",
+      "confidence_score": 0.55,
+      "context": "import",
+      "source_file": "pipeline/reject.sh",
+      "source_location": "L6",
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "built_at_commit": "b17090560d69e8c317c6a27d6e9bfce55bb4212a"
+}

@@ -1,0 +1,125 @@
+{
+  "name": "Mjidea Thought-to-Omnichannel Auto Publisher",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "mjidea-publish",
+        "options": {}
+      },
+      "id": "1",
+      "name": "Mjidea Webhook Trigger",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "slug",
+              "value": "={{ $json.body.slug }}"
+            },
+            {
+              "name": "title",
+              "value": "={{ $json.body.meta.title }}"
+            },
+            {
+              "name": "blogUrl",
+              "value": "={{ $json.body.meta.url }}"
+            },
+            {
+              "name": "linkedinText",
+              "value": "={{ $json.body.social.linkedin.content }}"
+            },
+            {
+              "name": "tweetHook",
+              "value": "={{ $json.body.social.twitter_x_thread[0].content }}"
+            },
+            {
+              "name": "ytShortTitle",
+              "value": "={{ $json.body.social.youtube_shorts_and_tiktok.title }}"
+            },
+            {
+              "name": "heroImagePrompt",
+              "value": "={{ $json.body.visuals.hero_image_prompt }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "2",
+      "name": "Extract Channel Payloads",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 1,
+      "position": [480, 300]
+    },
+    {
+      "parameters": {
+        "content": "=🚀 **Mjidea New Thought Published!**\n\n**Title:** {{ $node[\"Extract Channel Payloads\"].json[\"title\"] }}\n**Live URL:** {{ $node[\"Extract Channel Payloads\"].json[\"blogUrl\"] }}\n\n**LinkedIn Post Preview:**\n```\n{{ $node[\"Extract Channel Payloads\"].json[\"linkedinText\"].slice(0, 200) }}...\n```\n\n**X / Twitter Hook:**\n{{ $node[\"Extract Channel Payloads\"].json[\"tweetHook\"] }}\n\n**Visual Prompt for Midjourney / Flux:**\n`{{ $node[\"Extract Channel Payloads\"].json[\"heroImagePrompt\"] }}`",
+        "options": {}
+      },
+      "id": "3",
+      "name": "Dispatch Discord / Slack Alert",
+      "type": "n8n-nodes-base.discord",
+      "typeVersion": 1,
+      "position": [720, 180]
+    },
+    {
+      "parameters": {
+        "postText": "={{ $node[\"Extract Channel Payloads\"].json[\"linkedinText\"] }}"
+      },
+      "id": "4",
+      "name": "Auto-Post to LinkedIn",
+      "type": "n8n-nodes-base.linkedIn",
+      "typeVersion": 1,
+      "position": [720, 300]
+    },
+    {
+      "parameters": {
+        "text": "={{ $node[\"Extract Channel Payloads\"].json[\"tweetHook\"] }}\n\nFull essay: {{ $node[\"Extract Channel Payloads\"].json[\"blogUrl\"] }}"
+      },
+      "id": "5",
+      "name": "Auto-Post to X / Twitter",
+      "type": "n8n-nodes-base.twitter",
+      "typeVersion": 1,
+      "position": [720, 420]
+    }
+  ],
+  "connections": {
+    "Mjidea Webhook Trigger": {
+      "main": [
+        [
+          {
+            "node": "Extract Channel Payloads",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Channel Payloads": {
+      "main": [
+        [
+          {
+            "node": "Dispatch Discord / Slack Alert",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Auto-Post to LinkedIn",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Auto-Post to X / Twitter",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {}
+}

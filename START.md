@@ -68,7 +68,10 @@ Research packs, audits, security, SEO, growth, CEO one-pagers → `reports/` (se
 
 ## Fresh agent?
 
-Read **`reports/ceo/2026-08-23-full-handover.md`** — full snapshot, gaps, troubleshooting.
+**Self-bootstrap:** open this folder → read root **`AGENTS.md`** (also `README.md` / `CLAUDE.md`). No special install.
+
+Also: **`HOW-IDEAS-BECOME-BLOGS.md`** · Chrome/other AIs + images: **`HOW-EXTERNAL-AGENTS-AND-IMAGES.md`**.  
+Full handover: **`reports/ceo/2026-08-23-full-handover.md`**.
 
 ## Key files
 

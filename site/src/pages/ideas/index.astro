@@ -7,6 +7,10 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 );
 
 const categoryLabels: Record<string, string> = {
+  humanity: 'Humanity',
+  parenting: 'Parenting',
+  financial: 'Financial',
+  life: 'Life',
   attention: 'Attention & digital life',
   loneliness: 'Loneliness & belonging',
   mental: 'Mental health & pressure',
@@ -52,9 +56,9 @@ const searchItems = posts.map((post) => ({
   description={`Mjidea library — ${posts.length}+ essays on human problems and workable solutions.`}
 >
   <section class="page-intro">
-    <h1>Ideas</h1>
+    <h1>Blog</h1>
     <p class="lede">
-      {posts.length} essays on current human problems and workable doors — written for people, not algorithms.
+      {posts.length} <strong>approved essays</strong> by Mayank Jain — Humanity, Parenting, Financial, Life, and the wider library.
     </p>
     <label class="search-wrap" for="idea-search">
       <span class="sr-only">Search ideas</span>
@@ -142,5 +146,12 @@ const searchItems = posts.map((post) => ({
   });
 
   input?.addEventListener('input', filter);
+
+  const params = new URLSearchParams(window.location.search);
+  const catParam = params.get('cat') || '';
+  if (catParam) {
+    activeCat = catParam;
+    chips.forEach((c) => c.classList.toggle('is-active', (c.dataset.cat ?? '') === catParam));
+  }
   filter();
 </script>

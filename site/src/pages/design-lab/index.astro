@@ -1,0 +1,76 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const themes = [
+  { id: 'obsidian', name: '01 Obsidian Luxe', blurb: 'Forest-night editorial. Gold accent. Default live look.', colors: ['#0a0d0c', '#121916', '#d4b06a', '#eef3ee'] },
+  { id: 'stone', name: '02 Stone Gallery', blurb: 'Cool stone light mode. Deep green ink. Gallery quiet.', colors: ['#e7ebe8', '#f3f5f3', '#2f5d45', '#1a2420'] },
+  { id: 'midnight', name: '03 Midnight Signal', blurb: 'Film-title dark. Teal signal. Cinematic.', colors: ['#060912', '#0c1220', '#5ec4c0', '#e8eef8'] },
+  { id: 'ink', name: '04 Ink & Copper', blurb: 'Warm dark. Copper heat. Essay-first.', colors: ['#14110f', '#1c1814', '#c87a4a', '#f3ebe3'] },
+  { id: 'arctic', name: '05 Arctic Clarity', blurb: 'Bright institutional calm. Blue authority.', colors: ['#f7f9fc', '#eef2f8', '#1e4d8c', '#0f1724'] },
+  { id: 'ember', name: '06 Ember Noir', blurb: 'Black with ember red. Urgent, human.', colors: ['#100c0c', '#1a1212', '#e85d4c', '#f5e8e4'] },
+  { id: 'sage', name: '07 Sage Studio', blurb: 'Soft sage light. Studio calm.', colors: ['#dfe8e2', '#ecf2ee', '#6b8f71', '#1e2e26'] },
+  { id: 'carbon', name: '08 Carbon Precision', blurb: 'Sans-only precision. Yellow mark. Product-grade.', colors: ['#0e0e10', '#16161a', '#f0c14b', '#f0f0f2'] },
+  { id: 'parchment', name: '09 Quiet Parchment', blurb: 'Warm paper. Saddle accent. Classic quiet.', colors: ['#ebe6dc', '#f5f1e8', '#8b4513', '#2a241c'] },
+  { id: 'ocean', name: '10 Deep Ocean', blurb: 'Abyss blue. Cyan clarity.', colors: ['#06141c', '#0a1e2a', '#3db8e0', '#e4f2f7'] },
+  { id: 'mono', name: '11 Pure Mono', blurb: 'Black / white / nothing else.', colors: ['#111', '#1a1a1a', '#fff', '#f5f5f5'] },
+  { id: 'bloom', name: '12 Soft Bloom', blurb: 'Soft rose light. Intimate essays.', colors: ['#faf6f8', '#fffafb', '#9c4a6a', '#2a1f24'] },
+];
+---
+
+<Base
+  title="Design lab — 12 styles"
+  description="Preview twelve world-class Mjidea visual systems. Click to apply site-wide."
+>
+  <section class="page-intro">
+    <p class="strip-label">World-class systems</p>
+    <h1>12 styles</h1>
+    <p class="lede">
+      Click any system to preview it across the whole site. Your choice saves in this browser.
+      Live default: <strong>Obsidian Luxe</strong>.
+    </p>
+    <p class="meta">
+      Mockups: Obsidian · Stone · Midnight — see also project assets. <a href={`${base}`}>Back home</a>
+    </p>
+  </section>
+
+  <div class="design-lab">
+    <div class="theme-grid" id="theme-grid">
+      {
+        themes.map((t) => (
+          <button type="button" class="theme-card" data-theme-id={t.id} aria-pressed="false">
+            <span class="theme-swatch" aria-hidden="true">
+              {t.colors.map((c) => (
+                <i style={`background:${c}`} />
+              ))}
+            </span>
+            <strong>{t.name}</strong>
+            <p>{t.blurb}</p>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <script>
+    const root = document.documentElement;
+    const cards = document.querySelectorAll('.theme-card');
+    function apply(id: string) {
+      root.setAttribute('data-theme', id);
+      try {
+        localStorage.setItem('mjidea-theme', id);
+      } catch (_) {}
+      cards.forEach((c) => {
+        const on = c.getAttribute('data-theme-id') === id;
+        c.classList.toggle('is-active', on);
+        c.setAttribute('aria-pressed', on ? 'true' : 'false');
+      });
+    }
+    const current = root.getAttribute('data-theme') || 'obsidian';
+    apply(current);
+    cards.forEach((c) =>
+      c.addEventListener('click', () => apply(c.getAttribute('data-theme-id') || 'obsidian')),
+    );
+  </script>
+</Base>

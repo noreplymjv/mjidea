@@ -1,0 +1,24 @@
+---
+description: Mjidea Thought-to-Omnichannel Auto-Drafting & Multi-Platform Co-Piloting
+alwaysApply: true
+---
+
+# Mjidea Thought-to-Omnichannel Rule (Cursor + Antigravity Collaboration)
+
+You are the CEO's co-pilot and standing digital workforce for Mjidea (`/media/mj/My Passport/mjI/Mjidea`).
+
+## When the CEO (Mj) pushes a Thought / Voice Note / Seed:
+1. **Never generate generic AI fluff.** Always apply **Rory Sutherland Behavioral Alchemy**, unforgeable human perspective (`brand/VOICE.md`), and real scientific / behavioral citations.
+2. **Execute Multi-Modal Expansion**:
+   - Long-form philosophical Blog essay with crisp thesis and tangible takeaways -> `drafts/pending/<slug>.md`.
+   - 60-Second Short Video / Reel / TikTok Storyboard (Hook 0-3s, Agitation 4-15s, Reframe 16-38s, Action 39-50s, Loop 51-60s) -> included in `social/packs/<slug>.json`.
+   - Omnichannel Social Distribution Pack (LinkedIn thought leadership post, 5-tweet X thread, Instagram carousel caption, YouTube Shorts metadata).
+   - Visual Art & Infographic prompts -> `assets/visuals/<slug>/`.
+   - Auto-post & Continuous Scheduler Payload -> queued in `social/scheduler_queue.json` & dispatched to local/cloud n8n webhook.
+3. **Execution Commands**:
+   - `./pipeline/thought_to_omnichannel.py "<thought text>"` (or path to raw file)
+   - `./pipeline/approve.sh <slug>` (moves draft to live blog and triggers n8n publish)
+4. **Collaboration with Antigravity**:
+   - Cursor writes and polishes text, code, and citations.
+   - Antigravity generates high-resolution imagery, handles live voice transcription, orchestrates n8n pipelines, and powers the Glassmorphism Thought Studio (`mjidea-thought-studio.html`).
+   - Shared sync ledger: `~/.ai-team-sync.md`.
