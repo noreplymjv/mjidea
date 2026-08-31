@@ -1,8 +1,8 @@
 # Cloudflare — GitHub-connected Workers (Mjidea)
 
 Repo: https://github.com/noreplymjv/mjidea  
-Dashboard: https://dash.cloudflare.com/85c151e7892b963ba71b833d338d0bb7/workers/services/view/mjidea  
-Live: **https://mjidea.pages.dev** (or the Visit URL on the deployment)
+Dashboard: https://dash.cloudflare.com/85c151e7892b963ba71b833d338d0bb7/workers/services/view/mjidea2/production/settings#builds  
+Live: **https://mjidea2.pages.dev** or **https://mjidea2.workers.dev** (or the Visit URL on the Cloudflare deployment)
 
 ## Why the last build failed
 

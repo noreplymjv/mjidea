@@ -1,4 +1,4 @@
-name = "mjidea"
+name = "mjidea2"
 compatibility_date = "2026-08-25"
 # Used when Cloudflare Root directory = site (Pages-style).
 # Repo-root Workers deploys use ../wrangler.toml → ./site/dist

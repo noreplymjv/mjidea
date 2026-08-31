@@ -2,7 +2,7 @@
 # Dashboard uses: Build command None, Deploy: npx wrangler deploy, Root: /
 # So static files MUST live in git: ./cf-dist
 
-name = "mjidea"
+name = "mjidea2"
 compatibility_date = "2026-08-25"
 
 [assets]
