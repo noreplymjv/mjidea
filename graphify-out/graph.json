@@ -245,17 +245,6 @@
       "source_location": "L51"
     },
     {
-      "id": "astro_content",
-      "label": "astro:content",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "Base.astro",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "astro:content",
-      "source_file": "astro:content"
-    },
-    {
       "id": "site_src_components_addidea",
       "label": "AddIdea.astro",
       "_origin": "ast",
@@ -1867,6 +1856,78 @@
       "norm_label": "exports/readme.md",
       "source_file": "exports/README.md",
       "source_location": "L1"
+    },
+    {
+      "id": "cloudflare_hosting",
+      "label": "CLOUDFLARE_HOSTING.md",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "Cloudflare \u2014 GitHub-connected Workers (Mjidea)",
+      "file_type": "document",
+      "node_kind": "page",
+      "norm_label": "cloudflare_hosting.md",
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "cloudflare_hosting_cloudflare_github_connected_workers_mjidea",
+      "label": "Cloudflare \u2014 GitHub-connected Workers (Mjidea)",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "Cloudflare \u2014 GitHub-connected Workers (Mjidea)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "cloudflare \u2014 github-connected workers (mjidea)",
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L1"
+    },
+    {
+      "id": "cloudflare_hosting_optional_build_on_cloudflare_faster_later",
+      "label": "Optional: build on Cloudflare (faster later)",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "Cloudflare \u2014 GitHub-connected Workers (Mjidea)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "optional: build on cloudflare (faster later)",
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L18"
+    },
+    {
+      "id": "cloudflare_hosting_refresh_cf_dist_locally_after_content_changes",
+      "label": "Refresh cf-dist locally after content changes",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "Cloudflare \u2014 GitHub-connected Workers (Mjidea)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "refresh cf-dist locally after content changes",
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L28"
+    },
+    {
+      "id": "cloudflare_hosting_what_is_fixed_in_git",
+      "label": "What is fixed in git",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "Cloudflare \u2014 GitHub-connected Workers (Mjidea)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "what is fixed in git",
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L11"
+    },
+    {
+      "id": "cloudflare_hosting_why_the_last_build_failed",
+      "label": "Why the last build failed",
+      "_origin": "ast",
+      "community": 126,
+      "community_name": "Cloudflare \u2014 GitHub-connected Workers (Mjidea)",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "why the last build failed",
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L7"
     },
     {
       "id": "pipeline_run_full_cycle",
@@ -7499,6 +7560,61 @@
       "weight": 1.0
     },
     {
+      "source": "cloudflare_hosting",
+      "target": "cloudflare_hosting_cloudflare_github_connected_workers_mjidea",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "cloudflare_hosting_cloudflare_github_connected_workers_mjidea",
+      "target": "cloudflare_hosting_what_is_fixed_in_git",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L11",
+      "weight": 1.0
+    },
+    {
+      "source": "cloudflare_hosting_cloudflare_github_connected_workers_mjidea",
+      "target": "cloudflare_hosting_optional_build_on_cloudflare_faster_later",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "cloudflare_hosting_cloudflare_github_connected_workers_mjidea",
+      "target": "cloudflare_hosting_refresh_cf_dist_locally_after_content_changes",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L28",
+      "weight": 1.0
+    },
+    {
+      "source": "cloudflare_hosting_cloudflare_github_connected_workers_mjidea",
+      "target": "cloudflare_hosting_why_the_last_build_failed",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "CLOUDFLARE_HOSTING.md",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
       "source": "drafts_pending_kids_pushed_to_race_by_parents",
       "target": "drafts_pending_kids_pushed_to_race_by_parents_1_the_trap_of_logical_efficiency",
       "relation": "contains",
@@ -11005,15 +11121,6 @@
     },
     {
       "source": "site_src_pages_ideas_index",
-      "target": "astro_content",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "site/src/pages/ideas/index.astro"
-    },
-    {
-      "source": "site_src_pages_ideas_index",
       "target": "site_src_layouts_base",
       "relation": "imports_from",
       "_origin": "ast",
@@ -11023,30 +11130,12 @@
     },
     {
       "source": "site_src_pages_ideas_slug",
-      "target": "astro_content",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "site/src/pages/ideas/[slug].astro"
-    },
-    {
-      "source": "site_src_pages_ideas_slug",
       "target": "site_src_layouts_base",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "site/src/pages/ideas/[slug].astro"
-    },
-    {
-      "source": "site_src_pages_index",
-      "target": "astro_content",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "site/src/pages/index.astro"
     },
     {
       "source": "site_src_pages_index",
@@ -11200,5 +11289,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d70d4f89c4629ef1588bfdbd7c94a8d06915fe76"
+  "built_at_commit": "aa95ca1680e5c25c38af1392d37d9c5269cddd38"
 }

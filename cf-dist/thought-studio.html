@@ -2168,33 +2168,87 @@
       document.getElementById(`social-${platform}`).style.display = 'block';
     }
 
-    // Voice STT
+    // Voice STT (Continuous Append Engine)
+    let speechBaseText = '';
+    let speechFinalTranscript = '';
+
     function initSpeech() {
       if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
         recognition = new SpeechRec();
         recognition.continuous = true;
         recognition.interimResults = true;
+        recognition.lang = navigator.language || 'en-US';
+
+        recognition.onstart = () => {
+          const box = document.getElementById('thoughtInput');
+          speechBaseText = box.value ? box.value.trim() : '';
+          speechFinalTranscript = '';
+        };
 
         recognition.onresult = (e) => {
-          let transcript = '';
+          let interimTranscript = '';
           for (let i = e.resultIndex; i < e.results.length; ++i) {
-            transcript += e.results[i][0].transcript;
+            const transcriptChunk = e.results[i][0].transcript;
+            if (e.results[i].isFinal) {
+              speechFinalTranscript += (speechFinalTranscript ? ' ' : '') + transcriptChunk.trim();
+            } else {
+              interimTranscript += transcriptChunk;
+            }
           }
+
           const box = document.getElementById('thoughtInput');
-          box.value = transcript;
+          let text = speechBaseText;
+          if (speechFinalTranscript) {
+            text += (text ? ' ' : '') + speechFinalTranscript;
+          }
+          if (interimTranscript) {
+            const cleanInterim = interimTranscript.trim();
+            if (cleanInterim) {
+              text += (text ? ' ' : '') + cleanInterim;
+            }
+          }
+          box.value = text;
           updateWordCount();
         };
 
-        recognition.onerror = () => {
-          toggleVoiceSTT(false);
+        recognition.onerror = (event) => {
+          console.warn('Speech recognition status/error:', event.error);
+          if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+            showToast("Microphone Blocked", "Please allow microphone permissions in your browser.");
+            toggleVoiceSTT(false);
+          }
         };
+
+        recognition.onend = () => {
+          // If the user didn't manually stop it, restart automatically so voice typing doesn't cut off
+          if (isListening) {
+            try {
+              const box = document.getElementById('thoughtInput');
+              speechBaseText = box.value ? box.value.trim() : '';
+              speechFinalTranscript = '';
+              recognition.start();
+            } catch(e) {}
+          } else {
+            toggleVoiceSTT(false);
+          }
+        };
+      } else {
+        const micBtn = document.getElementById('micBtn');
+        if (micBtn) {
+          micBtn.title = "Speech recognition is not supported in this browser. Use Chrome or Edge.";
+        }
       }
     }
 
     function toggleVoiceSTT(forceState) {
       const micBtn = document.getElementById('micBtn');
       const micText = document.getElementById('micText');
+
+      if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        showToast("Browser Notice", "Voice dictation is supported in Chrome & Edge.");
+        return;
+      }
 
       if (forceState !== undefined) {
         isListening = forceState;
@@ -2204,11 +2258,17 @@
 
       if (isListening) {
         micBtn.classList.add('listening');
-        micText.innerText = 'Listening... Speak now';
-        try { recognition && recognition.start(); } catch(e){}
+        micText.innerText = '🔴 Recording... Speak freely';
+        const box = document.getElementById('thoughtInput');
+        speechBaseText = box.value ? box.value.trim() : '';
+        speechFinalTranscript = '';
+        try { 
+          if (!recognition) initSpeech();
+          recognition && recognition.start(); 
+        } catch(e){}
       } else {
         micBtn.classList.remove('listening');
-        micText.innerText = 'Voice Dictation (STT)';
+        micText.innerText = '🎤 Voice Dictation (STT)';
         try { recognition && recognition.stop(); } catch(e){}
       }
     }

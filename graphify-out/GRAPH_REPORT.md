@@ -1,16 +1,16 @@
 # Graph Report - Mjidea  (2026-08-31)
 
 ## Corpus Check
-- 759 files · ~519,550 words
+- 759 files · ~804,186 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 479 nodes · 384 edges · 126 communities (31 shown, 95 thin omitted)
+- 484 nodes · 386 edges · 127 communities (32 shown, 95 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.55)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d70d4f89`
+- Built from commit: `aa95ca16`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -138,18 +138,19 @@
 - mj-parenting-18-play-deficit.md
 - mj-parenting-19-burnout-honest.md
 - mj-parenting-20-privacy-safety.md
+- Cloudflare — GitHub-connected Workers (Mjidea)
 
 ## God Nodes (most connected - your core abstractions)
 1. `Mjidea Voice — Human, not AI` - 14 edges
 2. `START — Mjidea Digital Company` - 9 edges
-3. `Mjidea — Agent bootstrap (read this first)` - 7 edges
-4. `Use Mjidea files with any agent (desktop + Chrome AIs) + images` - 7 edges
-5. `How Ideas become approved Blogs (with internet facts)` - 6 edges
-6. `Research — trust-isnt-certified` - 6 edges
-7. `Image & infographic prompts (Mjidea)` - 6 edges
-8. `CEO one-pager — Ideas → fact-checked Blog` - 6 edges
-9. `expand_thought_to_suite()` - 5 edges
-10. `External AI — master paste pack` - 5 edges
+3. `Use Mjidea files with any agent (desktop + Chrome AIs) + images` - 7 edges
+4. `Mjidea — Agent bootstrap (read this first)` - 7 edges
+5. `Research — trust-isnt-certified` - 6 edges
+6. `Image & infographic prompts (Mjidea)` - 6 edges
+7. `CEO one-pager — Ideas → fact-checked Blog` - 6 edges
+8. `How Ideas become approved Blogs (with internet facts)` - 6 edges
+9. `Cloudflare — GitHub-connected Workers (Mjidea)` - 5 edges
+10. `expand_thought_to_suite()` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `approve.sh script` --calls--> `mjidea_slugify()`  [EXTRACTED]
@@ -166,7 +167,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (126 total, 95 thin omitted)
+## Communities (127 total, 95 thin omitted)
 
 ### Community 0 - "Base.astro"
 Cohesion: 0.06
@@ -280,18 +281,22 @@ Nodes (4): 1. The Trap of Logical Efficiency, 2. The Behavioral Alchemy (The Ref
 Cohesion: 0.40
 Nodes (4): Active Commands, Mode, Queue, Status Board
 
+### Community 126 - "Cloudflare — GitHub-connected Workers (Mjidea)"
+Cohesion: 0.33
+Nodes (5): Cloudflare — GitHub-connected Workers (Mjidea), Optional: build on Cloudflare (faster later), Refresh cf-dist locally after content changes, What is fixed in git, Why the last build failed
+
 ## Knowledge Gaps
-- **263 isolated node(s):** `Mjidea`, `Immediate map`, `Standing orders (any agent)`, `CEO phrases`, `Public site meaning` (+258 more)
+- **267 isolated node(s):** `Why the last build failed`, `What is fixed in git`, `Optional: build on Cloudflare (faster later)`, `Refresh cf-dist locally after content changes`, `Issue` (+262 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **95 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **What connects `Mjidea`, `Immediate map`, `Standing orders (any agent)` to the rest of the system?**
-  _263 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `Why the last build failed`, `What is fixed in git`, `Optional: build on Cloudflare (faster later)` to the rest of the system?**
+  _267 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Base.astro` be split into smaller, more focused modules?**
-  _Cohesion score 0.06456456456456457 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06349206349206349 - nodes in this community are weakly interconnected._
 - **Should `site/package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.125 - nodes in this community are weakly interconnected._
 - **Should `START — Mjidea Digital Company` be split into smaller, more focused modules?**
