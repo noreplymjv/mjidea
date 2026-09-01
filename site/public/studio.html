@@ -7,6 +7,17 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Anti-flicker: resolve auth state before first paint -->
+  <script>
+    (function () {
+      try {
+        var authed = localStorage.getItem('mjidea_auth_session') === 'authenticated';
+        document.documentElement.classList.add(authed ? 'auth-unlocked' : 'auth-locked');
+      } catch (e) {
+        document.documentElement.classList.add('auth-locked');
+      }
+    })();
+  </script>
   <style>
     :root {
       --bg-primary: #07080c;
@@ -208,22 +219,45 @@
       50% { opacity: 0.5; transform: scale(0.85); }
     }
 
-    /* Auth Gate Overlay */
+    /* Auth Gate Overlay — class-based to prevent login flash on reload */
+    html.auth-unlocked #authGate {
+      display: none !important;
+    }
+
+    html.auth-locked #authGate {
+      display: flex;
+    }
+
+    html:not(.auth-ready) .app-container {
+      visibility: hidden;
+    }
+
+    html.auth-ready.auth-unlocked .app-container,
+    html.auth-ready.auth-locked .app-container {
+      visibility: visible;
+    }
+
     .auth-overlay {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(7, 8, 12, 0.92);
-      backdrop-filter: blur(25px);
-      -webkit-backdrop-filter: blur(25px);
+      background: rgba(7, 8, 12, 0.97);
       z-index: 9999;
-      display: flex;
+      display: none;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      animation: fadeIn 0.3s ease;
+    }
+
+    .auth-overlay.auth-animate-in {
+      animation: authFadeIn 0.25s ease;
+    }
+
+    @keyframes authFadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     .auth-card {
@@ -693,16 +727,24 @@
     /* Workspace Content Cards */
     .tab-pane {
       display: none;
-      animation: fadeIn 0.4s ease;
     }
 
     .tab-pane.active {
       display: block;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(8px); }
+    .tab-pane.tab-animate {
+      animation: tabFadeIn 0.25s ease;
+    }
+
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-image-banner,
+    .reel-bg {
+      background: linear-gradient(135deg, #0f1118 0%, #1a1f2e 50%, #0a0d14 100%);
     }
 
     /* Tab 1: Blog Essay Preview */
@@ -1413,7 +1455,7 @@
             </div>
 
             <!-- Real Hero Asset -->
-            <img id="blogHeroImg" src="miscfiles/alchemy_hero.jpg" alt="Hero Art" class="hero-image-banner" onerror="this.src='cf-dist/design/mjidea-style-01-obsidian.png'">
+            <img id="blogHeroImg" src="/visuals/alchemy_hero.jpg" alt="Hero Art" class="hero-image-banner" onerror="handleImageFallback(this)">
 
             <div id="thesisCallout" class="thesis-callout">
               "When we optimize purely for frictionless speed, we inadvertently destroy perceived psychological value and human connection."
@@ -1458,7 +1500,7 @@
             <!-- Mobile 9:16 Reel Player Frame -->
             <div class="phone-mockup">
               <div class="phone-notch"></div>
-              <img id="reelBgImg" class="reel-bg" src="miscfiles/alchemy_hero.jpg" alt="Reel visual" onerror="this.src='cf-dist/design/mjidea-style-01-obsidian.png'">
+              <img id="reelBgImg" class="reel-bg" src="/visuals/alchemy_hero.jpg" alt="Reel visual" onerror="handleImageFallback(this)">
               
               <div class="reel-overlay">
                 <div class="reel-top-bar" style="display: flex; justify-content: space-between;">
@@ -1622,13 +1664,44 @@
       lockoutSeconds: 60
     };
 
+    const STUDIO_FALLBACK_IMAGE = "/design/mjidea-style-01-obsidian.png";
+
+    function handleImageFallback(img) {
+      if (img.dataset.fallbackApplied === "1") {
+        img.onerror = null;
+        img.style.visibility = "hidden";
+        return;
+      }
+      img.dataset.fallbackApplied = "1";
+      if (img.src.indexOf(STUDIO_FALLBACK_IMAGE) === -1) {
+        img.src = STUDIO_FALLBACK_IMAGE;
+      } else {
+        img.onerror = null;
+        img.style.visibility = "hidden";
+      }
+    }
+
+    function setAuthState(isAuthed, animate) {
+      const root = document.documentElement;
+      root.classList.remove("auth-locked", "auth-unlocked");
+      root.classList.add(isAuthed ? "auth-unlocked" : "auth-locked");
+      root.classList.add("auth-ready");
+
+      const gate = document.getElementById("authGate");
+      if (!isAuthed && animate) {
+        gate.classList.add("auth-animate-in");
+      } else {
+        gate.classList.remove("auth-animate-in");
+      }
+    }
+
     // Presets database including the "Kids Pushed to Race by Parents" topic
     const presets = [
       {
         thought: "Why making things too easy destroys their perceived value: The Alchemy of Meaningful Friction in design and AI.",
         title: "The Alchemy of Meaningful Friction",
         cat: "Behavioral Alchemy",
-        heroImg: "miscfiles/alchemy_hero.jpg",
+        heroImg: "/visuals/alchemy_hero.jpg",
         thesis: "When we optimize purely for frictionless speed, we inadvertently destroy perceived psychological value and human connection.",
         bodyHtml: `<p>We keep optimizing the wrong end of the equation.</p>
 <p>Whenever an analytical mind or spreadsheet optimizer looks at a human challenge, the instinctive move is to eliminate every ounce of friction. Make it faster. Make it one-click. Make it zero-effort.</p>
@@ -1664,7 +1737,7 @@
         thought: "Why 90% of AI-generated content is completely invisible to human attention and the power of unforgeable anti-AI human voice.",
         title: "Why 90% of AI Content is Invisible",
         cat: "Anti-AI Voice",
-        heroImg: "cf-dist/design/mjidea-style-01-obsidian.png",
+        heroImg: "/design/mjidea-style-01-obsidian.png",
         thesis: "Content that costs zero cognitive effort to produce carries zero informational signaling power to human readers.",
         bodyHtml: `<p>We are currently drowning in a frictionless ocean of syntactic porridge.</p>
 <p>Every morning, millions of blog posts, social hooks, and generic newsletters are generated by large language models in seconds. And yet, almost none of it is remembered five minutes later.</p>
@@ -1691,7 +1764,7 @@
         thought: "The 1950s Cake Mix paradox: Why adding an egg back into instant mix saved the product and what software teams must learn from it.",
         title: "The 1950s Cake Mix Paradox",
         cat: "Psychology & Product",
-        heroImg: "cf-dist/design/mjidea-style-01-obsidian.png",
+        heroImg: "/design/mjidea-style-01-obsidian.png",
         thesis: "Psychological ownership requires the user to invest unforgeable sweat equity into the final creation.",
         bodyHtml: `<p>In the 1950s, General Mills introduced the first instant cake mix. It was an engineering marvel: just add water, stir, and bake. Yet it failed miserably in the marketplace.</p>
 <h2>The Guilt of Frictionless Success</h2>
@@ -1715,7 +1788,7 @@
         thought: "Costly Signaling Theory in modern business: Why unforgeable commitment beats cheap algorithmic convenience every time.",
         title: "Costly Signaling in Modern Culture",
         cat: "Evolutionary Economics",
-        heroImg: "cf-dist/design/mjidea-style-01-obsidian.png",
+        heroImg: "/design/mjidea-style-01-obsidian.png",
         thesis: "In an ocean of frictionless commodities, deliberate costly friction becomes the highest-status luxury.",
         bodyHtml: `<p>Why do peacock tails exist? They are biologically expensive, heavy, and dangerous. Yet they persist because they are unforgeable proofs of genetic fitness.</p>
 <h2>The Luxury of Deliberate Cost</h2>
@@ -1739,7 +1812,7 @@
         thought: "Kids are pushed to race by parents: Why hyper-optimizing childhood into a high-stakes competitive rat race destroys intrinsic motivation, creates fragile perfectionism, and robs children of organic resilience.",
         title: "The Cult of the Child Prodigy: Why Pushing Kids into the Competitive Rat Race Backfires",
         cat: "Child Psychology & Parenting",
-        heroImg: "assets/visuals/kids_rat_race_hero.jpg",
+        heroImg: "/visuals/kids_rat_race_hero.jpg",
         thesis: "When childhood is re-engineered as a resume-building sprint, we trade intrinsic curiosity for fragile perfectionism—and produce burned-out young adults who cannot function without a scoreboard.",
         bodyHtml: `<p>When did childhood become an entry-level corporate internship?</p>
 <p>If you observe the modern suburban family calendar, the landscape of childhood has undergone a quiet, radical transformation. Free play has been replaced by calendar blocks. Sandboxes have been replaced by competitive tutoring centers. A seven-year-old’s weekend is no longer about climbing trees or being bored until imagination strikes; it is about back-to-back travel soccer tournaments, violin masterclasses, and coding bootcamps.</p>
@@ -1843,9 +1916,9 @@
 
     // Lifecycle
     window.addEventListener('DOMContentLoaded', async () => {
-      await initVaultSecurity();
       checkAuthSession();
-      loadPreset(4); // Load featured Kids Rat Race preset by default
+      await initVaultSecurity();
+      loadPreset(4);
       initSpeech();
       updateWordCount();
       document.getElementById('thoughtInput').addEventListener('input', updateWordCount);
@@ -1868,11 +1941,7 @@
       document.getElementById('username').value = user;
       document.getElementById('headerUsername').innerText = user;
 
-      if (session === "authenticated") {
-        document.getElementById('authGate').style.display = "none";
-      } else {
-        document.getElementById('authGate').style.display = "flex";
-      }
+      setAuthState(session === "authenticated", false);
     }
 
     async function handleAuthSubmit(event) {
@@ -1899,7 +1968,7 @@
         localStorage.setItem(AUTH_CONFIG.rememberKey, user);
         
         document.getElementById('headerUsername').innerText = user;
-        document.getElementById('authGate').style.display = "none";
+        setAuthState(true, false);
         showToast("Studio Unlocked", `Welcome back, ${user}. Zero-Knowledge AES-256 session established.`);
       } else {
         failedAttempts++;
@@ -1944,7 +2013,7 @@
 
     function lockStudio() {
       localStorage.removeItem(AUTH_CONFIG.storageKey);
-      document.getElementById('authGate').style.display = "flex";
+      setAuthState(false, true);
       showToast("Studio Locked", "Enter master password to resume session.");
     }
 
@@ -2068,7 +2137,11 @@
       document.getElementById('blogCatBadge').innerText = p.cat;
       document.getElementById('thesisCallout').innerText = `"${p.thesis}"`;
       document.getElementById('blogHeroImg').src = p.heroImg;
+      document.getElementById('blogHeroImg').dataset.fallbackApplied = "";
+      document.getElementById('blogHeroImg').style.visibility = "";
       document.getElementById('reelBgImg').src = p.heroImg;
+      document.getElementById('reelBgImg').dataset.fallbackApplied = "";
+      document.getElementById('reelBgImg').style.visibility = "";
       document.getElementById('blogBodyContent').innerHTML = p.bodyHtml;
 
       // Citations
@@ -2143,7 +2216,9 @@
 
     function switchTab(tabId) {
       document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => {
+        p.classList.remove('active', 'tab-animate');
+      });
       
       const tabMap = {
         'tab-blog': 0,
@@ -2156,7 +2231,8 @@
       if (idx !== undefined) {
         document.querySelectorAll('.nav-tab')[idx].classList.add('active');
       }
-      document.getElementById(tabId).classList.add('active');
+      const pane = document.getElementById(tabId);
+      pane.classList.add('active', 'tab-animate');
     }
 
     function switchSocialView(platform) {
@@ -2168,33 +2244,87 @@
       document.getElementById(`social-${platform}`).style.display = 'block';
     }
 
-    // Voice STT
+    // Voice STT (Continuous Append Engine)
+    let speechBaseText = '';
+    let speechFinalTranscript = '';
+
     function initSpeech() {
       if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
         const SpeechRec = window.SpeechRecognition || window.webkitSpeechRecognition;
         recognition = new SpeechRec();
         recognition.continuous = true;
         recognition.interimResults = true;
+        recognition.lang = navigator.language || 'en-US';
+
+        recognition.onstart = () => {
+          const box = document.getElementById('thoughtInput');
+          speechBaseText = box.value ? box.value.trim() : '';
+          speechFinalTranscript = '';
+        };
 
         recognition.onresult = (e) => {
-          let transcript = '';
+          let interimTranscript = '';
           for (let i = e.resultIndex; i < e.results.length; ++i) {
-            transcript += e.results[i][0].transcript;
+            const transcriptChunk = e.results[i][0].transcript;
+            if (e.results[i].isFinal) {
+              speechFinalTranscript += (speechFinalTranscript ? ' ' : '') + transcriptChunk.trim();
+            } else {
+              interimTranscript += transcriptChunk;
+            }
           }
+
           const box = document.getElementById('thoughtInput');
-          box.value = transcript;
+          let text = speechBaseText;
+          if (speechFinalTranscript) {
+            text += (text ? ' ' : '') + speechFinalTranscript;
+          }
+          if (interimTranscript) {
+            const cleanInterim = interimTranscript.trim();
+            if (cleanInterim) {
+              text += (text ? ' ' : '') + cleanInterim;
+            }
+          }
+          box.value = text;
           updateWordCount();
         };
 
-        recognition.onerror = () => {
-          toggleVoiceSTT(false);
+        recognition.onerror = (event) => {
+          console.warn('Speech recognition status/error:', event.error);
+          if (event.error === 'not-allowed' || event.error === 'service-not-allowed') {
+            showToast("Microphone Blocked", "Please allow microphone permissions in your browser.");
+            toggleVoiceSTT(false);
+          }
         };
+
+        recognition.onend = () => {
+          // If the user didn't manually stop it, restart automatically so voice typing doesn't cut off
+          if (isListening) {
+            try {
+              const box = document.getElementById('thoughtInput');
+              speechBaseText = box.value ? box.value.trim() : '';
+              speechFinalTranscript = '';
+              recognition.start();
+            } catch(e) {}
+          } else {
+            toggleVoiceSTT(false);
+          }
+        };
+      } else {
+        const micBtn = document.getElementById('micBtn');
+        if (micBtn) {
+          micBtn.title = "Speech recognition is not supported in this browser. Use Chrome or Edge.";
+        }
       }
     }
 
     function toggleVoiceSTT(forceState) {
       const micBtn = document.getElementById('micBtn');
       const micText = document.getElementById('micText');
+
+      if (!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)) {
+        showToast("Browser Notice", "Voice dictation is supported in Chrome & Edge.");
+        return;
+      }
 
       if (forceState !== undefined) {
         isListening = forceState;
@@ -2204,11 +2334,17 @@
 
       if (isListening) {
         micBtn.classList.add('listening');
-        micText.innerText = 'Listening... Speak now';
-        try { recognition && recognition.start(); } catch(e){}
+        micText.innerText = '🔴 Recording... Speak freely';
+        const box = document.getElementById('thoughtInput');
+        speechBaseText = box.value ? box.value.trim() : '';
+        speechFinalTranscript = '';
+        try { 
+          if (!recognition) initSpeech();
+          recognition && recognition.start(); 
+        } catch(e){}
       } else {
         micBtn.classList.remove('listening');
-        micText.innerText = 'Voice Dictation (STT)';
+        micText.innerText = '🎤 Voice Dictation (STT)';
         try { recognition && recognition.stop(); } catch(e){}
       }
     }
