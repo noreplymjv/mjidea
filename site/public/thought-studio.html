@@ -1340,6 +1340,9 @@
           <span class="dot"></span>
           n8n Daemon Ready
         </div>
+        <a class="badge cyan" href="mjidea-idea-editor.html?slug=kids-pushed-to-race-by-parents" title="Open Windows-like Idea Editor to revise pending/published essays" style="text-decoration:none;color:inherit;">
+          <span>✍️ <strong>Revise Idea</strong></span>
+        </a>
       </div>
     </header>
 
@@ -1437,6 +1440,10 @@
           <button class="nav-tab" onclick="switchTab('tab-n8n')">
             <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
             5. n8n Scheduler Engine
+          </button>
+          <button class="nav-tab" onclick="switchTab('tab-revise')">
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/></svg>
+            6. Revise Existing Idea
           </button>
         </div>
 
@@ -1620,6 +1627,28 @@
         </div>
 
         <!-- TAB 5: N8N SCHEDULER ENGINE -->
+        <div id="tab-revise" class="tab-pane">
+          <div class="blog-preview-card" style="padding: 28px;">
+            <span class="blog-category-badge">Universal Writing Desk</span>
+            <h2 class="blog-title" style="margin-top: 12px;">Revise any topic · any genre · never auto-publish</h2>
+            <p class="blog-body-text" style="margin-top: 12px; color: var(--text-secondary);">
+              Windows-like Writing Desk for <strong>all</strong> pending drafts, published essays, inbox seeds, and brand-new pieces
+              (columnist, journalist, social, parenting/money/life/tech, freeform). Dump notes ASAP → Expand &amp; rewrite pack →
+              pending only. Live blog still requires <strong>approve</strong>.
+            </p>
+            <ul class="blog-body-text" style="margin: 16px 0 24px 18px; color: var(--text-secondary);">
+              <li>Catalog: all pending + all blog + inbox — <code>social/writing_catalog.json</code></li>
+              <li>Any slug: <code>./pipeline/revise-idea.sh &lt;slug&gt; --type columnist --notes "…"</code></li>
+              <li>New piece: <code>./pipeline/revise-idea.sh --new "Title" --type social</code></li>
+              <li>Guide: <code>HOW-REVISE-IDEAS.md</code></li>
+            </ul>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="btn-generate" style="width:auto; padding:12px 24px; text-decoration:none; display:inline-flex; align-items:center;" href="mjidea-idea-editor.html">Open Writing Desk</a>
+              <a class="btn-copy" style="text-decoration:none; display:inline-flex; align-items:center;" href="mjidea-idea-editor.html?slug=kids-pushed-to-race-by-parents">Demo: kids essay</a>
+            </div>
+          </div>
+        </div>
+
         <div id="tab-n8n" class="tab-pane">
           <div class="social-studio-card">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
@@ -2225,7 +2254,8 @@
         'tab-video': 1,
         'tab-social': 2,
         'tab-visuals': 3,
-        'tab-n8n': 4
+        'tab-n8n': 4,
+        'tab-revise': 5
       };
       const idx = tabMap[tabId];
       if (idx !== undefined) {
